@@ -64,7 +64,7 @@
   <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-b-4 border-amber-400 shadow-lg sticky top-0 z-40">
     <div class="max-w-5xl mx-auto px-3 py-2.5 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2.5">
-        <span class="bg-amber-400 text-slate-950 font-black text-xs px-2 py-0.5 rounded-md shadow">Ver.3.6</span>
+        <span class="bg-amber-400 text-slate-950 font-black text-xs px-2 py-0.5 rounded-md shadow">Ver.3.7</span>
         <div>
           <div class="font-black text-lg sm:text-xl tracking-tight">⚔️ 英検クエスト</div>
           <p class="text-[11px] text-amber-200 hidden sm:block">プリント番長 × 4技能500問完全攻略RPG</p>
@@ -216,7 +216,7 @@
           <div class="space-y-2.5">
             <div class="flex items-center justify-between"><h2 class="text-sm font-black text-slate-800">🏆 <span id="meter-grade-label">3級</span> 5技能・合格到達度</h2><span id="pass-meter-pct" class="text-xl font-black text-emerald-600">0%</span></div>
             <div class="w-full h-3.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300"><div id="pass-meter-bar" class="h-full bg-gradient-to-r from-amber-400 via-emerald-500 to-cyan-500 transition-all duration-500" style="width:0%"></div></div>
-            <p class="text-[11px] text-slate-500 leading-snug">全5項目75%以上＋弱点ゼロ＋番長模試クリアで公式合格認定証を発行！</p>
+            <p class="text-[11px] text-slate-500 leading-snug">全5技能80%以上＋全体制覇80%以上＋弱点ゼロ＋番長模試クリアで公式合格認定証を発行！</p>
             <div id="skill-bars" class="space-y-2 pt-1 text-xs"></div>
           </div>
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 space-y-2">
@@ -345,7 +345,7 @@
           </div>
           <button id="writing-submit-btn" onclick="openWritingSelfJudge()" class="quest-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-2xl shadow text-sm">📝 書き終えた！模範解答と見比べる</button>
           <div id="writing-judge-panel" class="hidden bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 space-y-3">
-            <div class="text-sm font-black text-amber-950">🔍 模範解答と比べて、4つのポイントをチェックしよう！</div>
+            <div class="text-sm font-black text-amber-950">🔍 模範解答と比べて、4つのポイントすべてをチェックしよう！</div>
             <div id="writing-models-box" class="space-y-2 text-xs"></div>
             <div class="space-y-2 pt-1 text-xs font-bold text-slate-800">
               <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【内容】質問（2つの質問すべて）にしっかり答えている</span></label>
@@ -353,7 +353,7 @@
               <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【語彙】語数目安を満たし、適切な単語を使えている</span></label>
               <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【文法】文頭の大文字・ピリオド・時制などに大きなミスがない</span></label>
             </div>
-            <button onclick="finalizeWritingJudge()" class="quest-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 rounded-xl shadow text-sm">✅ 自己採点を確定する（3つ以上で合格！）</button>
+            <button onclick="finalizeWritingJudge()" class="quest-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 rounded-xl shadow text-sm">✅ 自己採点を確定する（4つすべて達成で合格！）</button>
           </div>
         </div>
 
@@ -373,7 +373,7 @@
           <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 space-y-3 text-center">
             <div class="flex flex-wrap justify-center gap-2">
               <button id="mic-record-btn" onclick="toggleSpeechRecognition()" class="quest-btn bg-rose-600 hover:bg-rose-500 text-white font-black px-5 py-2.5 rounded-xl shadow text-sm flex items-center gap-2"><span>🎤</span><span id="mic-btn-label">マイクで英語を話して判定</span></button>
-              <button onclick="openInterviewSelfJudge()" class="quest-btn bg-slate-700 hover:bg-slate-600 text-white font-black px-4 py-2.5 rounded-xl text-xs">声に出した / 答え合わせへ ➔</button>
+              <button id="btn-interview-ready" onclick="openInterviewSelfJudge()" disabled class="quest-btn bg-slate-700 hover:bg-slate-600 disabled:bg-slate-400 disabled:cursor-not-allowed text-white font-black px-4 py-2.5 rounded-xl text-xs">⏳ 確認中... (あと5秒)</button>
             </div>
             <p id="mic-status-msg" class="text-[11px] font-bold text-indigo-800"></p>
             <div id="mic-transcript-box" class="hidden bg-white border border-indigo-200 rounded-xl p-3 text-left space-y-1">
@@ -444,7 +444,7 @@
       <a id="foot-dojo" href="#" class="hover:text-amber-300">4択道場（5教科）</a>
       <a id="foot-hensachi" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300">高校偏差値全国マップ</a>
     </div>
-    <p class="text-slate-500">© プリント番長｜英検クエスト Ver.3.6</p>
+    <p class="text-slate-500">© プリント番長｜英検クエスト Ver.3.7</p>
   </footer>
 
   <div id="profile-modal" class="hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -499,11 +499,11 @@
     <div class="quest-card rounded-3xl max-w-2xl w-full p-5 sm:p-6 space-y-4 my-auto">
       <div class="flex items-center justify-between"><h3 class="text-lg font-black text-slate-900">🏆 公式デジタル合格認定証（英検<span id="cert-grade-title">3級</span>）</h3><button onclick="closeCertificateModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button></div>
       <div id="cert-locked-view" class="hidden bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 space-y-3">
-        <p class="text-sm font-black text-slate-800">「本当に受かる力」がついた人にだけ発行される厳格な認定証です。全条件達成で発行されます。</p>
+        <p class="text-sm font-black text-slate-800">「本当に受かる力」がついた人にだけ発行される厳格な認定証です。以下の条件をすべて達成すると発行されます。</p>
         <div id="cert-conditions-list" class="space-y-2 text-xs font-bold"></div>
       </div>
       <div id="cert-unlocked-view" class="hidden space-y-3 text-center">
-        <p class="text-xs font-bold text-emerald-700">おめでとうございます！全技能の厳しい基準をクリアしました！</p>
+        <p class="text-xs font-bold text-emerald-700">おめでとうございます！全技能・全問題制覇の厳しい基準をクリアしました！</p>
         <canvas id="cert-canvas" width="1200" height="800" class="w-full h-auto rounded-2xl border-4 border-amber-400 shadow-xl"></canvas>
         <button onclick="downloadCertificatePng()" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-3 rounded-xl shadow text-sm">📥 認定証画像を保存する (PNG)</button>
       </div>
@@ -553,7 +553,7 @@
     let rankingData=[],rankingScope='all',rankingSort='weeklyCorrect',lastRankingFetchTime=0;
     let userData={uuid:'',nickname:'冒険者',roomCode:'',profileSet:false,xp:0,streak:0,freezes:2,lastStudyDate:'',dailyCounts:{},dailyCorrectCounts:{},stageBest:{},wrongIds:[],solvedIds:[],questionCountMode:'standard',seEnabled:true,autoSpeak:true,speechRate:1.0,certSerial:''};
     let quizSession={mode:'stage',stage:null,questions:[],currentIndex:0,correctCount:0,combo:0,mistakesInRun:[],answered:false,clearEligible:true,audioPlayCount:0};
-    let scramblePool=[],scrambleSelected=[],silentTimerInterval=null,speechRecognitionObj=null,isRecording=false,currentReplayAudio='',writingRange=[15,35];
+    let scramblePool=[],scrambleSelected=[],silentTimerInterval=null,interviewWaitTimer=null,speechRecognitionObj=null,isRecording=false,currentReplayAudio='',writingRange=[15,35];
 
     const genUuid=()=>window.crypto&&window.crypto.randomUUID?'ek_'+window.crypto.randomUUID().slice(0,18):'ek_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);
     function getTodayStr(off=0){const d=new Date();d.setDate(d.getDate()+off);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
@@ -570,25 +570,42 @@
       if (footDojo) footDojo.href = qUrl;
     }
 
+    // ★ ステージの必要制覇問題数（公開問題数の60%以上）とクリア判定 ★
+    function getStageProgress(st) {
+      const pool = allQuestions.filter(q => q.stageId === st.id);
+      const total = pool.length;
+      const solved = pool.filter(q => userData.solvedIds.includes(q.id)).length;
+      const reqSolved = total > 0 ? Math.max(1, Math.ceil(total * 0.6)) : 0;
+      const bestPct = userData.stageBest[st.id]?.pct || 0;
+      const cleared = total > 0 && bestPct >= (st.passLine || 80) && solved >= reqSolved;
+      return { total, solved, reqSolved, bestPct, cleared };
+    }
+
+    function isStageCleared(st) {
+      if (!st) return false;
+      return getStageProgress(st).cleared;
+    }
+
+    function getOverallSolvedStats(grade) {
+      const qs = allQuestions.filter(q => q.grade === grade);
+      const total = qs.length;
+      const solved = qs.filter(q => userData.solvedIds.includes(q.id)).length;
+      const pct = total > 0 ? Math.round((solved / total) * 100) : 0;
+      return { total, solved, pct };
+    }
+
     // ★ 解答前に音声再生を許可するかどうかの厳格判定 ★
     function canPlayAudioBeforeAnswer(q) {
       if (!q || !q.audioScript) return false;
-      // リスニング・二次面接QA・面接音読は許可
       if (q.type === 'リスニング4択' || q.type === '面接QA' || q.type === '面接音読') return true;
-      // それ以外（並べ替え・自由英作文など）は禁止
       if (q.type !== '4択') return false;
-      // 本番模試ステージ(E3-S14)の筆記問題では完全無音
       if (quizSession.stage && quizSession.stage.id === 'E3-S14') return false;
-      // パッセージ（長文・会話文）がある問題は読解問題なので解答前禁止
       if (q.passage && q.passage.trim() !== '') return false;
 
       const qText = (q.question || '').trim();
-      // 穴埋め記号（カッコの空欄、下線など）を含む場合は解答前禁止
-      if (/[(（]\s*[0-9０-９…・　 ]*\s*[)）]|＿{2,}|_{2,}|\[\s*\]/.test(qText)) return false;
+      if (/[(（\[【]\s*[0-9０-９…・　 _＿]*\s*[)）\]】]|_{2,}|＿{2,}/.test(qText)) return false;
       if (/空欄|空所|あてはまる|当てはまる|適切なもの|補う/.test(qText)) return false;
 
-      // 問題文の中に audioScript の英単語・英文そのものがすでに表示されている場合のみOK
-      // （「図書館を英語で言うと？」のように選択肢が英語のとき音声で答えがバレるのを防ぐ）
       const norm = s => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
       const nQ = norm(qText);
       const nA = norm(q.audioScript);
@@ -877,7 +894,7 @@
       $('stat-rank-title').textContent=`称号：${titles[Math.min(Math.floor((lv-1)/2),titles.length-1)]}`;
       $('stat-xp').textContent=userData.xp;$('stat-next-xp').textContent=100-inXp;$('stat-xp-bar').style.width=`${inXp}%`;
       $('stat-weekly-correct').textContent=getWeeklyCorrectTotal();
-      $('stat-solved-total').textContent=allQuestions.filter(q=>q.grade===currentGrade&&userData.solvedIds.includes(q.id)).length;
+      $('stat-solved-total').textContent=getOverallSolvedStats(currentGrade).solved;
       const rb=$('stat-room-badge');if(userData.roomCode){rb.classList.remove('hidden');rb.textContent=`🔑 ${userData.roomCode}`;}else rb.classList.add('hidden');
     }
 
@@ -911,27 +928,35 @@
       $('meter-grade-label').textContent=currentGrade;
       const ss=getSkillStats(currentGrade),ov=Math.round(ss.reduce((a,b)=>a+b.pct,0)/ss.length);
       $('pass-meter-pct').textContent=`${ov}%`;$('pass-meter-bar').style.width=`${ov}%`;
-      $('skill-bars').innerHTML=ss.map(s=>`<div class="flex items-center gap-2"><span class="w-20 font-bold text-slate-600 truncate">${s.name}</span><div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${s.pct>=75?'bg-emerald-500':'bg-amber-400'} transition-all duration-500" style="width:${s.pct}%"></div></div><span class="w-9 text-right font-black text-slate-700">${s.pct}%</span></div>`).join('');
+      $('skill-bars').innerHTML=ss.map(s=>`<div class="flex items-center gap-2"><span class="w-20 font-bold text-slate-600 truncate">${s.name}</span><div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${s.pct>=80?'bg-emerald-500':'bg-amber-400'} transition-all duration-500" style="width:${s.pct}%"></div></div><span class="w-9 text-right font-black text-slate-700">${s.pct}%</span></div>`).join('');
     }
     function renderRevengeBanner(){
       const w=userData.wrongIds.filter(id=>allQuestions.some(q=>q.id===id&&q.grade===currentGrade));
       if(w.length>0){$('revenge-banner').classList.remove('hidden');$('revenge-count').textContent=w.length;}else $('revenge-banner').classList.add('hidden');
     }
-    const isStageUnlocked=st=>!st.prereqId||Boolean(userData.stageBest[st.prereqId]?.cleared);
+
+    function isStageUnlocked(st){
+      if(!st.prereqId) return true;
+      const preStage=allStages.find(s=>s.id===st.prereqId);
+      return preStage ? isStageCleared(preStage) : Boolean(userData.stageBest[st.prereqId]?.cleared);
+    }
 
     function renderWorldMap(){
       const ch={};allStages.filter(s=>s.grade===currentGrade).forEach(st=>{const k=`${st.chapterNum}:${st.continentName}`;if(!ch[k])ch[k]=[];ch[k].push(st);});
       $('quest-map-container').innerHTML=Object.entries(ch).map(([k,sts])=>{
         const cn=k.split(':').slice(1).join(':');
         return`<div class="quest-card rounded-3xl p-4 sm:p-5 space-y-4"><div class="flex items-center border-b-2 border-amber-200 pb-2.5"><h2 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2"><span class="bg-amber-400 text-slate-950 px-2.5 py-0.5 rounded-lg text-xs">MAP</span><span>${esc(cn)}</span></h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">${sts.map(st=>{
-          const un=isStageUnlocked(st),b=userData.stageBest[st.id],cl=b?.cleared,p=b?.pct||0,bo=st.iconType==='boss';
-          const pool=allQuestions.filter(q=>q.stageId===st.id),solvedCnt=pool.filter(q=>userData.solvedIds.includes(q.id)).length;
+          const un=isStageUnlocked(st),prog=getStageProgress(st),cl=prog.cleared,p=prog.bestPct,bo=st.iconType==='boss';
           const ic=!un?'🔒':(bo?'👑':(st.iconType==='listen'?'🎧':(st.chapterNum===5?'✍️':(st.chapterNum===6?'🎙️':'⚔️'))));
+          const reqBarPct=prog.reqSolved>0?Math.min(100,Math.round((prog.solved/prog.reqSolved)*100)):0;
           return`<div class="rounded-2xl border-2 p-4 flex flex-col justify-between gap-3 ${!un?'bg-slate-100 border-slate-300 opacity-75':(cl?'bg-emerald-50/70 border-emerald-400 shadow-sm':(bo?'bg-amber-50 border-amber-400 shadow-md':'bg-white border-amber-300 shadow-sm'))}">
-            <div class="space-y-1.5"><div class="flex items-center justify-between gap-2"><span class="text-[11px] font-black px-2 py-0.5 rounded-full ${bo?'bg-rose-600 text-white':'bg-slate-800 text-amber-300'}">STAGE ${st.stageNum}</span>${cl?`<span class="text-xs font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">★ クリア (${p}%)</span>`:(b?`<span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">最高 ${p}%</span>`:`<span class="text-[11px] font-bold text-slate-500">目標 ${st.passLine}%</span>`)}</div>
+            <div class="space-y-1.5"><div class="flex items-center justify-between gap-2"><span class="text-[11px] font-black px-2 py-0.5 rounded-full ${bo?'bg-rose-600 text-white':'bg-slate-800 text-amber-300'}">STAGE ${st.stageNum}</span>${cl?`<span class="text-xs font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">★ クリア (${p}%)</span>`:(p>0?`<span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">最高 ${p}%</span>`:`<span class="text-[11px] font-bold text-slate-500">目標 ${st.passLine}%</span>`)}</div>
             <h3 class="font-black text-base text-slate-900 flex items-center gap-1.5"><span>${ic}</span><span>${esc(st.name)}</span></h3>
-            <div class="flex justify-between text-xs text-slate-500 font-bold"><span>制覇 ${solvedCnt}/${pool.length}問</span><span>報酬 +${st.rewardXp} XP</span></div></div>
-            ${un?`<button onclick="startStage('${st.id}')" class="quest-btn w-full py-2.5 rounded-xl font-black text-sm shadow ${bo?'bg-gradient-to-r from-rose-600 to-orange-500 text-white':'bg-emerald-600 hover:bg-emerald-500 text-white'}">${cl?'もう一度挑戦！':'冒険スタート！'}</button>`:`<div class="text-center text-xs font-bold text-slate-500 bg-slate-200 py-2.5 rounded-xl">前のステージをクリアで解放</div>`}
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px] text-slate-600 font-bold"><span>制覇 ${prog.solved}/${prog.total}問（解放条件: ${prog.reqSolved}問）</span><span>+${st.rewardXp} XP</span></div>
+              <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${prog.solved>=prog.reqSolved?'bg-emerald-500':'bg-amber-400'} transition-all duration-500" style="width:${reqBarPct}%"></div></div>
+            </div></div>
+            ${un?`<button onclick="startStage('${st.id}')" class="quest-btn w-full py-2.5 rounded-xl font-black text-sm shadow ${bo?'bg-gradient-to-r from-rose-600 to-orange-500 text-white':'bg-emerald-600 hover:bg-emerald-500 text-white'}">${cl?'もう一度挑戦！':(p>=st.passLine&&prog.solved<prog.reqSolved?`あと${prog.reqSolved-prog.solved}問制覇で解放！`:'冒険スタート！')}</button>`:`<div class="text-center text-xs font-bold text-slate-500 bg-slate-200 py-2.5 rounded-xl">前のステージをクリアで解放</div>`}
           </div>`;
         }).join('')}</div></div>`;
       }).join('');
@@ -940,6 +965,7 @@
     async function syncScoreToGas(manual=false, studiedNow=false){
       if(!RANKING_GAS_URL||!userData.profileSet){if(manual)openProfileModal(false);return;}
       if(manual)$('ranking-sync-status').textContent='送信中...';
+      const clearedCount=allStages.filter(s=>s.grade===currentGrade&&isStageCleared(s)).length;
       const pl={
         appType:'eiken',
         uuid:userData.uuid,
@@ -948,7 +974,7 @@
         grade:currentGrade,
         weeklyCorrect:getWeeklyCorrectTotal(),
         streak:userData.streak||0,
-        clearedStages:Object.values(userData.stageBest||{}).filter(v=>v.cleared).length,
+        clearedStages:clearedCount,
         xp:userData.xp||0,
         badge:getStreakTier(userData.streak||0).icon,
         studiedToday:studiedNow
@@ -998,10 +1024,12 @@
       const pool=allQuestions.filter(q=>q.stageId===sid);
       if(!pool.length){alert('このステージの問題は準備中です！');return;}
       const isIv=pool.some(q=>q.type==='面接音読'||q.type==='面接QA');
+      const isFinalMock=(st.id==='E3-S14');
       const cm=userData.questionCountMode||'standard';
-      const targetCnt=isIv?st.questionCount:(cm==='standard'?st.questionCount:Number(cm));
+      // ★ 本番模試(E3-S14)では「ちょいトレ5問」を強制無効化し本番通りの出題数にする ★
+      const targetCnt=(isIv||isFinalMock)?Math.max(st.questionCount, isFinalMock?pool.length:st.questionCount):(cm==='standard'?st.questionCount:Number(cm));
       const picked=isIv?pool.slice(0,st.questionCount):pickPrioritized(pool,targetCnt);
-      const clearEligible=isIv||(cm!=='5')||(pool.length<=5);
+      const clearEligible=isIv||isFinalMock||(cm!=='5')||(pool.length<=5);
       launchQuiz({mode:'stage',stage:st,questions:picked,clearEligible});
     }
     function startRevengeQuest(){
@@ -1017,10 +1045,15 @@
       $('result-view').classList.add('hidden');
       $('quiz-view').classList.remove('hidden');
       $('quiz-stage-title').textContent=cfg.stage.name;$('quiz-total-num').textContent=cfg.questions.length;
-      $('quiz-mode-pill').textContent=cfg.mode==='revenge'?'復習':(cfg.clearEligible?'クリア対象':'ちょいトレ(記録用)');
+      $('quiz-mode-pill').textContent=cfg.mode==='revenge'?'復習':(cfg.stage.id==='E3-S14'?'🏆 本番模試':(cfg.clearEligible?'クリア対象':'ちょいトレ(記録用)'));
       window.scrollTo({top:0,behavior:'smooth'});renderQuestion();
     }
-    function clearTimersAndMic(){if(silentTimerInterval){clearInterval(silentTimerInterval);silentTimerInterval=null;}if(speechRecognitionObj&&isRecording)try{speechRecognitionObj.stop();}catch(e){}isRecording=false;}
+    function clearTimersAndMic(){
+      if(silentTimerInterval){clearInterval(silentTimerInterval);silentTimerInterval=null;}
+      if(interviewWaitTimer){clearInterval(interviewWaitTimer);interviewWaitTimer=null;}
+      if(speechRecognitionObj&&isRecording)try{speechRecognitionObj.stop();}catch(e){}
+      isRecording=false;
+    }
 
     function renderQuestion(){
       stopSpeech();clearTimersAndMic();
@@ -1037,7 +1070,6 @@
       if(q.passage){
         $('q-passage-box').classList.remove('hidden');
         $('q-passage-label').textContent=q.type==='自由英作文'?'📧 相手のメール / トピック':(q.type==='面接音読'||q.type==='面接QA'?'🃏 面接カード':'📜 英文パッセージ');
-        // ★ 解答前は長文パッセージの「本文を聞く」ボタンを必ず隠す ★
         $('q-passage-speak-btn').classList.add('hidden');
         $('q-passage-text').textContent=q.passage;
       }else $('q-passage-box').classList.add('hidden');
@@ -1111,17 +1143,42 @@
       const ck=[];if(txt&&!/^[A-Z]/.test(txt))ck.push('⚠️ 書き出しは大文字にしよう');if(txt&&!/[.!?]$/.test(txt))ck.push('⚠️ 文末にピリオド(.)等を付けよう');
       $('writing-auto-checks').textContent=ck.join(' ／ ');
     }
+    // ★ ライティングの手抜き提出を厳格にブロック ★
     function openWritingSelfJudge(){
-      const txt=$('writing-textarea').value.trim(),w=txt?txt.split(/\s+/).length:0,minReq=Math.max(8,writingRange[0]-5);
-      if(w<minReq){alert(`現在 ${w} 語です。合格力を身につけるため、最低 ${minReq} 語以上（目安 ${writingRange[0]}〜${writingRange[1]}語）書いてから提出しよう！`);return;}
+      const txt=$('writing-textarea').value.trim();
+      if(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]/.test(txt)){
+        alert('日本語が混ざっています！すべて英語で書いてみよう！');
+        return;
+      }
+      const words=txt?txt.split(/\s+/).filter(Boolean):[];
+      const minReq=Math.max(10,writingRange[0]-3);
+      if(words.length<minReq){
+        alert(`現在 ${words.length} 語です。合格力を身につけるため、最低 ${minReq} 語以上（目安 ${writingRange[0]}〜${writingRange[1]}語）しっかり書いてから提出しよう！`);
+        return;
+      }
+      const enWords=txt.toLowerCase().replace(/[^a-z']/g,' ').trim().split(/\s+/).filter(Boolean);
+      const uniq=new Set(enWords);
+      const twoPlusWords=enWords.filter(w=>w.length>=2);
+      if(enWords.length<minReq || uniq.size<Math.min(6,Math.ceil(enWords.length*0.45)) || twoPlusWords.length<Math.ceil(enWords.length*0.5)){
+        alert('同じ単語のくり返しや意味のない文字ではなく、ちゃんとした英文を書いてみよう！');
+        return;
+      }
+      const sentences=txt.split(/[.!?]+/).map(s=>s.trim()).filter(s=>/[a-zA-Z]{2,}/.test(s));
+      const minSent=writingRange[0]>=15?2:1;
+      if(sentences.length<minSent){
+        alert(`英検のライティングでは${minSent}文以上で理由や返事を書こう！（文の終わりにピリオド . を忘れずに）`);
+        return;
+      }
+
       const q=quizSession.questions[quizSession.currentIndex];
       $('writing-textarea').disabled=true;$('writing-submit-btn').classList.add('hidden');$('writing-judge-panel').classList.remove('hidden');
       $('writing-models-box').innerHTML=[q.choiceA,q.choiceB].filter(Boolean).map((m,i)=>`<div class="bg-white border border-amber-200 rounded-xl p-3 space-y-1"><div class="flex justify-between items-center"><span class="font-black text-emerald-700">模範解答 ${i+1}</span><button onclick="speakEnglish('${escJs(m)}')" class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">🔊 聞く</button></div><p class="font-bold text-slate-800">${esc(m)}</p></div>`).join('')+(q.choiceC?`<div class="text-rose-700 font-bold bg-rose-50 p-2 rounded-lg">📌 チェック：${esc(q.choiceC)}</div>`:'');
     }
+    // ★ ライティングは4観点すべて（4/4）チェックで合格 ★
     function finalizeWritingJudge(){
       const cnt=Array.from(document.querySelectorAll('.rubric-cb')).filter(c=>c.checked).length;
       const q=quizSession.questions[quizSession.currentIndex];
-      completeFeedback(cnt>=3,q.choiceA||q.correctRaw);
+      completeFeedback(cnt===4,q.choiceA||q.correctRaw);
     }
 
     function setupInterview(q){
@@ -1131,7 +1188,23 @@
       $('interview-guide-text').textContent=isR?'まず「20秒黙読」をしてから、マイクまたは声に出して最後まで読もう！':'上の「質問を聞く」で聞き取り、英語で声に出して答えてみよう！';
       const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
       $('mic-record-btn').classList.toggle('hidden',!SR);
-      $('mic-status-msg').textContent=SR?'※マイクで発音判定ができます（声を出せない場合は右のボタンで進めます）':'※音声認識非対応ブラウザのため、声に出して「答え合わせへ」で練習しよう！';
+      $('mic-status-msg').textContent=SR?'※マイクで発音判定ができます（声を出せない場合は5秒後から進めます）':'※音声認識非対応ブラウザのため、声に出して5秒後に「答え合わせへ」で練習しよう！';
+
+      // ★ 二次面接の0秒連打クリア防止（最低5秒確認タイマー） ★
+      const readyBtn=$('btn-interview-ready');
+      let waitSec=5;
+      readyBtn.disabled=true;
+      readyBtn.textContent=`⏳ 確認中... (あと${waitSec}秒)`;
+      interviewWaitTimer=setInterval(()=>{
+        waitSec--;
+        if(waitSec<=0){
+          clearInterval(interviewWaitTimer);interviewWaitTimer=null;
+          readyBtn.disabled=false;
+          readyBtn.textContent='声に出した / 答え合わせへ ➔';
+        }else{
+          readyBtn.textContent=`⏳ 確認中... (あと${waitSec}秒)`;
+        }
+      },1000);
     }
     function startSilentReadTimer(){
       if(silentTimerInterval)clearInterval(silentTimerInterval);
@@ -1151,6 +1224,9 @@
         const pct=tw.length?Math.min(100,Math.round((tw.filter(w=>sw.includes(w)).length/tw.length)*100)):80;
         $('mic-transcript-box').classList.remove('hidden');$('mic-transcript-text').textContent=tr;
         $('mic-match-score').textContent=q.type==='面接音読'?`🎯 音読一致度：約 ${pct}%`:'✨ 英語がしっかり聞き取れました！（お手本と比べてみよう）';
+        // マイクで回答したら待機タイマーを即解除
+        if(interviewWaitTimer){clearInterval(interviewWaitTimer);interviewWaitTimer=null;}
+        const readyBtn=$('btn-interview-ready');readyBtn.disabled=false;readyBtn.textContent='答え合わせへ ➔';
       };
       speechRecognitionObj.onerror=()=>$('mic-status-msg').textContent='⚠️ 音声が拾えませんでした。右の「答え合わせへ」で進められます。';
       speechRecognitionObj.onend=()=>{isRecording=false;$('mic-btn-label').textContent='🎤 マイクで英語を話して判定';};
@@ -1167,7 +1243,6 @@
       const q=quizSession.questions[quizSession.currentIndex];recordAnswerProgress(ok,q.id);
       currentReplayAudio=rev||q.audioScript||q.choiceA||q.correctRaw||'';
 
-      // ★ 解答後に長文パッセージの「本文を聞く」ボタンを解放 ★
       if(q.passage && q.type!=='面接音読' && !q.passage.startsWith('【イラスト')){
         $('q-passage-speak-btn').classList.remove('hidden');
       }
@@ -1213,23 +1288,55 @@
 
       const tot=quizSession.questions.length,cor=quizSession.correctCount,pct=Math.round((cor/tot)*100),pas=pct>=(quizSession.stage.passLine||80);
       const canClear=pas&&quizSession.clearEligible;
-      let xp=cor*10+(canClear?(quizSession.stage.rewardXp||50):0),unl='';
+      let xp=cor*10, unl='', stageFullyCleared=false, progAfter=null;
+
       if(quizSession.mode==='stage'&&quizSession.clearEligible){
         const prev=userData.stageBest[quizSession.stage.id]||{pct:0,cleared:false};
-        userData.stageBest[quizSession.stage.id]={pct:Math.max(prev.pct,pct),cleared:prev.cleared||pas};
-        if(!prev.cleared&&pas){userData.xp+=(quizSession.stage.rewardXp||50);const ns=allStages.find(s=>s.prereqId===quizSession.stage.id&&s.grade===currentGrade);if(ns)unl=ns.name;}
+        const newBestPct=Math.max(prev.pct,pct);
+        userData.stageBest[quizSession.stage.id]={pct:newBestPct,cleared:prev.cleared};
+        progAfter=getStageProgress(quizSession.stage);
+        stageFullyCleared=progAfter.cleared;
+        if(stageFullyCleared && !prev.cleared){
+          userData.stageBest[quizSession.stage.id].cleared=true;
+          userData.xp+=(quizSession.stage.rewardXp||50);
+          xp+=(quizSession.stage.rewardXp||50);
+          const ns=allStages.find(s=>s.prereqId===quizSession.stage.id&&s.grade===currentGrade);
+          if(ns)unl=ns.name;
+        }
         saveUserData();
       }
-      if(canClear)playSE('clear');
+      if(stageFullyCleared || (!quizSession.clearEligible&&pas))playSE('clear');
       syncScoreToGas(false, true);
       setDriveImg($('result-char-img'),pct>=90?CHAR_IMG_JUMP:(pas?CHAR_IMG_HAPPY:CHAR_IMG_NORMAL));
-      $('result-badge').className=canClear?'inline-block text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-400':'inline-block text-xs font-black px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-400';
-      $('result-badge').textContent=canClear?'✨ STAGE CLEAR! ✨':(!quizSession.clearEligible&&quizSession.mode==='stage'?'🌱 ちょいトレ完了！':'💪 ナイスチャレンジ！');
-      $('result-title').textContent=canClear?(pct===100?'パーフェクト！完璧な実力だ！':'合格ライン突破！お見事！'):(!quizSession.clearEligible&&quizSession.mode==='stage'?'連続記録＆XPゲット！':`あと少し！（合格ライン ${quizSession.stage.passLine}%）`);
-      $('result-subtitle').textContent=canClear?`${quizSession.stage.name} を攻略しました！`:(!quizSession.clearEligible&&quizSession.mode==='stage'?'※ステージ解放には「標準」以上のコースでクリアが必要です':'復習して再挑戦しよう！');
+
+      if(quizSession.mode==='stage'&&quizSession.clearEligible){
+        if(stageFullyCleared){
+          $('result-badge').className='inline-block text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-400';
+          $('result-badge').textContent='✨ STAGE CLEAR! ✨';
+          $('result-title').textContent=pct===100?'パーフェクト！完全制覇だ！':'目標ライン＆制覇条件突破！お見事！';
+          $('result-subtitle').textContent=`${quizSession.stage.name} を完全攻略しました！（制覇 ${progAfter.solved}/${progAfter.total}問）`;
+        }else if(canClear && progAfter && progAfter.solved < progAfter.reqSolved){
+          const remain=progAfter.reqSolved - progAfter.solved;
+          $('result-badge').className='inline-block text-xs font-black px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-400';
+          $('result-badge').textContent='👍 合格ライン突破！（制覇継続中）';
+          $('result-title').textContent=`いい調子！あと ${remain} 問制覇でステージ解放！`;
+          $('result-subtitle').textContent=`未正解の問題が優先して出ます。もう一度挑戦して ${progAfter.reqSolved}問以上 制覇しよう！`;
+        }else{
+          $('result-badge').className='inline-block text-xs font-black px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-400';
+          $('result-badge').textContent='💪 ナイスチャレンジ！';
+          $('result-title').textContent=`あと少し！（合格ライン ${quizSession.stage.passLine}%）`;
+          $('result-subtitle').textContent='間違えた問題を復習して再挑戦しよう！';
+        }
+      }else{
+        $('result-badge').className='inline-block text-xs font-black px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-400';
+        $('result-badge').textContent=quizSession.mode==='revenge'?'🔥 リベンジ完了！':'🌱 ちょいトレ完了！';
+        $('result-title').textContent=quizSession.mode==='revenge'?'弱点克服お疲れさま！':'連続記録＆XPゲット！';
+        $('result-subtitle').textContent=quizSession.mode==='revenge'?'間違えた問題が減ると合格がグッと近づきます！':'※ステージ解放には「標準」以上のコースでクリアが必要です';
+      }
+
       $('res-pct').textContent=pct;$('res-correct').textContent=cor;$('res-total').textContent=tot;$('res-xp').textContent=xp;
       if(unl){$('result-unlock-box').classList.remove('hidden');$('result-unlock-box').textContent=`🔓 新しいステージ「${unl}」が解放されました！`;}else $('result-unlock-box').classList.add('hidden');
-      $('result-cert-btn-box').classList.toggle('hidden',!(quizSession.stage.id==='E3-S14'&&canClear));
+      $('result-cert-btn-box').classList.toggle('hidden',!(quizSession.stage.id==='E3-S14'&&stageFullyCleared));
       if(quizSession.mistakesInRun.length>0){
         $('result-mistakes-box').classList.remove('hidden');$('res-retry-wrong-btn').classList.remove('hidden');
         $('result-mistakes-list').innerHTML=quizSession.mistakesInRun.map(m=>{const ans=(m.type==='4択'||m.type==='リスニング4択')?m['choice'+(m.correctRaw||'A').toUpperCase()]:(m.choiceA||m.correctRaw);return`<div class="bg-white border border-rose-200 rounded-xl p-2.5"><div class="font-bold text-slate-800">${esc(m.audioScript||m.question)}</div><div class="text-emerald-700 font-black mt-0.5">正解・お手本：${esc(ans)}</div></div>`;}).join('');
@@ -1248,14 +1355,21 @@
       renderDashboard();window.scrollTo({top:0,behavior:'smooth'});
     }
 
+    // ★ 公式デジタル合格認定証の発行条件を厳格化 ★
     function openCertificateModal(){
       $('cert-grade-title').textContent=currentGrade;
-      const sk=getSkillStats(currentGrade),bc=Boolean(userData.stageBest['E3-S14']?.cleared),wrongCnt=userData.wrongIds.filter(id=>allQuestions.some(q=>q.id===id&&q.grade===currentGrade)).length;
-      const ok=bc&&wrongCnt===0&&sk.every(s=>!s.hasStages||s.pct>=75);
+      const sk=getSkillStats(currentGrade);
+      const ov=getOverallSolvedStats(currentGrade);
+      const bossStage=allStages.find(s=>s.id==='E3-S14');
+      const bc=bossStage ? isStageCleared(bossStage) : false;
+      const wrongCnt=userData.wrongIds.filter(id=>allQuestions.some(q=>q.id===id&&q.grade===currentGrade)).length;
+
+      const ok = bc && wrongCnt===0 && ov.pct>=80 && sk.every(s=>!s.hasStages||s.pct>=80);
       if(!ok){
         $('cert-locked-view').classList.remove('hidden');$('cert-unlocked-view').classList.add('hidden');
         const conds=[
-          ...sk.filter(s=>s.hasStages).map(s=>({l:`【${s.name}】達成率 75%以上（現在 ${s.pct}%）`,o:s.pct>=75})),
+          ...sk.filter(s=>s.hasStages).map(s=>({l:`【${s.name}】達成率 80%以上（現在 ${s.pct}%）`,o:s.pct>=80})),
+          {l:`【網羅率】全問題の総制覇率 80%以上（現在 ${ov.solved}/${ov.total}問・${ov.pct}%）`,o:ov.pct>=80},
           {l:`【弱点ゼロ】弱点リベンジ残り 0問（現在 ${wrongCnt}問）`,o:wrongCnt===0},
           {l:'【最終試練】第7大陸「番長模試 (E3-S14)」クリア',o:bc}
         ];
@@ -1276,8 +1390,8 @@
       ctx.fillStyle='#1e293b';ctx.font='900 54px "Noto Sans JP",sans-serif';ctx.fillText(`${userData.nickname} 殿`,600,345);
       ctx.strokeStyle='#fbbf24';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(280,368);ctx.lineTo(920,368);ctx.stroke();
       ctx.fillStyle='#334155';ctx.font='700 26px "Noto Sans JP",sans-serif';
-      ctx.fillText('あなたは「英検クエスト」の全5技能（語彙文法・リスニング・読解・',600,445);
-      ctx.fillText('新形式ライティング・二次面接）および弱点ゼロ・番長模試を',600,490);
+      ctx.fillText('あなたは「英検クエスト」の全5技能80%以上・全問制覇80%以上・',600,445);
+      ctx.fillText('新形式ライティング・二次面接および弱点ゼロ・番長模試を',600,490);
       ctx.fillText(`優秀な成績で突破したことをここに認定します！（連続記録 ${userData.streak}日）`,600,535);
       ctx.fillStyle='#059669';ctx.font='900 28px "Noto Sans JP",sans-serif';ctx.fillText('合格認定ランク：GOLD MASTER',600,615);
       ctx.fillStyle='#64748b';ctx.font='700 22px monospace';ctx.textAlign='left';
