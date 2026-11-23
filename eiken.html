@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>英検クエスト｜プリント番長【完全無料】4技能500問・英検合格RPG</title>
+  <meta name="description" content="完全無料・登録不要の英検合格RPG「英検クエスト」。厳選500問・ネイティブ音声リスニング・2024新形式ライティング（Eメール＆意見論述）・二次面接シミュレーターまで完全対応！" />
+  <meta name="keywords" content="英検3級,無料,対策,500問,Eメール,ライティング,二次試験,面接,リスニング,プリント番長,英検クエスト" />
+  <meta property="og:title" content="英検クエスト｜プリント番長【完全無料】4技能完全攻略RPG" />
+  <meta property="og:description" content="500問の厳選問題×4技能×弱点ゼロシステムで本物の英検合格力を！" />
+  <meta property="og:type" content="website" />
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9QV93TN');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY68V2ZK74"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XY68V2ZK74');gtag('event','visit_eiken',{page_title:'英検クエスト'});</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"英検クエスト｜プリント番長","applicationCategory":"EducationalApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"4技能500問に対応した完全無料・ネイティブ音声付き英検合格RPG。"}</script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+  <script>
+    const SPREADSHEET_ID  = '17HijRPzcvCQKrCTjwrlR0BwkqeNGCFrGJRGiwWFlG2k';
+    const SHEET_STAGES    = '英検ステージ定義';
+    const SHEET_QUESTIONS = '英検クエスト問題';
+    const RANKING_GAS_URL = 'https://script.google.com/macros/s/AKfycbyRXP7JJwhnvLs0fxyKk_g6L0FBWOqT98Jr0G1fwUrf6UjP32bZ4usmDZARnO0y62KpVQ/exec';
+    const MAIN_SITE_URL   = 'https://sites.google.com/view/sukiko/%E3%83%9B%E3%83%BC%E3%83%A0';
+    const DOJO_URL        = 'https://sukikolearning.github.io/print-bancho/dojo.html';
+    const HENSACHI_URL    = 'https://sites.google.com/view/sukiko/%E3%83%9B%E3%83%BC%E3%83%A0/%E5%81%8F%E5%B7%AE%E5%80%A4%E4%B8%80%E8%A6%A7';
+
+    // 英検クエスト 正しいトップメイン画像URL
+    const QUEST_TOP_BANNER_URL = 'https://drive.google.com/file/d/1I2_x3Xv9612r-_lLq3UGg-rM27-TFeFM/view?usp=drive_link';
+
+    // 公式キャラクター画像URL
+    const CHAR_IMG_NORMAL   = 'https://drive.google.com/file/d/12e93yD6cXHQD6K_vnV5uenGF2eAnszU5/view?usp=drive_link';
+    const CHAR_IMG_HAPPY    = 'https://drive.google.com/file/d/1Z9N0QfPzCWQ4aMkiIafPK5Q6LiQmqeRO/view?usp=drive_link';
+    const CHAR_IMG_JUMP     = 'https://drive.google.com/file/d/10XKcxDLA4a_wv16ZJ5E_cve_Po1GvoEj/view?usp=drive_link';
+    const CHAR_IMG_SURPRISE = 'https://drive.google.com/file/d/1QZZPLBLRdZIGtuDg__TSFAt7GJn82A_P/view?usp=drive_link';
+
+    // 4択道場との共通ストレージキー
+    const STORAGE_KEY_COMMON_USER = 'print_bancho_common_user';
+    const STORAGE_KEY_COMMON_HISTORY = 'print_bancho_study_history';
+  </script>
+
+  <style>
+    body{font-family:'Noto Sans JP','Inter',sans-serif;background-color:#fdfaf0;background-image:radial-gradient(#e5dec9 1px,transparent 1px);background-size:20px 20px;color:#1e293b}
+    .quest-card{background:#fffdf7;border:2px solid #e2d5b5;box-shadow:0 6px 0 #d6c59c}
+    .quest-btn{transition:transform .1s ease,box-shadow .1s ease}
+    .quest-btn:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.25)!important}
+    @keyframes floatChar{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .float-char{animation:floatChar 3s ease-in-out infinite}
+    @keyframes pulseSound{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 10px rgba(16,185,129,0)}}
+    .pulse-sound{animation:pulseSound 1.6s infinite}
+    @keyframes rainbowFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .streak-rainbow{background:linear-gradient(120deg,#f59e0b,#ec4899,#8b5cf6,#06b6d4,#10b981,#f59e0b);background-size:300% 300%;animation:rainbowFlow 5s ease infinite}
+    @keyframes goldShine{0%,100%{box-shadow:0 0 15px rgba(251,191,36,.45)}50%{box-shadow:0 0 28px rgba(251,191,36,.85)}}
+    .streak-gold-glow{animation:goldShine 2.2s ease-in-out infinite}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9QV93TN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-b-4 border-amber-400 shadow-lg sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-3 py-2.5 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span class="bg-amber-400 text-slate-950 font-black text-xs px-2 py-0.5 rounded-md shadow">Ver.3.5</span>
+        <div>
+          <div class="font-black text-lg sm:text-xl tracking-tight">⚔️ 英検クエスト</div>
+          <p class="text-[11px] text-amber-200 hidden sm:block">プリント番長 × 4技能500問完全攻略RPG</p>
+        </div>
+      </div>
+      <nav class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+        <button onclick="openCertificateModal()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 px-2.5 py-1.5 rounded-lg font-black shadow">🏆 <span class="hidden sm:inline">合格認定証</span></button>
+        <button onclick="openProfileModal(false)" class="bg-emerald-700 hover:bg-emerald-600 border border-emerald-400 text-white px-2.5 py-1.5 rounded-lg flex items-center gap-1">👤 <span id="header-nickname-badge" class="max-w-[75px] truncate">冒険者</span></button>
+        <button onclick="openSaveModal()" class="bg-indigo-800/80 hover:bg-indigo-700 border border-indigo-500 text-amber-200 px-2.5 py-1.5 rounded-lg">📜 <span class="hidden sm:inline">じゅもん</span></button>
+        <button id="se-toggle-btn" onclick="toggleSE()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-2 py-1.5 rounded-lg">🔊</button>
+        <a id="nav-home" href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-2.5 py-1.5 rounded-lg">🏠 本編</a>
+        <a id="nav-dojo" href="#" class="bg-rose-900/80 hover:bg-rose-800 border border-rose-500 px-2.5 py-1.5 rounded-lg hidden md:inline-flex">🥋 4択道場</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TOP HERO BANNER (全幅・見切れなし) -->
+  <div id="top-banner-wrapper" class="w-full bg-[#101726] border-b-4 border-amber-400 shadow-md">
+    <div class="max-w-5xl mx-auto overflow-hidden">
+      <img id="top-banner-img" alt="英検クエスト トップバナー" class="w-full h-auto block select-none min-h-[140px]" referrerpolicy="no-referrer" />
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-5 py-5 space-y-5">
+
+    <!-- ★ 4択道場への相互送客・アカウント引き継ぎバナー ★ -->
+    <a id="btn-to-dojo-banner" href="#" class="bg-gradient-to-r from-red-950 via-stone-900 to-amber-950 border-2 border-amber-500 text-white rounded-2xl p-3 sm:p-4 shadow-md flex items-center justify-between hover:scale-[1.01] transition-transform block">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 bg-red-600 text-white rounded-xl flex items-center justify-center text-lg sm:text-xl font-black flex-shrink-0 shadow">
+          🔥
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="bg-amber-400 text-stone-950 text-[10px] font-black px-2 py-0.5 rounded-full">4,200問収録</span>
+            <h3 class="font-extrabold text-sm sm:text-base text-amber-200">主要5教科「4択道場」へ修行に出る！</h3>
+          </div>
+          <p class="text-xs text-stone-300 mt-0.5">同じアカウントで連続日数（ストリーク）もそのまま共有！</p>
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center space-x-1 bg-amber-400 text-stone-950 font-black px-3.5 py-2 rounded-xl text-xs flex-shrink-0 shadow">
+        <span>修行する</span>
+        <span>➔</span>
+      </div>
+    </a>
+
+    <section id="loading-view" class="quest-card rounded-2xl p-8 text-center space-y-4">
+      <div class="inline-block w-14 h-14 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+      <h1 class="text-xl font-black text-slate-800">冒険の書（スプレッドシート）を読み込み中...</h1>
+      <p class="text-sm text-slate-500">4技能のステージと問題を準備しています。</p>
+    </section>
+
+    <section id="error-view" class="hidden quest-card rounded-2xl p-6 text-center space-y-4 border-rose-400">
+      <div class="text-4xl">⚠️</div>
+      <h2 class="text-lg font-black text-rose-700">データの読み込みに失敗しました</h2>
+      <p id="error-message" class="text-sm text-slate-600 bg-rose-50 p-3 rounded-xl"></p>
+      <button onclick="initApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-2.5 rounded-xl shadow">再読み込みする</button>
+    </section>
+
+    <div id="map-view" class="hidden space-y-5">
+      <section class="bg-gradient-to-r from-indigo-900 via-slate-900 to-indigo-950 text-white rounded-2xl p-3 sm:p-4 border border-amber-400/80 shadow-md flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">⚔️</span>
+          <div>
+            <h1 class="text-sm sm:text-base font-black tracking-tight text-amber-200">
+              英検3級 合格クエスト｜4技能完全無料RPG学習システム
+            </h1>
+            <p class="text-[11px] text-slate-300">ネイティブ音声・2024新形式ライティング・二次面接・弱点リベンジ完全対応</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-1.5 text-xs font-bold">
+          <span class="bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 px-2.5 py-1 rounded-lg">
+            全 <strong id="total-pool-count" class="text-amber-300">500</strong> 問
+          </span>
+        </div>
+      </section>
+
+      <section id="streak-milestone-banner" class="rounded-3xl p-4 sm:p-5 border-2 shadow-lg transition-all duration-500">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-3 text-center sm:text-left">
+            <div id="streak-tier-icon" class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-inner flex-shrink-0">🔥</div>
+            <div>
+              <div id="streak-tier-badge" class="inline-block text-[11px] font-black px-2.5 py-0.5 rounded-full mb-1"></div>
+              <h2 id="streak-headline" class="text-xl sm:text-2xl font-black tracking-tight"></h2>
+              <p id="streak-subtext" class="text-xs font-bold opacity-90"></p>
+            </div>
+          </div>
+          <div class="w-full sm:w-56 bg-black/15 rounded-2xl p-3 space-y-1.5">
+            <div class="flex justify-between text-[11px] font-black"><span id="streak-next-label">次の節目まで</span><span id="streak-next-days">あと3日</span></div>
+            <div class="w-full h-2.5 bg-white/30 rounded-full overflow-hidden"><div id="streak-next-bar" class="h-full bg-white rounded-full transition-all duration-500" style="width:0%"></div></div>
+            <div class="flex justify-between text-[11px] font-bold pt-0.5"><span>🛡️ お守り: <span id="stat-freeze">2</span>個</span><span>今日: <span id="stat-today-count">0</span>問</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quest-card rounded-2xl p-3 sm:p-4 space-y-3">
+        <div>
+          <div class="flex items-center justify-between mb-1.5"><span class="text-xs font-black text-slate-600">🎯 挑戦する級</span><span class="text-[11px] text-slate-500">全級順次追加予定</span></div>
+          <div id="grade-tabs" class="flex flex-wrap gap-1.5"></div>
+        </div>
+        <div class="border-t border-amber-200/80 pt-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+            <span class="text-xs font-black text-slate-700">⚡ 1回の出題数を選ぶ（未正解の問題を優先出題！）</span>
+            <span id="count-mode-note" class="text-[11px] font-bold text-emerald-700"></span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-xs font-black" id="count-mode-btns">
+            <button onclick="setQuestionCountMode('5')" data-cmode="5" class="cmode-btn py-2 px-2 rounded-xl border-2">🌱 ちょいトレ 5問</button>
+            <button onclick="setQuestionCountMode('standard')" data-cmode="standard" class="cmode-btn py-2 px-2 rounded-xl border-2">⚔️ 標準(おすすめ)</button>
+            <button onclick="setQuestionCountMode('20')" data-cmode="20" class="cmode-btn py-2 px-2 rounded-xl border-2">🔥 ガッツリ 20問</button>
+            <button onclick="setQuestionCountMode('30')" data-cmode="30" class="cmode-btn py-2 px-2 rounded-xl border-2">👑 一気特訓 30問</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-7 quest-card rounded-2xl p-4 sm:p-5 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-amber-200/80 pb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 font-black flex items-center justify-center text-lg shadow">Lv.<span id="stat-level">1</span></div>
+              <div>
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span id="stat-nickname" class="font-black text-base text-slate-900">冒険者</span>
+                  <span id="stat-user-tag" class="text-[11px] font-mono font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded">#0000</span>
+                  <span id="stat-room-badge" class="hidden text-[10px] font-black bg-indigo-100 text-indigo-800 border border-indigo-300 px-2 py-0.5 rounded-full"></span>
+                  <button onclick="openProfileModal(false)" class="text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-2 py-0.5 rounded border border-slate-300">編集</button>
+                </div>
+                <p id="stat-rank-title" class="text-xs font-bold text-emerald-700">称号：はじめの冒険者</p>
+              </div>
+            </div>
+            <div class="text-right"><div class="text-[11px] font-bold text-slate-500">総合XP / 制覇問題</div><div class="text-sm font-black text-slate-900"><span id="stat-xp">0</span> XP ・ <span id="stat-solved-total" class="text-emerald-700">0</span>問制覇</div></div>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex justify-between text-[11px] font-bold text-slate-600"><span>次のレベルまで <span id="stat-next-xp">100</span> XP</span><span>今週の正解数：<span id="stat-weekly-correct" class="text-emerald-700 font-black">0</span>問</span></div>
+            <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300"><div id="stat-xp-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-500" style="width:0%"></div></div>
+          </div>
+
+          <div class="bg-[#fcf8ec] border border-amber-200 rounded-2xl p-3 space-y-2">
+            <div class="flex items-center justify-between">
+              <button onclick="changeCalendarMonth(-1)" class="px-2.5 py-1 rounded-lg bg-white border border-amber-300 hover:bg-amber-100 text-xs font-black">◀ 先月</button>
+              <div class="text-center"><div id="cal-month-title" class="text-sm font-black text-slate-800">2026年11月</div><div id="cal-month-summary" class="text-[10px] font-bold text-emerald-700"></div></div>
+              <button id="cal-next-btn" onclick="changeCalendarMonth(1)" class="px-2.5 py-1 rounded-lg bg-white border border-amber-300 hover:bg-amber-100 text-xs font-black disabled:opacity-40">次月 ▶</button>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-black text-slate-500"><div class="text-rose-500">日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div class="text-blue-500">土</div></div>
+            <div id="monthly-calendar-grid" class="grid grid-cols-7 gap-1"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 quest-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between"><h2 class="text-sm font-black text-slate-800">🏆 <span id="meter-grade-label">3級</span> 5技能・合格到達度</h2><span id="pass-meter-pct" class="text-xl font-black text-emerald-600">0%</span></div>
+            <div class="w-full h-3.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300"><div id="pass-meter-bar" class="h-full bg-gradient-to-r from-amber-400 via-emerald-500 to-cyan-500 transition-all duration-500" style="width:0%"></div></div>
+            <p class="text-[11px] text-slate-500 leading-snug">全5項目75%以上＋弱点ゼロ＋番長模試クリアで公式合格認定証を発行！</p>
+            <div id="skill-bars" class="space-y-2 pt-1 text-xs"></div>
+          </div>
+          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between text-xs font-black text-emerald-900">
+              <span>🔊 英語ネイティブ音声設定</span>
+              <label class="inline-flex items-center gap-1.5 cursor-pointer"><input id="auto-speak-checkbox" type="checkbox" class="accent-emerald-600 w-4 h-4" onchange="saveVoiceSettings()" /><span>自動再生</span></label>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-bold">
+              <span class="text-emerald-800">速度:</span>
+              <button onclick="setSpeechRate(0.75)" data-rate="0.75" class="rate-btn px-2 py-1 rounded-lg border">0.75x ゆっくり</button>
+              <button onclick="setSpeechRate(1.0)"  data-rate="1.0"  class="rate-btn px-2 py-1 rounded-lg border">1.0x ふつう</button>
+              <button onclick="setSpeechRate(1.2)"  data-rate="1.2"  class="rate-btn px-2 py-1 rounded-lg border">1.2x 速聴</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="revenge-banner" class="hidden bg-gradient-to-r from-rose-600 to-orange-600 text-white rounded-2xl p-4 shadow-lg border-2 border-amber-300 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">🔥</div>
+          <div><h2 class="font-black text-base sm:text-lg">弱点リベンジクエスト出現中！</h2><p class="text-xs text-rose-100">間違えた問題が <strong id="revenge-count" class="text-amber-200 text-sm">0</strong> 問あります。0問にすると合格がグッと近づく！</p></div>
+        </div>
+        <button onclick="startRevengeQuest()" class="quest-btn w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl shadow-md text-sm">⚔️ 弱点を討伐する！</button>
+      </section>
+
+      <section id="quest-map-container" class="space-y-5"></section>
+
+      <section class="quest-card rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-amber-200 pb-3">
+          <div>
+            <h2 class="text-lg font-black text-slate-900 flex items-center gap-2"><span>👑 冒険者ランキング</span><span id="ranking-sync-status" class="text-[10px] font-bold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">読み込み中</span></h2>
+            <p class="text-xs text-slate-500">毎週月曜日に「週間正解数」がリセット！名前の後ろの #4桁 は重複防止タグです。</p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="syncScoreToGas(true, false)" class="text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl shadow">📤 記録を送信</button>
+            <button onclick="fetchRanking(true)" class="text-xs font-black bg-slate-200 hover:bg-slate-300 text-slate-800 px-3 py-1.5 rounded-xl">🔄 更新</button>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex bg-slate-100 p-1 rounded-xl gap-1">
+            <button onclick="setRankingScope('room')" id="tab-scope-room" class="px-3 py-1.5 rounded-lg text-xs font-black">🤝 あいことば仲間</button>
+            <button onclick="setRankingScope('all')"  id="tab-scope-all"  class="px-3 py-1.5 rounded-lg text-xs font-black">🌍 全国ランキング</button>
+          </div>
+          <div class="flex gap-1 text-[11px] font-black">
+            <button onclick="setRankingSort('weeklyCorrect')" id="sort-weeklyCorrect" class="px-2.5 py-1 rounded-lg border">週間正解数</button>
+            <button onclick="setRankingSort('streak')"        id="sort-streak"        class="px-2.5 py-1 rounded-lg border">連続日数</button>
+            <button onclick="setRankingSort('xp')"            id="sort-xp"            class="px-2.5 py-1 rounded-lg border">総合XP</button>
+          </div>
+        </div>
+        <div id="ranking-room-empty-guide" class="hidden bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-center space-y-2">
+          <p class="text-xs sm:text-sm font-bold text-indigo-900">まだ「あいことば」が未設定です。友達と同じ言葉を入れると仲間だけのランキングが作れます！</p>
+          <button onclick="openProfileModal(false)" class="bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs px-4 py-2 rounded-xl shadow">🔑 あいことばを設定する</button>
+        </div>
+        <div id="ranking-list" class="space-y-2"></div>
+        <div id="my-rank-footer" class="hidden bg-amber-50 border-2 border-amber-300 rounded-xl p-2.5 text-xs font-black text-amber-950 flex items-center justify-between"></div>
+      </section>
+    </div>
+
+    <section id="quiz-view" class="hidden space-y-4">
+      <div class="quest-card rounded-2xl p-3 sm:p-4 flex flex-wrap items-center justify-between gap-2">
+        <button onclick="confirmExitQuiz()" class="text-xs font-black bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1.5 rounded-lg">← マップに戻る</button>
+        <div class="text-center flex-1 min-w-[140px]">
+          <div id="quiz-stage-title" class="text-xs sm:text-sm font-black text-slate-800 truncate">ステージ名</div>
+          <div class="text-[11px] font-bold text-slate-500">第 <span id="quiz-current-num">1</span> / <span id="quiz-total-num">10</span> 問 <span id="quiz-mode-pill" class="ml-1 bg-slate-200 text-slate-700 px-1.5 py-0.5 rounded text-[10px]"></span> <span id="quiz-combo-badge" class="hidden ml-1 bg-orange-500 text-white px-2 py-0.5 rounded-full text-[10px]">🔥 2 COMBO!</span></div>
+        </div>
+        <button onclick="cycleSpeechRateInQuiz()" id="quiz-rate-btn" class="text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-300 px-2.5 py-1.5 rounded-lg">1.0x</button>
+      </div>
+
+      <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden border border-slate-300"><div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-amber-400 transition-all duration-300" style="width:0%"></div></div>
+
+      <div class="quest-card rounded-3xl p-4 sm:p-6 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 text-[11px] font-black">
+            <span id="q-skill-badge" class="bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">語彙・文法</span>
+            <span id="q-diff-badge" class="bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full">基礎</span>
+            <span id="q-tag-badge" class="bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">重要</span>
+            <span id="q-unsolved-badge" class="hidden bg-indigo-600 text-white px-2.5 py-0.5 rounded-full">NEW</span>
+          </div>
+          <button id="q-hint-btn" onclick="toggleHint()" class="text-xs font-bold text-indigo-700 hover:underline">💡 ヒントを見る</button>
+        </div>
+        <div id="q-hint-box" class="hidden bg-indigo-50 border border-indigo-200 text-indigo-900 text-xs sm:text-sm font-bold p-3 rounded-xl"></div>
+
+        <div id="q-passage-box" class="hidden bg-[#f7f1de] border-2 border-[#d9c79e] rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span id="q-passage-label" class="text-xs font-black text-amber-900">📜 英文パッセージ</span>
+            <button id="q-passage-speak-btn" onclick="speakPassage()" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded-lg">🔊 本文を聞く</button>
+          </div>
+          <p id="q-passage-text" class="text-sm sm:text-base font-medium text-slate-800 leading-relaxed whitespace-pre-line"></p>
+        </div>
+
+        <div id="q-audio-box" class="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🎧</span>
+            <div><div id="q-audio-label" class="text-xs sm:text-sm font-black text-emerald-950">ネイティブ英語音声を聞く</div><div id="q-audio-sub" class="text-[11px] text-emerald-700">耳でリズムと発音を覚えよう</div></div>
+          </div>
+          <button id="q-speak-btn" onclick="speakCurrentQuestion()" class="quest-btn w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-400 text-white font-black px-5 py-2.5 rounded-xl shadow text-sm flex items-center justify-center gap-2">
+            <span>🔊</span><span id="q-speak-btn-text">英語を再生する</span>
+          </button>
+        </div>
+
+        <div class="py-1"><p id="q-question-text" class="text-base sm:text-xl font-black text-slate-900 leading-relaxed"></p></div>
+
+        <div id="mode-4choice" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+
+        <div id="mode-scramble" class="hidden space-y-4">
+          <div class="bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-4 min-h-[76px] flex flex-wrap gap-2 items-center" id="scramble-answer-zone"></div>
+          <div class="flex flex-wrap gap-2 justify-center" id="scramble-pool-zone"></div>
+          <div class="flex gap-2 justify-center pt-1">
+            <button onclick="resetScramble()" class="px-4 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 font-black text-xs text-slate-700">🔄 リセット</button>
+            <button onclick="submitScramble()" class="quest-btn px-7 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow">✅ これで決定！</button>
+          </div>
+        </div>
+
+        <div id="mode-writing" class="hidden space-y-4">
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center justify-between gap-2"><span class="text-xs font-black text-slate-700">✍️ あなたの英文を入力しよう</span><span id="writing-word-counter" class="text-xs font-black px-2.5 py-1 rounded-full bg-slate-200 text-slate-700">0 語</span></div>
+            <textarea id="writing-textarea" rows="5" spellcheck="false" oninput="updateWritingCount()" placeholder="ここに英文を入力（例：I think... / Hi Chris, ...）" class="w-full border-2 border-slate-300 focus:border-emerald-500 rounded-2xl p-3.5 text-sm sm:text-base font-medium outline-none bg-white"></textarea>
+            <p id="writing-auto-checks" class="text-[11px] font-bold text-slate-500"></p>
+          </div>
+          <button id="writing-submit-btn" onclick="openWritingSelfJudge()" class="quest-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-2xl shadow text-sm">📝 書き終えた！模範解答と見比べる</button>
+          <div id="writing-judge-panel" class="hidden bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 space-y-3">
+            <div class="text-sm font-black text-amber-950">🔍 模範解答と比べて、4つのポイントをチェックしよう！</div>
+            <div id="writing-models-box" class="space-y-2 text-xs"></div>
+            <div class="space-y-2 pt-1 text-xs font-bold text-slate-800">
+              <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【内容】質問（2つの質問すべて）にしっかり答えている</span></label>
+              <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【構成】話のつながり（First, Second, Also等）が自然だ</span></label>
+              <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【語彙】語数目安を満たし、適切な単語を使えている</span></label>
+              <label class="flex items-start gap-2 bg-white p-2.5 rounded-xl border border-amber-200 cursor-pointer"><input type="checkbox" class="rubric-cb accent-emerald-600 w-4 h-4 mt-0.5" /><span>【文法】文頭の大文字・ピリオド・時制などに大きなミスがない</span></label>
+            </div>
+            <button onclick="finalizeWritingJudge()" class="quest-btn w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-3 rounded-xl shadow text-sm">✅ 自己採点を確定する（3つ以上で合格！）</button>
+          </div>
+        </div>
+
+        <div id="mode-interview" class="hidden space-y-4">
+          <div class="bg-slate-900 text-white rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-4">
+            <img id="interview-examiner-img" alt="面接官番長" class="w-20 h-20 object-contain bg-white/10 rounded-xl p-1 flex-shrink-0" referrerpolicy="no-referrer" />
+            <div class="flex-1 text-center sm:text-left space-y-1.5">
+              <div class="text-xs font-black text-amber-300">🎙️ バーチャル面接官：プリント番長</div>
+              <p id="interview-guide-text" class="text-xs sm:text-sm text-slate-200 font-bold"></p>
+              <div class="flex flex-wrap justify-center sm:justify-start gap-2 pt-1">
+                <button id="interview-timer-btn" onclick="startSilentReadTimer()" class="hidden text-xs font-black bg-amber-400 hover:bg-amber-300 text-slate-950 px-3 py-1.5 rounded-lg">⏱️ 20秒黙読スタート (<span id="silent-timer-sec">20</span>秒)</button>
+                <button id="interview-reveal-q-btn" onclick="revealInterviewQuestion()" class="hidden text-xs font-bold bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg">👀 質問英文を見る</button>
+              </div>
+              <p id="interview-q-revealed" class="hidden text-xs bg-slate-800 text-emerald-300 p-2 rounded-lg font-bold mt-1"></p>
+            </div>
+          </div>
+          <div class="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-4 space-y-3 text-center">
+            <div class="flex flex-wrap justify-center gap-2">
+              <button id="mic-record-btn" onclick="toggleSpeechRecognition()" class="quest-btn bg-rose-600 hover:bg-rose-500 text-white font-black px-5 py-2.5 rounded-xl shadow text-sm flex items-center gap-2"><span>🎤</span><span id="mic-btn-label">マイクで英語を話して判定</span></button>
+              <button onclick="openInterviewSelfJudge()" class="quest-btn bg-slate-700 hover:bg-slate-600 text-white font-black px-4 py-2.5 rounded-xl text-xs">声に出した / 答え合わせへ ➔</button>
+            </div>
+            <p id="mic-status-msg" class="text-[11px] font-bold text-indigo-800"></p>
+            <div id="mic-transcript-box" class="hidden bg-white border border-indigo-200 rounded-xl p-3 text-left space-y-1">
+              <div class="text-[10px] font-black text-slate-400">聞き取ったあなたの英語：</div>
+              <div id="mic-transcript-text" class="text-sm font-bold text-slate-900"></div>
+              <div id="mic-match-score" class="text-xs font-black text-emerald-700"></div>
+            </div>
+          </div>
+          <div id="interview-judge-panel" class="hidden bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 space-y-3">
+            <div class="text-sm font-black text-amber-950">✨ お手本と聞き比べてチェックしよう！</div>
+            <div id="interview-models-box" class="space-y-2 text-xs"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+              <button onclick="finalizeInterviewJudge(true)" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl shadow text-sm">⭕ しっかり言えた！（合格）</button>
+              <button onclick="finalizeInterviewJudge(false)" class="quest-btn bg-rose-500 hover:bg-rose-400 text-white font-black py-3 rounded-xl shadow text-sm">💦 つまったので復習に入れる</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="q-feedback-area" class="hidden border-t-2 border-dashed border-amber-200 pt-4 space-y-3">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 bg-white border-2 rounded-2xl p-4" id="q-feedback-card">
+            <img id="quiz-char-img" alt="プリント番長" class="w-20 h-20 object-contain flex-shrink-0" referrerpolicy="no-referrer" />
+            <div class="flex-1 space-y-1.5 text-center sm:text-left">
+              <div id="q-judge-title" class="text-lg font-black"></div>
+              <div id="q-script-reveal" class="hidden text-xs bg-emerald-50 border border-emerald-200 text-emerald-900 p-2 rounded-lg font-bold"></div>
+              <p id="q-explanation-text" class="text-xs sm:text-sm text-slate-700 leading-relaxed"></p>
+              <div class="pt-1"><button id="q-replay-btn" onclick="speakAnswerAudio()" class="text-xs font-bold bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-3 py-1.5 rounded-lg">🔊 お手本音声を聞く</button></div>
+            </div>
+          </div>
+          <button id="q-next-btn" onclick="nextQuestion()" class="quest-btn w-full bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-black py-3.5 rounded-2xl shadow-lg text-base">次の問題へ ➔</button>
+        </div>
+
+        <div id="q-idle-char" class="flex items-center gap-3 bg-amber-50/70 border border-amber-200 rounded-2xl p-2.5">
+          <img id="quiz-idle-img" alt="プリント番長" class="w-12 h-12 object-contain flex-shrink-0" referrerpolicy="no-referrer" />
+          <p class="text-xs font-bold text-amber-950">焦らずじっくり考えよう！耳と口も使うと定着が倍になるよ！</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="result-view" class="hidden quest-card rounded-3xl p-5 sm:p-8 text-center space-y-5">
+      <div class="flex justify-center"><img id="result-char-img" alt="プリント番長" class="w-32 h-32 sm:w-36 sm:h-36 object-contain float-char" referrerpolicy="no-referrer" /></div>
+      <div class="space-y-1">
+        <div id="result-badge" class="inline-block text-xs font-black px-3 py-1 rounded-full"></div>
+        <h2 id="result-title" class="text-2xl sm:text-3xl font-black text-slate-900"></h2>
+        <p id="result-subtitle" class="text-sm text-slate-600 font-bold"></p>
+      </div>
+      <div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto">
+        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3"><div class="text-[11px] font-bold text-emerald-700">正答率</div><div class="text-xl sm:text-2xl font-black text-emerald-700"><span id="res-pct">0</span>%</div></div>
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3"><div class="text-[11px] font-bold text-amber-700">正解数</div><div class="text-xl sm:text-2xl font-black text-amber-700"><span id="res-correct">0</span>/<span id="res-total">10</span></div></div>
+        <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-3"><div class="text-[11px] font-bold text-indigo-700">獲得XP</div><div class="text-xl sm:text-2xl font-black text-indigo-700">+<span id="res-xp">0</span></div></div>
+      </div>
+      <div id="result-unlock-box" class="hidden bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-400 text-amber-950 font-black p-4 rounded-2xl text-sm"></div>
+      <div id="result-cert-btn-box" class="hidden"><button onclick="openCertificateModal()" class="quest-btn bg-gradient-to-r from-amber-400 to-yellow-500 text-slate-950 font-black px-8 py-3.5 rounded-2xl shadow-lg text-base">🏆 公式デジタル合格認定証を受け取る！</button></div>
+      <div id="result-mistakes-box" class="hidden text-left bg-rose-50 border border-rose-200 rounded-2xl p-4 space-y-2">
+        <h3 class="text-sm font-black text-rose-800">📝 今回間違えた問題（弱点リベンジに登録されました）</h3>
+        <div id="result-mistakes-list" class="space-y-2 text-xs"></div>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
+        <button id="res-retry-wrong-btn" onclick="retryMistakesNow()" class="hidden quest-btn bg-rose-600 hover:bg-rose-500 text-white font-black px-6 py-3 rounded-xl shadow">🔥 間違えた問題だけやり直す</button>
+        <button onclick="retrySameStage()" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-3 rounded-xl shadow">🔄 もう一度挑戦</button>
+        <button onclick="backToMap()" class="quest-btn bg-slate-800 hover:bg-slate-700 text-white font-black px-6 py-3 rounded-xl shadow">🗺️ マップへ戻る</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-300 border-t-4 border-amber-400 mt-10 py-6 text-center text-xs space-y-2">
+    <div class="flex flex-wrap justify-center gap-4 font-bold">
+      <a id="foot-home" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300">プリント番長 トップ</a>
+      <a id="foot-dojo" href="#" class="hover:text-amber-300">4択道場（5教科）</a>
+      <a id="foot-hensachi" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300">高校偏差値全国マップ</a>
+    </div>
+    <p class="text-slate-500">© プリント番長｜英検クエスト Ver.3.5</p>
+  </footer>
+
+  <div id="profile-modal" class="hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="quest-card rounded-3xl max-w-md w-full p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between"><h3 id="profile-modal-title" class="text-lg font-black text-slate-900">⚔️ 冒険者の登録・設定</h3><button onclick="closeProfileModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button></div>
+      <div id="profile-welcome-banner" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-3 flex items-center gap-3">
+        <img id="modal-char-img" alt="プリント番長" class="w-14 h-14 object-contain flex-shrink-0" referrerpolicy="no-referrer" />
+        <p class="text-xs font-bold text-emerald-950 leading-relaxed">英検クエストへようこそ！認定証やランキングで使う<strong>きみのニックネーム</strong>を決めて冒険を始めよう！</p>
+      </div>
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-black text-slate-700 mb-1">ニックネーム（必須・12文字まで）</label>
+          <input id="nickname-input" type="text" maxlength="12" placeholder="例：ケンジ / さくら3年" class="w-full border-2 border-slate-300 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 font-bold text-sm outline-none" />
+          <div class="flex justify-between items-center mt-1"><button onclick="setRandomNickname()" type="button" class="text-xs font-bold text-indigo-700 hover:underline">🎲 おまかせ名前（1万通り）</button><span class="text-[10px] text-slate-400">同名は#4桁タグで自動区別</span></div>
+          <p id="nickname-error" class="hidden text-xs font-bold text-rose-600 mt-1"></p>
+        </div>
+        <div>
+          <label class="block text-xs font-black text-slate-700 mb-1">あいことば（友達と競う場合・任意）</label>
+          <input id="roomcode-input" type="text" maxlength="16" placeholder="例：sakura3b（空欄でもOK）" class="w-full border-2 border-slate-300 focus:border-indigo-500 rounded-xl px-3.5 py-2 font-bold text-sm outline-none" />
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button id="profile-cancel-btn" onclick="closeProfileModal()" class="px-4 py-2.5 rounded-xl bg-slate-200 font-bold text-xs">閉じる</button>
+        <button onclick="saveProfile()" class="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow">⚔️ この名前で決定！</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="save-modal" class="hidden fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="quest-card rounded-3xl max-w-lg w-full p-6 space-y-4">
+      <div class="flex items-center justify-between"><h3 class="text-lg font-black text-slate-900">📜 復活のじゅもん（データ引き継ぎ）</h3><button onclick="closeSaveModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button></div>
+      <div class="space-y-1.5">
+        <label class="text-xs font-black text-slate-700">▶ 今の記録を書き出す</label>
+        <div class="flex gap-2"><input id="export-code-input" type="text" readonly class="flex-1 bg-slate-100 border border-slate-300 rounded-xl px-3 py-2 text-xs font-mono text-slate-700" /><button onclick="copySaveCode()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3.5 py-2 rounded-xl text-xs">コピー</button></div>
+        <p id="copy-msg" class="hidden text-xs font-bold text-emerald-600">✅ コピーしました！</p>
+      </div>
+      <div class="border-t border-amber-200 pt-3 space-y-1.5">
+        <label class="text-xs font-black text-slate-700">▶ じゅもんから復元する</label>
+        <textarea id="import-code-input" rows="2" placeholder="復活のじゅもんを貼り付け" class="w-full border-2 border-slate-300 rounded-xl p-2.5 text-xs font-mono outline-none"></textarea>
+        <p id="import-msg" class="hidden text-xs font-bold"></p>
+        <button onclick="importSaveCode()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-black py-2.5 rounded-xl text-xs shadow">データを復元する</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cert-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+    <div class="quest-card rounded-3xl max-w-2xl w-full p-5 sm:p-6 space-y-4 my-auto">
+      <div class="flex items-center justify-between"><h3 class="text-lg font-black text-slate-900">🏆 公式デジタル合格認定証（英検<span id="cert-grade-title">3級</span>）</h3><button onclick="closeCertificateModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button></div>
+      <div id="cert-locked-view" class="hidden bg-slate-50 border-2 border-slate-200 rounded-2xl p-5 space-y-3">
+        <p class="text-sm font-black text-slate-800">「本当に受かる力」がついた人にだけ発行される厳格な認定証です。全条件達成で発行されます。</p>
+        <div id="cert-conditions-list" class="space-y-2 text-xs font-bold"></div>
+      </div>
+      <div id="cert-unlocked-view" class="hidden space-y-3 text-center">
+        <p class="text-xs font-bold text-emerald-700">おめでとうございます！全技能の厳しい基準をクリアしました！</p>
+        <canvas id="cert-canvas" width="1200" height="800" class="w-full h-auto rounded-2xl border-4 border-amber-400 shadow-xl"></canvas>
+        <button onclick="downloadCertificatePng()" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-3 rounded-xl shadow text-sm">📥 認定証画像を保存する (PNG)</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const getTag4 = uuid => '#' + String(uuid || '0000').replace(/[^a-zA-Z0-9]/g, '').slice(-4).toUpperCase().padStart(4, '0');
+    const stripTag4 = nameStr => String(nameStr || '').replace(/#[A-Za-z0-9]{4}$/, '').trim();
+    const DEFAULT_NAMES = ['見習い冒険者', '番長ルーキー', '冒険者', '名無しの番長'];
+
+    function extractDriveId(u){
+      if(!u) return '';
+      const m = u.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || u.match(/[?&]id=([a-zA-Z0-9_-]+)/) || u.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      return m ? m[1] : '';
+    }
+
+    function setDriveImg(el, raw){
+      if(!el || !raw) return;
+      const id = extractDriveId(raw);
+      if(!id){ el.src = raw; return; }
+
+      const c = [
+        `https://lh3.googleusercontent.com/d/${id}`,
+        `https://drive.google.com/thumbnail?id=${id}&sz=w2000`,
+        `https://lh4.googleusercontent.com/d/${id}`,
+        `https://drive.google.com/uc?export=view&id=${id}`
+      ];
+      let i = 0;
+      el.referrerPolicy = 'no-referrer';
+      el.onerror = () => {
+        i++;
+        if(i < c.length) {
+          el.src = c[i];
+        } else {
+          el.onerror = null;
+        }
+      };
+      el.src = c[0];
+    }
+
+    const STORAGE_KEY='print_bancho_eiken_quest_v1';
+    const GRADE_LIST=[{id:'5級',label:'5級',active:false},{id:'4級',label:'4級',active:false},{id:'3級',label:'3級',active:true},{id:'準2級',label:'準2級',active:false},{id:'準2級プラス',label:'準2級+',active:false},{id:'2級',label:'2級',active:false},{id:'準1級',label:'準1級',active:false},{id:'1級',label:'1級',active:false}];
+    let allStages=[],allQuestions=[],currentGrade='3級';
+    const nowInit=new Date();let calViewYear=nowInit.getFullYear(),calViewMonth=nowInit.getMonth()+1;
+    let rankingData=[],rankingScope='all',rankingSort='weeklyCorrect',lastRankingFetchTime=0;
+    let userData={uuid:'',nickname:'冒険者',roomCode:'',profileSet:false,xp:0,streak:0,freezes:2,lastStudyDate:'',dailyCounts:{},dailyCorrectCounts:{},stageBest:{},wrongIds:[],solvedIds:[],questionCountMode:'standard',seEnabled:true,autoSpeak:true,speechRate:1.0,certSerial:''};
+    let quizSession={mode:'stage',stage:null,questions:[],currentIndex:0,correctCount:0,combo:0,mistakesInRun:[],answered:false,clearEligible:true,audioPlayCount:0};
+    let scramblePool=[],scrambleSelected=[],silentTimerInterval=null,speechRecognitionObj=null,isRecording=false,currentReplayAudio='',writingRange=[15,35];
+    let hasSentVisitEvent=false;
+
+    const genUuid=()=>window.crypto&&window.crypto.randomUUID?'ek_'+window.crypto.randomUUID().slice(0,18):'ek_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);
+    function getTodayStr(off=0){const d=new Date();d.setDate(d.getDate()+off);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+    function getWeekStartStr(){const d=new Date().getDay();return getTodayStr(d===0?-6:1-d);}
+    function getWeeklyCorrectTotal(){const s=getWeekStartStr();return Object.entries(userData.dailyCorrectCounts||{}).reduce((a,[d,c])=>d>=s?a+Number(c||0):a,0);}
+
+    function updateDojoLinks() {
+      const qUrl = DOJO_URL;
+      const dojoBanner = $('btn-to-dojo-banner');
+      if (dojoBanner) dojoBanner.href = qUrl;
+      const navDojo = $('nav-dojo');
+      if (navDojo) navDojo.href = qUrl;
+      const footDojo = $('foot-dojo');
+      if (footDojo) footDojo.href = qUrl;
+    }
+
+    function syncCommonAccountWithDojo() {
+      let commonUser = {};
+      try {
+        commonUser = JSON.parse(localStorage.getItem(STORAGE_KEY_COMMON_USER) || '{}');
+      } catch (e) { commonUser = {}; }
+
+      if (commonUser && commonUser.uuid) {
+        if (!userData.uuid || commonUser.uuid === userData.uuid) {
+          userData.uuid = commonUser.uuid;
+          const commonName = stripTag4(commonUser.nickname || commonUser.name || '');
+          const commonSet = typeof commonUser.profileSet === 'boolean'
+            ? commonUser.profileSet
+            : Boolean(commonName && !DEFAULT_NAMES.includes(commonName));
+
+          if (!userData.profileSet && commonSet && commonName) {
+            userData.nickname = commonName;
+            userData.profileSet = true;
+          }
+          const commonRoom = commonUser.roomCode !== undefined ? commonUser.roomCode : (commonUser.passcode || '');
+          if (!userData.roomCode && commonRoom) {
+            userData.roomCode = commonRoom;
+          }
+          if (commonUser.streak && Number(commonUser.streak) > (userData.streak || 0)) {
+            userData.streak = Number(commonUser.streak);
+          }
+          const commonLast = commonUser.lastDate || commonUser.lastStudyDate || '';
+          if (commonLast && (!userData.lastStudyDate || commonLast > userData.lastStudyDate)) {
+            userData.lastStudyDate = commonLast;
+          }
+          if (commonUser.freezeCount !== undefined) {
+            userData.freezes = Number(commonUser.freezeCount);
+          }
+        }
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const paramUid = (params.get('pbid') || '').trim().slice(0, 40);
+      let switchedFromParam = false;
+
+      if (paramUid && paramUid !== userData.uuid) {
+        const hasLocalProgress = Boolean(userData.uuid && (userData.profileSet || userData.xp > 0 || userData.solvedIds.length > 0 || userData.streak > 0));
+        if (!hasLocalProgress) {
+          userData.uuid = paramUid;
+          switchedFromParam = true;
+        } else {
+          const ok = confirm('4択道場など別のページから引き継がれたアカウントが見つかりました。\n現在のアカウント（ID）を切り替えますか？\n\n※「キャンセル」を押すと、この端末の記録をそのまま使います。');
+          if (ok) {
+            userData.uuid = paramUid;
+            userData.profileSet = false;
+            switchedFromParam = true;
+          }
+        }
+      }
+
+      return switchedFromParam;
+    }
+
+    async function syncProfileFromGas() {
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 3500);
+        const res = await fetch(`${RANKING_GAS_URL}?app=eiken&uuid=${encodeURIComponent(userData.uuid)}`, { signal: controller.signal });
+        clearTimeout(timer);
+        const d = await res.json();
+        if (d && d.myData) {
+          const srvName = stripTag4(d.myData.nickname || '');
+          if (!userData.profileSet && srvName && !DEFAULT_NAMES.includes(srvName)) {
+            userData.nickname = srvName;
+            userData.profileSet = true;
+          }
+          if (!userData.roomCode && d.myData.roomCode) {
+            userData.roomCode = d.myData.roomCode;
+            rankingScope = 'room';
+          }
+          if (d.myData.streak && Number(d.myData.streak) > (userData.streak || 0)) {
+            userData.streak = Number(d.myData.streak);
+            if (d.myData.updatedAt) userData.lastStudyDate = String(d.myData.updatedAt).slice(0, 10);
+          }
+          saveUserData();
+        }
+      } catch (e) {}
+    }
+
+    async function loadUserData(){
+      try{const r=localStorage.getItem(STORAGE_KEY);if(r)userData={...userData,...JSON.parse(r)};}catch(e){}
+      if(!userData.dailyCorrectCounts)userData.dailyCorrectCounts={};
+      if(!userData.solvedIds)userData.solvedIds=[];
+      if(!userData.questionCountMode)userData.questionCountMode='standard';
+
+      userData.nickname = stripTag4(userData.nickname || '') || '冒険者';
+      if(typeof userData.profileSet !== 'boolean'){
+        userData.profileSet = Boolean(userData.nickname && !DEFAULT_NAMES.includes(userData.nickname));
+      }
+
+      const switchedFromParam = syncCommonAccountWithDojo();
+
+      if(!userData.uuid)userData.uuid=genUuid();
+      if(userData.roomCode)rankingScope='room';
+
+      checkStreakOnLoad();
+      saveUserData();
+
+      if(switchedFromParam || !userData.profileSet){
+        await syncProfileFromGas();
+      }else{
+        syncProfileFromGas();
+      }
+    }
+
+    function saveUserData(){
+      try{
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(userData));
+
+        let existingCommon = {};
+        try { existingCommon = JSON.parse(localStorage.getItem(STORAGE_KEY_COMMON_USER) || '{}'); } catch(e){}
+
+        const commonUser = {
+          uuid: userData.uuid,
+          nickname: userData.nickname,
+          roomCode: userData.roomCode || '',
+          profileSet: Boolean(userData.profileSet),
+          streak: Number(userData.streak || 0),
+          lastDate: userData.lastStudyDate || '',
+          freezeCount: userData.freezes !== undefined ? Number(userData.freezes) : 2,
+          dojoXp: Number(existingCommon.dojoXp || 0)
+        };
+        localStorage.setItem(STORAGE_KEY_COMMON_USER, JSON.stringify(commonUser));
+      }catch(e){}
+      updateDojoLinks();
+    }
+
+    function checkStreakOnLoad(){
+      if(!userData.lastStudyDate){userData.streak=0;return;}
+      const t=getTodayStr(0),y=getTodayStr(-1);
+      if(userData.lastStudyDate===t||userData.lastStudyDate===y)return;
+      const diff=Math.round((new Date(t+'T00:00:00')-new Date(userData.lastStudyDate+'T00:00:00'))/86400000);
+      if(diff===2&&userData.freezes>0){userData.freezes-=1;userData.lastStudyDate=y;}else if(diff>=2){userData.streak=0;}
+    }
+
+    function recordAnswerProgress(ok,qid){
+      const t=getTodayStr(0);userData.dailyCounts[t]=(userData.dailyCounts[t]||0)+1;
+      if(userData.lastStudyDate!==t){
+        userData.streak=(userData.lastStudyDate===getTodayStr(-1))?(userData.streak||0)+1:1;userData.lastStudyDate=t;
+        if(userData.streak>0&&userData.streak%5===0&&userData.freezes<2)userData.freezes+=1;
+      }
+      if(ok){
+        userData.xp+=10;userData.dailyCorrectCounts[t]=(userData.dailyCorrectCounts[t]||0)+1;
+        userData.wrongIds=userData.wrongIds.filter(id=>id!==qid);
+        if(!userData.solvedIds.includes(qid))userData.solvedIds.push(qid);
+      }else{
+        userData.xp+=3;if(!userData.wrongIds.includes(qid))userData.wrongIds.push(qid);
+      }
+
+      try {
+        const hist = JSON.parse(localStorage.getItem(STORAGE_KEY_COMMON_HISTORY) || '{}');
+        if (!hist[t]) hist[t] = { count: 0 };
+        hist[t].count += 1;
+        localStorage.setItem(STORAGE_KEY_COMMON_HISTORY, JSON.stringify(hist));
+      } catch(e) {}
+
+      saveUserData();
+    }
+
+    let audioCtx=null;
+    function playSE(type){
+      if(!userData.seEnabled)return;
+      try{
+        if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+        if(audioCtx.state==='suspended')audioCtx.resume();
+        const now=audioCtx.currentTime,tone=(f,s,d,w='sine',v=.12)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=w;o.frequency.setValueAtTime(f,now+s);g.gain.setValueAtTime(v,now+s);g.gain.exponentialRampToValueAtTime(.001,now+s+d);o.connect(g);g.connect(audioCtx.destination);o.start(now+s);o.stop(now+s+d);};
+        if(type==='correct'){tone(523.25,0,.12,'triangle');tone(659.25,.08,.18,'triangle');}
+        else if(type==='wrong'){tone(220,0,.18,'sawtooth',.08);tone(185,.12,.25,'sawtooth',.08);}
+        else if(type==='clear'){tone(523.25,0,.12,'triangle');tone(659.25,.1,.12,'triangle');tone(783.99,.2,.12,'triangle');tone(1046.5,.3,.35,'triangle');}
+      }catch(e){}
+    }
+    function toggleSE(){userData.seEnabled=!userData.seEnabled;saveUserData();$('se-toggle-btn').textContent=userData.seEnabled?'🔊':'🔇';}
+
+    let cachedVoice=null;
+    function pickVoice(){if(!('speechSynthesis'in window))return null;const v=window.speechSynthesis.getVoices()||[];cachedVoice=v.find(x=>/en[-_]US/i.test(x.lang)&&/Google|Samantha|Alex|Natural|Microsoft/i.test(x.name))||v.find(x=>/en[-_]US/i.test(x.lang))||v.find(x=>/^en/i.test(x.lang))||null;return cachedVoice;}
+    if('speechSynthesis'in window){window.speechSynthesis.onvoiceschanged=pickVoice;pickVoice();}
+    function stopSpeech(){if('speechSynthesis'in window)try{window.speechSynthesis.cancel();}catch(e){}}
+    function speakEnglish(txt){if(!txt||!('speechSynthesis'in window))return;stopSpeech();const u=new SpeechSynthesisUtterance(txt);u.lang='en-US';u.rate=userData.speechRate||1.0;const v=cachedVoice||pickVoice();if(v)u.voice=v;try{window.speechSynthesis.speak(u);}catch(e){}}
+    function setSpeechRate(r){userData.speechRate=r;saveUserData();renderVoiceControls();}
+    function cycleSpeechRateInQuiz(){const r=[0.75,1.0,1.2];setSpeechRate(r[(r.indexOf(userData.speechRate)+1)%r.length]);}
+    function saveVoiceSettings(){userData.autoSpeak=$('auto-speak-checkbox').checked;saveUserData();}
+    function renderVoiceControls(){
+      $('auto-speak-checkbox').checked=userData.autoSpeak;$('quiz-rate-btn').textContent=`${userData.speechRate}x`;
+      document.querySelectorAll('.rate-btn').forEach(b=>b.className=parseFloat(b.dataset.rate)===userData.speechRate?'rate-btn px-2 py-1 rounded-lg border bg-emerald-600 text-white border-emerald-600':'rate-btn px-2 py-1 rounded-lg border bg-white text-emerald-800 border-emerald-300');
+    }
+
+    async function fetchSheetRows(name){
+      const res=await fetch(`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&headers=1&sheet=${encodeURIComponent(name)}`);
+      if(!res.ok)throw new Error(`HTTP ${res.status}`);
+      const m=(await res.text()).match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?/);
+      if(!m)throw new Error(`シート「${name}」解析エラー`);
+      const j=JSON.parse(m[1]);if(j.status==='error')throw new Error(j.errors?.[0]?.detailed_message||name);
+      return(j.table?.rows||[]).map(r=>(r.c||[]).map(c=>c?String(c.f??c.v??'').trim():''));
+    }
+
+    async function initApp(){
+      $('loading-view').classList.remove('hidden');$('error-view').classList.add('hidden');$('map-view').classList.add('hidden');
+      ['nav-home','foot-home'].forEach(i=>$(i).href=MAIN_SITE_URL);
+      $('foot-hensachi').href=HENSACHI_URL;
+
+      setDriveImg($('top-banner-img'), QUEST_TOP_BANNER_URL);
+      setDriveImg($('quiz-idle-img'),CHAR_IMG_NORMAL);setDriveImg($('modal-char-img'),CHAR_IMG_HAPPY);setDriveImg($('interview-examiner-img'),CHAR_IMG_NORMAL);
+
+      try{
+        const[sr,qr]=await Promise.all([fetchSheetRows(SHEET_STAGES),fetchSheetRows(SHEET_QUESTIONS),loadUserData()]);
+        $('se-toggle-btn').textContent=userData.seEnabled?'🔊':'🔇';
+        renderVoiceControls();
+        updateDojoLinks();
+
+        allStages=sr.filter(r=>r[0]&&r[0]!=='ステージID'&&r[11]==='公開').map(r=>({id:r[0],grade:r[1],chapterNum:Number(r[2]||1),continentName:r[3]||'大陸',stageNum:Number(r[4]||1),name:r[5],iconType:r[6]||'normal',prereqId:r[7]||'',passLine:Number(r[8]||80),questionCount:Number(r[9]||10),rewardXp:Number(r[10]||100),order:Number(r[12]||999)})).sort((a,b)=>a.order-b.order);
+        allQuestions=qr.filter(r=>r[0]&&r[0]!=='問題ID'&&r[19]==='公開').map(r=>({id:r[0],grade:r[1],skill:r[2]||'語彙・文法',stageId:r[3],type:r[4]||'4択',difficulty:r[5]||'標準',targetSec:Number(r[6]||20),passage:r[7]||'',question:r[8]||'',audioScript:r[9]||'',imageUrl:r[10]||'',choiceA:r[11]||'',choiceB:r[12]||'',choiceC:r[13]||'',choiceD:r[14]||'',correctRaw:r[15]||'A',hint:r[16]||'',explanation:r[17]||'',tag:r[18]||'',order:Number(r[20]||9999)})).sort((a,b)=>a.order-b.order);
+        if(!allStages.length||!allQuestions.length)throw new Error('公開データが見つかりません');
+        $('total-pool-count').textContent=allQuestions.length;
+        $('loading-view').classList.add('hidden');$('map-view').classList.remove('hidden');
+        renderDashboard();fetchRanking(false);
+        if(!userData.profileSet)setTimeout(()=>openProfileModal(true),350);
+      }catch(e){$('loading-view').classList.add('hidden');$('error-view').classList.remove('hidden');$('error-message').textContent=e.message;}
+    }
+
+    function renderDashboard(){renderStreakBanner();renderGradeTabs();renderCountModeUI();renderProfileStats();renderMonthlyCalendar();renderPassMeter();renderRevengeBanner();renderWorldMap();renderRankingUI();}
+
+    function setQuestionCountMode(m){userData.questionCountMode=m;saveUserData();renderCountModeUI();}
+    function renderCountModeUI(){
+      const m=userData.questionCountMode||'standard';
+      document.querySelectorAll('.cmode-btn').forEach(b=>{
+        const act=b.dataset.cmode===m;
+        b.className=`cmode-btn py-2 px-2 rounded-xl border-2 transition ${act?(m==='5'?'bg-amber-400 border-amber-500 text-slate-950 shadow':'bg-emerald-600 border-emerald-700 text-white shadow'):'bg-white border-slate-300 text-slate-700 hover:border-emerald-400'}`;
+      });
+      const notes={
+        '5':'※忙しい日の継続用（少数のためステージ解放・クリア対象外）',
+        'standard':'✅ 一番定着しやすい標準コース（ステージクリア対象）',
+        '20':'🔥 テスト前におすすめ！20問集中コース（クリア対象）',
+        '30':'👑 一気に全問制覇を目指す特訓コース（クリア対象）'
+      };
+      $('count-mode-note').textContent=notes[m]||notes.standard;
+      $('count-mode-note').className=`text-[11px] font-bold ${m==='5'?'text-orange-600':'text-emerald-700'}`;
+    }
+
+    function getStreakTier(s){
+      if(s>=50)return{icon:'💎',badge:'MYTHIC｜神話級マスター',cls:'streak-rainbow text-white border-white streak-gold-glow',ibg:'bg-white/25',next:100,sub:'驚異の継続力！あなたの努力は本物の実力になっています！'};
+      if(s>=30)return{icon:'🌈',badge:'LEGEND｜1ヶ月レジェンド',cls:'streak-rainbow text-white border-amber-200 streak-gold-glow',ibg:'bg-white/25',next:50,sub:'30日突破！最強の英語習慣が身につきました！'};
+      if(s>=14)return{icon:'👑',badge:'HERO｜2週間ヒーロー',cls:'bg-gradient-to-r from-purple-700 via-indigo-700 to-fuchsia-700 text-white border-amber-300 streak-gold-glow',ibg:'bg-amber-400/30',next:30,sub:'2週間連続！次は「30日レインボー」を目指そう！'};
+      if(s>=7)return{icon:'🥇',badge:'GOLD｜1週間マスター',cls:'bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 text-slate-950 border-yellow-200 streak-gold-glow',ibg:'bg-white/50',next:14,sub:'1週間クリア！次は「14日ヒーロー」に進化するぞ！'};
+      if(s>=3)return{icon:'🥉',badge:'BRONZE｜三日坊主突破！',cls:'bg-gradient-to-r from-amber-700 via-orange-600 to-amber-600 text-white border-amber-300',ibg:'bg-white/20',next:7,sub:'最初の壁を突破！あと数日で黄金の1週間マスター！'};
+      if(s>=1)return{icon:'🔥',badge:'IGNITION｜冒険の炎！',cls:'bg-gradient-to-r from-orange-500 to-rose-500 text-white border-orange-300',ibg:'bg-white/20',next:3,sub:'ナイススタート！まずは3日連続で銅バッジを目指そう！'};
+      return{icon:'🌱',badge:'START｜今日から1日目！',cls:'bg-gradient-to-r from-slate-800 to-emerald-900 text-white border-emerald-400',ibg:'bg-emerald-500/20',next:3,sub:'1問でも解けば連続記録スタート！毎日コツコツが合格の近道！'};
+    }
+
+    function renderStreakBanner(){
+      const s=userData.streak||0,t=getStreakTier(s);
+      $('streak-milestone-banner').className=`rounded-3xl p-4 sm:p-5 border-2 shadow-lg transition-all duration-500 ${t.cls}`;
+      $('streak-tier-icon').className=`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shadow-inner flex-shrink-0 ${t.ibg}`;
+      $('streak-tier-icon').textContent=t.icon;
+      $('streak-tier-badge').className='inline-block text-[11px] font-black px-2.5 py-0.5 rounded-full mb-1 bg-black/20';
+      $('streak-tier-badge').textContent=t.badge;
+      $('streak-headline').textContent=s>0?`🔥 ${s}日連続達成中！`:'今日から連続記録を始めよう！';
+      $('streak-subtext').textContent=t.sub;
+      $('streak-next-label').textContent=`目標 ${t.next}日連続`;
+      $('streak-next-days').textContent=`あと ${Math.max(0,t.next-s)}日`;
+      $('streak-next-bar').style.width=`${Math.min(100,Math.round((s/t.next)*100))}%`;
+      $('stat-freeze').textContent=userData.freezes;$('stat-today-count').textContent=userData.dailyCounts[getTodayStr(0)]||0;
+    }
+
+    function renderGradeTabs(){
+      $('grade-tabs').innerHTML=GRADE_LIST.map(g=>{
+        const ok=g.active&&allStages.some(s=>s.grade===g.id);
+        return ok?`<button onclick="selectGrade('${g.id}')" class="px-3 py-1.5 rounded-xl text-xs font-black border-2 ${currentGrade===g.id?'bg-emerald-600 text-white border-emerald-700 shadow':'bg-white text-slate-700 border-slate-300'}">${g.label} <span class="text-[10px] bg-amber-300 text-slate-900 px-1.5 rounded ml-1">公開中</span></button>`:`<button disabled class="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-400 border border-slate-200">${g.label} <span class="text-[9px]">準備中</span></button>`;
+      }).join('');
+    }
+    function selectGrade(g){currentGrade=g;renderDashboard();}
+
+    function renderProfileStats(){
+      const lv=Math.floor(userData.xp/100)+1,inXp=userData.xp%100,titles=['はじめの冒険者','単語ハンター','文法の旅人','リスニング騎士','英作文マスター','面接チャンピオン','英検レジェンド'];
+      $('stat-level').textContent=lv;$('stat-nickname').textContent=userData.nickname;$('stat-user-tag').textContent=getTag4(userData.uuid);$('header-nickname-badge').textContent=userData.nickname;
+      $('stat-rank-title').textContent=`称号：${titles[Math.min(Math.floor((lv-1)/2),titles.length-1)]}`;
+      $('stat-xp').textContent=userData.xp;$('stat-next-xp').textContent=100-inXp;$('stat-xp-bar').style.width=`${inXp}%`;
+      $('stat-weekly-correct').textContent=getWeeklyCorrectTotal();
+      $('stat-solved-total').textContent=allQuestions.filter(q=>q.grade===currentGrade&&userData.solvedIds.includes(q.id)).length;
+      const rb=$('stat-room-badge');if(userData.roomCode){rb.classList.remove('hidden');rb.textContent=`🔑 ${userData.roomCode}`;}else rb.classList.add('hidden');
+    }
+
+    function changeCalendarMonth(d){calViewMonth+=d;if(calViewMonth<1){calViewMonth=12;calViewYear-=1;}if(calViewMonth>12){calViewMonth=1;calViewYear+=1;}renderMonthlyCalendar();}
+    function renderMonthlyCalendar(){
+      const t=new Date();$('cal-next-btn').disabled=(calViewYear===t.getFullYear()&&calViewMonth===(t.getMonth()+1));
+      $('cal-month-title').textContent=`${calViewYear}年${calViewMonth}月`;
+      let commonHist={};try{commonHist=JSON.parse(localStorage.getItem(STORAGE_KEY_COMMON_HISTORY)||'{}');}catch(e){}
+      const fw=new Date(calViewYear,calViewMonth-1,1).getDay(),days=new Date(calViewYear,calViewMonth,0).getDate(),ts=getTodayStr(0);
+      let ad=0,mq=0,h='';for(let i=0;i<fw;i++)h+='<div class="h-10"></div>';
+      for(let d=1;d<=days;d++){
+        const ds=`${calViewYear}-${String(calViewMonth).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const cnt=Math.max(userData.dailyCounts[ds]||0, Number(commonHist[ds]?.count||0));
+        if(cnt>0){ad++;mq+=cnt;}
+        let c='bg-slate-100 border-slate-200 text-slate-400';
+        if(cnt>=30)c='bg-amber-400 border-amber-500 text-slate-950';else if(cnt>=20)c='bg-emerald-600 border-emerald-700 text-white';else if(cnt>=10)c='bg-emerald-400 border-emerald-500 text-white';else if(cnt>=1)c='bg-emerald-200 border-emerald-300 text-emerald-950';
+        h+=`<div class="h-10 rounded-lg border flex flex-col items-center justify-center leading-none ${c} ${ds===ts?'ring-2 ring-rose-500':''}"><span class="text-[11px] font-bold">${d}</span><span class="text-[9px] font-black mt-0.5">${cnt>=30?'★'+cnt:(cnt>0?cnt+'問':'')}</span></div>`;
+      }
+      $('monthly-calendar-grid').innerHTML=h;$('cal-month-summary').textContent=`学習日数 ${ad}日 ／ 合計 ${mq}問`;
+    }
+
+    function getSkillStats(g){
+      const gs=allStages.filter(s=>s.grade===g);
+      return['語彙・文法','リスニング','会話・読解','ライティング','二次面接'].map(sk=>{
+        const m=gs.filter(st=>allQuestions.some(q=>q.stageId===st.id&&q.skill===sk));
+        if(!m.length)return{name:sk,pct:0,hasStages:false};
+        return{name:sk,pct:Math.round(m.reduce((a,st)=>a+(userData.stageBest[st.id]?.pct||0),0)/m.length),hasStages:true};
+      });
+    }
+    function renderPassMeter(){
+      $('meter-grade-label').textContent=currentGrade;
+      const ss=getSkillStats(currentGrade),ov=Math.round(ss.reduce((a,b)=>a+b.pct,0)/ss.length);
+      $('pass-meter-pct').textContent=`${ov}%`;$('pass-meter-bar').style.width=`${ov}%`;
+      $('skill-bars').innerHTML=ss.map(s=>`<div class="flex items-center gap-2"><span class="w-20 font-bold text-slate-600 truncate">${s.name}</span><div class="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full ${s.pct>=75?'bg-emerald-500':'bg-amber-400'} transition-all duration-500" style="width:${s.pct}%"></div></div><span class="w-9 text-right font-black text-slate-700">${s.pct}%</span></div>`).join('');
+    }
+    function renderRevengeBanner(){
+      const w=userData.wrongIds.filter(id=>allQuestions.some(q=>q.id===id&&q.grade===currentGrade));
+      if(w.length>0){$('revenge-banner').classList.remove('hidden');$('revenge-count').textContent=w.length;}else $('revenge-banner').classList.add('hidden');
+    }
+    const isStageUnlocked=st=>!st.prereqId||Boolean(userData.stageBest[st.prereqId]?.cleared);
+
+    function renderWorldMap(){
+      const ch={};allStages.filter(s=>s.grade===currentGrade).forEach(st=>{const k=`${st.chapterNum}:${st.continentName}`;if(!ch[k])ch[k]=[];ch[k].push(st);});
+      $('quest-map-container').innerHTML=Object.entries(ch).map(([k,sts])=>{
+        const cn=k.split(':').slice(1).join(':');
+        return`<div class="quest-card rounded-3xl p-4 sm:p-5 space-y-4"><div class="flex items-center border-b-2 border-amber-200 pb-2.5"><h2 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2"><span class="bg-amber-400 text-slate-950 px-2.5 py-0.5 rounded-lg text-xs">MAP</span><span>${esc(cn)}</span></h2></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">${sts.map(st=>{
+          const un=isStageUnlocked(st),b=userData.stageBest[st.id],cl=b?.cleared,p=b?.pct||0,bo=st.iconType==='boss';
+          const pool=allQuestions.filter(q=>q.stageId===st.id),solvedCnt=pool.filter(q=>userData.solvedIds.includes(q.id)).length;
+          const ic=!un?'🔒':(bo?'👑':(st.iconType==='listen'?'🎧':(st.chapterNum===5?'✍️':(st.chapterNum===6?'🎙️':'⚔️'))));
+          return`<div class="rounded-2xl border-2 p-4 flex flex-col justify-between gap-3 ${!un?'bg-slate-100 border-slate-300 opacity-75':(cl?'bg-emerald-50/70 border-emerald-400 shadow-sm':(bo?'bg-amber-50 border-amber-400 shadow-md':'bg-white border-amber-300 shadow-sm'))}">
+            <div class="space-y-1.5"><div class="flex items-center justify-between gap-2"><span class="text-[11px] font-black px-2 py-0.5 rounded-full ${bo?'bg-rose-600 text-white':'bg-slate-800 text-amber-300'}">STAGE ${st.stageNum}</span>${cl?`<span class="text-xs font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">★ クリア (${p}%)</span>`:(b?`<span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-full">最高 ${p}%</span>`:`<span class="text-[11px] font-bold text-slate-500">目標 ${st.passLine}%</span>`)}</div>
+            <h3 class="font-black text-base text-slate-900 flex items-center gap-1.5"><span>${ic}</span><span>${esc(st.name)}</span></h3>
+            <div class="flex justify-between text-xs text-slate-500 font-bold"><span>制覇 ${solvedCnt}/${pool.length}問</span><span>報酬 +${st.rewardXp} XP</span></div></div>
+            ${un?`<button onclick="startStage('${st.id}')" class="quest-btn w-full py-2.5 rounded-xl font-black text-sm shadow ${bo?'bg-gradient-to-r from-rose-600 to-orange-500 text-white':'bg-emerald-600 hover:bg-emerald-500 text-white'}">${cl?'もう一度挑戦！':'冒険スタート！'}</button>`:`<div class="text-center text-xs font-bold text-slate-500 bg-slate-200 py-2.5 rounded-xl">前のステージをクリアで解放</div>`}
+          </div>`;
+        }).join('')}</div></div>`;
+      }).join('');
+    }
+
+    async function syncScoreToGas(manual=false, studiedNow=false){
+      if(!RANKING_GAS_URL||!userData.profileSet){if(manual)openProfileModal(false);return;}
+      if(manual)$('ranking-sync-status').textContent='送信中...';
+      const pl={
+        appType:'eiken',
+        uuid:userData.uuid,
+        nickname:userData.nickname,
+        roomCode:userData.roomCode||'',
+        grade:currentGrade,
+        weeklyCorrect:getWeeklyCorrectTotal(),
+        streak:userData.streak||0,
+        clearedStages:Object.values(userData.stageBest||{}).filter(v=>v.cleared).length,
+        xp:userData.xp||0,
+        badge:getStreakTier(userData.streak||0).icon,
+        studiedToday:studiedNow
+      };
+      try{const r=await fetch(RANKING_GAS_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(pl)});const d=await r.json();$('ranking-sync-status').textContent=d.ok?'同期完了':(d.error||'エラー');if(d.ok)fetchRanking(true);}
+      catch(e){if(manual)$('ranking-sync-status').textContent='同期完了';setTimeout(()=>fetchRanking(true),1200);}
+    }
+
+    async function fetchRanking(force=false){
+      if(!RANKING_GAS_URL||(!force&&Date.now()-lastRankingFetchTime<30000&&rankingData.length>0))return;
+      $('ranking-sync-status').textContent='更新中...';
+      try{
+        const url=`${RANKING_GAS_URL}?app=eiken&uuid=${encodeURIComponent(userData.uuid)}`;
+        const d=await(await fetch(url)).json();
+        if(d.ok&&Array.isArray(d.rows)){rankingData=d.rows;lastRankingFetchTime=Date.now();$('ranking-sync-status').textContent=`${rankingData.length}人参加中`;renderRankingUI();}
+      }catch(e){$('ranking-sync-status').textContent='通信エラー';}
+    }
+
+    function setRankingScope(s){rankingScope=s;renderRankingUI();}
+    function setRankingSort(s){rankingSort=s;renderRankingUI();}
+    function renderRankingUI(){
+      $('tab-scope-room').className=`px-3 py-1.5 rounded-lg text-xs font-black ${rankingScope==='room'?'bg-indigo-600 text-white shadow':'text-slate-600'}`;
+      $('tab-scope-all').className=`px-3 py-1.5 rounded-lg text-xs font-black ${rankingScope==='all'?'bg-emerald-600 text-white shadow':'text-slate-600'}`;
+      ['weeklyCorrect','streak','xp'].forEach(k=>$('sort-'+k).className=`px-2.5 py-1 rounded-lg border ${rankingSort===k?'bg-amber-400 border-amber-500 text-slate-950':'bg-white border-slate-300 text-slate-600'}`);
+      if(rankingScope==='room'&&!userData.roomCode){$('ranking-room-empty-guide').classList.remove('hidden');$('ranking-list').innerHTML='';$('my-rank-footer').classList.add('hidden');return;}
+      $('ranking-room-empty-guide').classList.add('hidden');
+      let fl=(rankingScope==='room'?rankingData.filter(r=>r.roomCode===userData.roomCode):[...rankingData]).sort((a,b)=>(b[rankingSort]-a[rankingSort])||(b.xp-a.xp));
+      if(!fl.length){$('ranking-list').innerHTML='<div class="text-center text-xs text-slate-500 py-6 bg-slate-50 rounded-2xl">まだ記録がありません。「📤 記録を送信」を押してみよう！</div>';$('my-rank-footer').classList.add('hidden');return;}
+      const unit=rankingSort==='weeklyCorrect'?'問':(rankingSort==='streak'?'日連続':' XP');
+      $('ranking-list').innerHTML=fl.slice(0,15).map((it,idx)=>{
+        const rk=idx+1,me=it.uuid===userData.uuid,md=rk===1?'🥇':(rk===2?'🥈':(rk===3?'🥉':`${rk}位`)),tag4=getTag4(it.uuid),cleanName=stripTag4(it.nickname)||'冒険者';
+        return`<div class="flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-2xl border-2 ${me?'bg-emerald-50 border-emerald-500':'bg-white border-slate-200'}"><div class="flex items-center gap-2.5 min-w-0"><span class="w-8 text-center font-black ${rk<=3?'text-xl':'text-xs text-slate-500'}">${md}</span><span class="text-lg">${esc(it.badge||'⚔️')}</span><div class="min-w-0"><div class="font-black text-sm text-slate-900 truncate flex items-center gap-1">${esc(cleanName)} <span class="text-[10px] font-mono font-bold text-slate-400">${esc(tag4)}</span> ${me?'<span class="text-[10px] bg-emerald-600 text-white px-1.5 rounded">あなた</span>':''}</div><div class="text-[10px] text-slate-500 font-bold">🔥 ${it.streak}日連続 ・ クリア${it.clearedStages}面 ・ ${it.xp}XP</div></div></div><div class="text-right flex-shrink-0"><span class="font-black text-base text-indigo-700">${it[rankingSort]}</span><span class="text-[11px] font-bold text-slate-500">${unit}</span></div></div>`;
+      }).join('');
+      const mi=fl.findIndex(r=>r.uuid===userData.uuid);
+      if(mi!==-1){$('my-rank-footer').classList.remove('hidden');$('my-rank-footer').innerHTML=`<span>🎯 あなたの現在順位：<strong>${mi+1}位</strong> / ${fl.length}人中</span><span>${fl[mi][rankingSort]}${unit}</span>`;}else $('my-rank-footer').classList.add('hidden');
+    }
+
+    function shuffle(a){const c=[...a];for(let i=c.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[c[i],c[j]]=[c[j],c[i]];}return c;}
+    function pickPrioritized(pool, count){
+      const unsolved=shuffle(pool.filter(q=>!userData.solvedIds.includes(q.id)));
+      const solved=shuffle(pool.filter(q=>userData.solvedIds.includes(q.id)));
+      return[...unsolved,...solved].slice(0,Math.min(count,pool.length));
+    }
+
+    function startStage(sid){
+      const st=allStages.find(s=>s.id===sid);if(!st)return;
+      const pool=allQuestions.filter(q=>q.stageId===sid);
+      if(!pool.length){alert('このステージの問題は準備中です！');return;}
+      const isIv=pool.some(q=>q.type==='面接音読'||q.type==='面接QA');
+      const cm=userData.questionCountMode||'standard';
+      const targetCnt=isIv?st.questionCount:(cm==='standard'?st.questionCount:Number(cm));
+      const picked=isIv?pool.slice(0,st.questionCount):pickPrioritized(pool,targetCnt);
+      const clearEligible=isIv||(cm!=='5')||(pool.length<=5);
+      launchQuiz({mode:'stage',stage:st,questions:picked,clearEligible});
+    }
+    function startRevengeQuest(){
+      const p=allQuestions.filter(q=>userData.wrongIds.includes(q.id)&&q.grade===currentGrade);if(!p.length)return;
+      const cm=userData.questionCountMode||'standard';
+      const cnt=(cm==='5'||cm==='20'||cm==='30')?Number(cm):10;
+      launchQuiz({mode:'revenge',stage:{id:'REVENGE',name:'🔥 弱点リベンジクエスト',passLine:80,rewardXp:150},questions:shuffle(p).slice(0,Math.min(cnt,p.length)),clearEligible:false});
+    }
+    function launchQuiz(cfg){
+      quizSession={...cfg,currentIndex:0,correctCount:0,combo:0,mistakesInRun:[],answered:false,audioPlayCount:0};
+      $('top-banner-wrapper').classList.add('hidden');
+      $('map-view').classList.add('hidden');
+      $('result-view').classList.add('hidden');
+      $('quiz-view').classList.remove('hidden');
+      $('quiz-stage-title').textContent=cfg.stage.name;$('quiz-total-num').textContent=cfg.questions.length;
+      $('quiz-mode-pill').textContent=cfg.mode==='revenge'?'復習':(cfg.clearEligible?'クリア対象':'ちょいトレ(記録用)');
+      window.scrollTo({top:0,behavior:'smooth'});renderQuestion();
+    }
+    function clearTimersAndMic(){if(silentTimerInterval){clearInterval(silentTimerInterval);silentTimerInterval=null;}if(speechRecognitionObj&&isRecording)try{speechRecognitionObj.stop();}catch(e){}isRecording=false;}
+
+    function renderQuestion(){
+      stopSpeech();clearTimersAndMic();
+      const q=quizSession.questions[quizSession.currentIndex],n=quizSession.currentIndex+1,tot=quizSession.questions.length;
+      quizSession.answered=false;quizSession.audioPlayCount=0;
+      $('quiz-current-num').textContent=n;$('quiz-progress-bar').style.width=`${Math.round(((n-1)/tot)*100)}%`;
+      if(quizSession.combo>=2){$('quiz-combo-badge').classList.remove('hidden');$('quiz-combo-badge').textContent=`🔥 ${quizSession.combo} COMBO!`;}else $('quiz-combo-badge').classList.add('hidden');
+      $('q-skill-badge').textContent=q.skill;$('q-diff-badge').textContent=q.difficulty;$('q-tag-badge').textContent=q.tag||'英検3級';
+      $('q-unsolved-badge').classList.toggle('hidden',userData.solvedIds.includes(q.id));
+      $('q-hint-box').classList.add('hidden');
+      const hp=(q.hint||'').split('|'),dh=hp.length>1?hp[1]:hp[0];
+      if(dh){$('q-hint-btn').classList.remove('hidden');$('q-hint-box').textContent=`💡 ヒント：${dh}`;}else $('q-hint-btn').classList.add('hidden');
+
+      if(q.passage){
+        $('q-passage-box').classList.remove('hidden');
+        $('q-passage-label').textContent=q.type==='自由英作文'?'📧 相手のメール / トピック':(q.type==='面接音読'||q.type==='面接QA'?'🃏 面接カード':'📜 英文パッセージ');
+        $('q-passage-speak-btn').classList.toggle('hidden',q.type==='面接音読'||q.passage.startsWith('【イラスト'));
+        $('q-passage-text').textContent=q.passage;
+      }else $('q-passage-box').classList.add('hidden');
+
+      const isL=q.type==='リスニング4択',isIv=q.type==='面接音読'||q.type==='面接QA',isFinalMock=quizSession.stage.id==='E3-S14'&&isL;
+      const sb=$('q-speak-btn');sb.disabled=false;
+      if(q.audioScript&&q.type!=='並べ替え'&&q.type!=='自由英作文'){
+        $('q-audio-box').classList.remove('hidden');
+        $('q-audio-label').textContent=isIv?(q.type==='面接音読'?'🎙️ お手本音声を聞く':'🎙️ 面接官の質問を聞く'):(isFinalMock?'🎧 【本番模試】音声は2回まで再生できます':(isL?'🎧 リスニング：音声を聞いて答えよう！':'🔊 この問題の英語を聞く'));
+        $('q-audio-sub').textContent=isFinalMock?'本番同様の集中力で聞き取ろう！':'耳でリズムと発音を覚えよう';
+        $('q-speak-btn-text').textContent=isIv&&q.type==='面接QA'?'質問を聞く':'英語を再生する';
+        sb.classList.toggle('pulse-sound',isL||q.type==='面接QA');
+      }else $('q-audio-box').classList.add('hidden');
+
+      $('q-question-text').textContent=q.question;
+      ['mode-4choice','mode-scramble','mode-writing','mode-interview','q-feedback-area'].forEach(i=>$(i).classList.add('hidden'));
+      $('q-idle-char').classList.remove('hidden');
+
+      if(q.type==='並べ替え')setupScramble(q);
+      else if(q.type==='自由英作文')setupWriting(q);
+      else if(isIv)setupInterview(q);
+      else setup4Choice(q);
+
+      if(q.audioScript&&(isL||q.type==='面接QA'||(userData.autoSpeak&&q.type==='4択')))setTimeout(()=>speakCurrentQuestion(),220);
+    }
+
+    function setup4Choice(q){
+      $('mode-4choice').classList.remove('hidden');
+      const cu=(q.correctRaw||'A').trim().toUpperCase(),lb=['A','B','C','D'];
+      const raw=[{k:'A',t:q.choiceA},{k:'B',t:q.choiceB},{k:'C',t:q.choiceC},{k:'D',t:q.choiceD}].filter(c=>c.t!=='');
+      $('mode-4choice').innerHTML=shuffle(raw).map((it,idx)=>`<button onclick="select4Choice(this,${it.k===cu})" data-correct="${it.k===cu}" class="choice-btn quest-btn text-left bg-white hover:bg-emerald-50 border-2 border-slate-300 hover:border-emerald-500 rounded-2xl p-3.5 sm:p-4 shadow-sm flex items-start gap-3"><span class="w-7 h-7 rounded-lg bg-slate-800 text-amber-300 font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">${lb[idx]}</span><span class="font-bold text-sm sm:text-base text-slate-800 leading-snug">${esc(it.t)}</span></button>`).join('');
+    }
+    function select4Choice(btn,ok){
+      if(quizSession.answered)return;
+      document.querySelectorAll('.choice-btn').forEach(b=>{b.disabled=true;if(b.dataset.correct==='true')b.className='choice-btn text-left bg-emerald-100 border-2 border-emerald-600 rounded-2xl p-3.5 sm:p-4 flex items-start gap-3 ring-2 ring-emerald-300';else if(b===btn&&!ok)b.className='choice-btn text-left bg-rose-100 border-2 border-rose-500 rounded-2xl p-3.5 sm:p-4 flex items-start gap-3';else b.className='choice-btn text-left bg-slate-50 border-2 border-slate-200 rounded-2xl p-3.5 sm:p-4 flex items-start gap-3 opacity-60';});
+      completeFeedback(ok,quizSession.questions[quizSession.currentIndex].audioScript);
+    }
+
+    function setupScramble(q){
+      $('mode-scramble').classList.remove('hidden');
+      scramblePool=shuffle((q.choiceA||q.correctRaw).split('|').map((t,i)=>({id:i,text:t.trim()})).filter(t=>t.text));
+      scrambleSelected=[];renderScramble();
+    }
+    function renderScramble(){
+      $('scramble-answer-zone').innerHTML=scrambleSelected.length?scrambleSelected.map((t,i)=>`<button onclick="unpickScramble(${i})" class="px-3 py-1.5 rounded-xl bg-emerald-600 text-white font-bold text-sm shadow">${esc(t.text)}</button>`).join(''):'<span class="text-xs text-slate-400 font-bold">下の単語を正しい順番にタップして並べよう...</span>';
+      $('scramble-pool-zone').innerHTML=scramblePool.map((t,i)=>`<button onclick="pickScramble(${i})" class="quest-btn px-3.5 py-2 rounded-xl bg-white border-2 border-slate-300 hover:border-emerald-500 font-bold text-sm text-slate-800 shadow-sm">${esc(t.text)}</button>`).join('');
+    }
+    function pickScramble(i){if(!quizSession.answered){scrambleSelected.push(scramblePool.splice(i,1)[0]);renderScramble();}}
+    function unpickScramble(i){if(!quizSession.answered){scramblePool.push(scrambleSelected.splice(i,1)[0]);renderScramble();}}
+    function resetScramble(){if(!quizSession.answered){scramblePool=shuffle([...scramblePool,...scrambleSelected]);scrambleSelected=[];renderScramble();}}
+    function submitScramble(){
+      if(quizSession.answered||!scrambleSelected.length)return;
+      const tgt=(quizSession.questions[quizSession.currentIndex].correctRaw||'').replace(/\s+/g,' ').trim();
+      const blt=scrambleSelected.map(t=>t.text).join(' ').replace(/\s+/g,' ').trim();
+      completeFeedback(blt.toLowerCase()===tgt.toLowerCase(),tgt);
+    }
+
+    function setupWriting(q){
+      $('mode-writing').classList.remove('hidden');$('writing-textarea').value='';$('writing-textarea').disabled=false;
+      $('writing-submit-btn').classList.remove('hidden');$('writing-judge-panel').classList.add('hidden');
+      document.querySelectorAll('.rubric-cb').forEach(c=>c.checked=false);
+      const m=(q.hint||'').split('|')[0].match(/(\d+)\s*-\s*(\d+)/);writingRange=m?[Number(m[1]),Number(m[2])]:[15,25];
+      updateWritingCount();
+    }
+    function updateWritingCount(){
+      const txt=$('writing-textarea').value.trim(),w=txt?txt.split(/\s+/).length:0,[mn,mx]=writingRange,c=$('writing-word-counter');
+      c.className=w>=mn&&w<=mx?'text-xs font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-400':'text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300';
+      c.textContent=w>=mn&&w<=mx?`✅ ${w} 語（目安 ${mn}〜${mx}語 OK!）`:`${w} 語（目安：${mn}〜${mx}語）`;
+      const ck=[];if(txt&&!/^[A-Z]/.test(txt))ck.push('⚠️ 書き出しは大文字にしよう');if(txt&&!/[.!?]$/.test(txt))ck.push('⚠️ 文末にピリオド(.)等を付けよう');
+      $('writing-auto-checks').textContent=ck.join(' ／ ');
+    }
+    function openWritingSelfJudge(){
+      const txt=$('writing-textarea').value.trim(),w=txt?txt.split(/\s+/).length:0,minReq=Math.max(8,writingRange[0]-5);
+      if(w<minReq){alert(`現在 ${w} 語です。合格力を身につけるため、最低 ${minReq} 語以上（目安 ${writingRange[0]}〜${writingRange[1]}語）書いてから提出しよう！`);return;}
+      const q=quizSession.questions[quizSession.currentIndex];
+      $('writing-textarea').disabled=true;$('writing-submit-btn').classList.add('hidden');$('writing-judge-panel').classList.remove('hidden');
+      $('writing-models-box').innerHTML=[q.choiceA,q.choiceB].filter(Boolean).map((m,i)=>`<div class="bg-white border border-amber-200 rounded-xl p-3 space-y-1"><div class="flex justify-between items-center"><span class="font-black text-emerald-700">模範解答 ${i+1}</span><button onclick="speakEnglish('${escJs(m)}')" class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">🔊 聞く</button></div><p class="font-bold text-slate-800">${esc(m)}</p></div>`).join('')+(q.choiceC?`<div class="text-rose-700 font-bold bg-rose-50 p-2 rounded-lg">📌 チェック：${esc(q.choiceC)}</div>`:'');
+    }
+    function finalizeWritingJudge(){
+      const cnt=Array.from(document.querySelectorAll('.rubric-cb')).filter(c=>c.checked).length;
+      const q=quizSession.questions[quizSession.currentIndex];
+      completeFeedback(cnt>=3,q.choiceA||q.correctRaw);
+    }
+
+    function setupInterview(q){
+      $('mode-interview').classList.remove('hidden');$('interview-judge-panel').classList.add('hidden');$('mic-transcript-box').classList.add('hidden');$('interview-q-revealed').classList.add('hidden');
+      const isR=q.type==='面接音読';$('interview-timer-btn').classList.toggle('hidden',!isR);$('interview-reveal-q-btn').classList.toggle('hidden',isR);
+      $('silent-timer-sec').textContent='20';
+      $('interview-guide-text').textContent=isR?'まず「20秒黙読」をしてから、マイクまたは声に出して最後まで読もう！':'上の「質問を聞く」で聞き取り、英語で声に出して答えてみよう！';
+      const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+      $('mic-record-btn').classList.toggle('hidden',!SR);
+      $('mic-status-msg').textContent=SR?'※マイクで発音判定ができます（声を出せない場合は右のボタンで進めます）':'※音声認識非対応ブラウザのため、声に出して「答え合わせへ」で練習しよう！';
+    }
+    function startSilentReadTimer(){
+      if(silentTimerInterval)clearInterval(silentTimerInterval);
+      let s=20;$('silent-timer-sec').textContent=s;
+      silentTimerInterval=setInterval(()=>{s--;$('silent-timer-sec').textContent=s;if(s<=0){clearInterval(silentTimerInterval);silentTimerInterval=null;playSE('correct');$('interview-guide-text').textContent='⏰ 20秒経過！それでは英語を音読してみよう！';}},1000);
+    }
+    function revealInterviewQuestion(){$('interview-q-revealed').classList.remove('hidden');$('interview-q-revealed').textContent=`質問英文：${quizSession.questions[quizSession.currentIndex].audioScript}`;}
+    function toggleSpeechRecognition(){
+      const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;
+      if(isRecording&&speechRecognitionObj){speechRecognitionObj.stop();return;}
+      stopSpeech();speechRecognitionObj=new SR();speechRecognitionObj.lang='en-US';isRecording=true;
+      $('mic-btn-label').textContent='🔴 聞き取り中...（もう一度押すと停止）';
+      speechRecognitionObj.onresult=e=>{
+        const tr=e.results[0][0].transcript,q=quizSession.questions[quizSession.currentIndex];
+        const tw=(q.choiceA||q.correctRaw||q.passage||'').toLowerCase().replace(/[^a-z\s]/g,'').split(/\s+/).filter(w=>w.length>2);
+        const sw=tr.toLowerCase().replace(/[^a-z\s]/g,'').split(/\s+/);
+        const pct=tw.length?Math.min(100,Math.round((tw.filter(w=>sw.includes(w)).length/tw.length)*100)):80;
+        $('mic-transcript-box').classList.remove('hidden');$('mic-transcript-text').textContent=tr;
+        $('mic-match-score').textContent=q.type==='面接音読'?`🎯 音読一致度：約 ${pct}%`:'✨ 英語がしっかり聞き取れました！（お手本と比べてみよう）';
+      };
+      speechRecognitionObj.onerror=()=>$('mic-status-msg').textContent='⚠️ 音声が拾えませんでした。右の「答え合わせへ」で進められます。';
+      speechRecognitionObj.onend=()=>{isRecording=false;$('mic-btn-label').textContent='🎤 マイクで英語を話して判定';};
+      try{speechRecognitionObj.start();}catch(e){isRecording=false;}
+    }
+    function openInterviewSelfJudge(){
+      clearTimersAndMic();const q=quizSession.questions[quizSession.currentIndex];$('interview-judge-panel').classList.remove('hidden');
+      $('interview-models-box').innerHTML=[q.choiceA,q.choiceB].filter(Boolean).map((m,i)=>`<div class="bg-white border border-amber-200 rounded-xl p-3 space-y-1"><div class="flex justify-between items-center"><span class="font-black text-emerald-700">お手本例 ${i+1}</span><button onclick="speakEnglish('${escJs(m)}')" class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">🔊 聞く</button></div><p class="font-bold text-slate-800">${esc(m)}</p></div>`).join('');
+    }
+    function finalizeInterviewJudge(ok){const q=quizSession.questions[quizSession.currentIndex];completeFeedback(ok,q.choiceA||q.correctRaw);}
+
+    function completeFeedback(ok,rev=''){
+      if(quizSession.answered)return;quizSession.answered=true;stopSpeech();clearTimersAndMic();
+      const q=quizSession.questions[quizSession.currentIndex];recordAnswerProgress(ok,q.id);
+      currentReplayAudio=rev||q.audioScript||q.choiceA||q.correctRaw||'';
+      if(ok){
+        quizSession.correctCount+=1;quizSession.combo+=1;playSE('correct');setDriveImg($('quiz-char-img'),CHAR_IMG_HAPPY);
+        $('q-feedback-card').className='flex flex-col sm:flex-row items-center sm:items-start gap-3 bg-emerald-50 border-2 border-emerald-400 rounded-2xl p-4';
+        $('q-judge-title').className='text-lg font-black text-emerald-700';$('q-judge-title').textContent=quizSession.combo>=3?`🎉 クリア！ ${quizSession.combo}連続コンボ！`:'⭕ ナイス！合格レベル！';
+      }else{
+        quizSession.combo=0;quizSession.mistakesInRun.push(q);playSE('wrong');setDriveImg($('quiz-char-img'),CHAR_IMG_SURPRISE);
+        $('q-feedback-card').className='flex flex-col sm:flex-row items-center sm:items-start gap-3 bg-rose-50 border-2 border-rose-300 rounded-2xl p-4';
+        $('q-judge-title').className='text-lg font-black text-rose-700';$('q-judge-title').textContent='💦 惜しい！復習リストに登録しました！';
+      }
+      if(rev){$('q-script-reveal').classList.remove('hidden');$('q-script-reveal').textContent=`🗣️ 正解・模範英文：${rev}`;}else $('q-script-reveal').classList.add('hidden');
+      $('q-explanation-text').textContent=q.explanation;$('q-replay-btn').classList.toggle('hidden',!currentReplayAudio);
+      $('q-next-btn').textContent=quizSession.currentIndex>=quizSession.questions.length-1?'🏆 結果を見る！':'次の問題へ ➔';
+      $('q-idle-char').classList.add('hidden');$('q-feedback-area').classList.remove('hidden');
+    }
+
+    function speakCurrentQuestion(){
+      const q=quizSession.questions[quizSession.currentIndex];if(!q?.audioScript)return;
+      const isFinalMock=quizSession.stage.id==='E3-S14'&&q.type==='リスニング4択';
+      if(isFinalMock&&!quizSession.answered){
+        if(quizSession.audioPlayCount>=2)return;
+        quizSession.audioPlayCount+=1;
+        if(quizSession.audioPlayCount>=2){$('q-speak-btn').disabled=true;$('q-speak-btn-text').textContent='再生上限(2回)に達しました';}
+        else $('q-speak-btn-text').textContent='英語を再生する (あと1回)';
+      }
+      speakEnglish(q.audioScript);
+    }
+    function speakPassage(){const q=quizSession.questions[quizSession.currentIndex];if(q?.passage)speakEnglish(q.passage);}
+    function speakAnswerAudio(){if(currentReplayAudio)speakEnglish(currentReplayAudio);}
+    function toggleHint(){$('q-hint-box').classList.toggle('hidden');}
+    function nextQuestion(){if(quizSession.currentIndex<quizSession.questions.length-1){quizSession.currentIndex+=1;renderQuestion();}else showResult();}
+
+    function showResult(){
+      stopSpeech();clearTimersAndMic();
+      $('top-banner-wrapper').classList.remove('hidden');
+      $('quiz-view').classList.add('hidden');
+      $('result-view').classList.remove('hidden');
+      window.scrollTo({top:0,behavior:'smooth'});
+
+      const tot=quizSession.questions.length,cor=quizSession.correctCount,pct=Math.round((cor/tot)*100),pas=pct>=(quizSession.stage.passLine||80);
+      const canClear=pas&&quizSession.clearEligible;
+      let xp=cor*10+(canClear?(quizSession.stage.rewardXp||50):0),unl='';
+      if(quizSession.mode==='stage'&&quizSession.clearEligible){
+        const prev=userData.stageBest[quizSession.stage.id]||{pct:0,cleared:false};
+        userData.stageBest[quizSession.stage.id]={pct:Math.max(prev.pct,pct),cleared:prev.cleared||pas};
+        if(!prev.cleared&&pas){userData.xp+=(quizSession.stage.rewardXp||50);const ns=allStages.find(s=>s.prereqId===quizSession.stage.id&&s.grade===currentGrade);if(ns)unl=ns.name;}
+        saveUserData();
+      }
+      if(canClear)playSE('clear');
+      syncScoreToGas(false, true);
+      setDriveImg($('result-char-img'),pct>=90?CHAR_IMG_JUMP:(pas?CHAR_IMG_HAPPY:CHAR_IMG_NORMAL));
+      $('result-badge').className=canClear?'inline-block text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-400':'inline-block text-xs font-black px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-400';
+      $('result-badge').textContent=canClear?'✨ STAGE CLEAR! ✨':(!quizSession.clearEligible&&quizSession.mode==='stage'?'🌱 ちょいトレ完了！':'💪 ナイスチャレンジ！');
+      $('result-title').textContent=canClear?(pct===100?'パーフェクト！完璧な実力だ！':'合格ライン突破！お見事！'):(!quizSession.clearEligible&&quizSession.mode==='stage'?'連続記録＆XPゲット！':`あと少し！（合格ライン ${quizSession.stage.passLine}%）`);
+      $('result-subtitle').textContent=canClear?`${quizSession.stage.name} を攻略しました！`:(!quizSession.clearEligible&&quizSession.mode==='stage'?'※ステージ解放には「標準」以上のコースでクリアが必要です':'復習して再挑戦しよう！');
+      $('res-pct').textContent=pct;$('res-correct').textContent=cor;$('res-total').textContent=tot;$('res-xp').textContent=xp;
+      if(unl){$('result-unlock-box').classList.remove('hidden');$('result-unlock-box').textContent=`🔓 新しいステージ「${unl}」が解放されました！`;}else $('result-unlock-box').classList.add('hidden');
+      $('result-cert-btn-box').classList.toggle('hidden',!(quizSession.stage.id==='E3-S14'&&canClear));
+      if(quizSession.mistakesInRun.length>0){
+        $('result-mistakes-box').classList.remove('hidden');$('res-retry-wrong-btn').classList.remove('hidden');
+        $('result-mistakes-list').innerHTML=quizSession.mistakesInRun.map(m=>{const ans=(m.type==='4択'||m.type==='リスニング4択')?m['choice'+(m.correctRaw||'A').toUpperCase()]:(m.choiceA||m.correctRaw);return`<div class="bg-white border border-rose-200 rounded-xl p-2.5"><div class="font-bold text-slate-800">${esc(m.audioScript||m.question)}</div><div class="text-emerald-700 font-black mt-0.5">正解・お手本：${esc(ans)}</div></div>`;}).join('');
+      }else{$('result-mistakes-box').classList.add('hidden');$('res-retry-wrong-btn').classList.add('hidden');}
+    }
+
+    function retrySameStage(){if(quizSession.mode==='revenge')startRevengeQuest();else startStage(quizSession.stage.id);}
+    function retryMistakesNow(){if(quizSession.mistakesInRun.length)launchQuiz({mode:'revenge',stage:{id:'RETRY',name:'🔥 間違えた問題の即リベンジ',passLine:80,rewardXp:50},questions:shuffle(quizSession.mistakesInRun),clearEligible:false});}
+    function confirmExitQuiz(){stopSpeech();clearTimersAndMic();backToMap();}
+    function backToMap(){
+      stopSpeech();clearTimersAndMic();
+      $('top-banner-wrapper').classList.remove('hidden');
+      $('quiz-view').classList.add('hidden');
+      $('result-view').classList.add('hidden');
+      $('map-view').classList.remove('hidden');
+      renderDashboard();window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function openCertificateModal(){
+      $('cert-grade-title').textContent=currentGrade;
+      const sk=getSkillStats(currentGrade),bc=Boolean(userData.stageBest['E3-S14']?.cleared),wrongCnt=userData.wrongIds.filter(id=>allQuestions.some(q=>q.id===id&&q.grade===currentGrade)).length;
+      const ok=bc&&wrongCnt===0&&sk.every(s=>!s.hasStages||s.pct>=75);
+      if(!ok){
+        $('cert-locked-view').classList.remove('hidden');$('cert-unlocked-view').classList.add('hidden');
+        const conds=[
+          ...sk.filter(s=>s.hasStages).map(s=>({l:`【${s.name}】達成率 75%以上（現在 ${s.pct}%）`,o:s.pct>=75})),
+          {l:`【弱点ゼロ】弱点リベンジ残り 0問（現在 ${wrongCnt}問）`,o:wrongCnt===0},
+          {l:'【最終試練】第7大陸「番長模試 (E3-S14)」クリア',o:bc}
+        ];
+        $('cert-conditions-list').innerHTML=conds.map(c=>`<div class="p-3 rounded-xl border ${c.o?'bg-emerald-50 border-emerald-400 text-emerald-800':'bg-white border-slate-300 text-slate-700'}">${c.o?'✅':'⬜'} ${c.l}</div>`).join('');
+      }else{
+        $('cert-locked-view').classList.add('hidden');$('cert-unlocked-view').classList.remove('hidden');
+        if(!userData.certSerial){userData.certSerial='PB-E3-'+Math.random().toString(36).slice(2,8).toUpperCase();saveUserData();}
+        drawCertCanvas();
+      }
+      $('cert-modal').classList.remove('hidden');
+    }
+    function closeCertificateModal(){$('cert-modal').classList.add('hidden');}
+    function drawCertCanvas(){
+      const c=$('cert-canvas'),ctx=c.getContext('2d');
+      ctx.fillStyle='#fffdf5';ctx.fillRect(0,0,1200,800);ctx.strokeStyle='#d97706';ctx.lineWidth=18;ctx.strokeRect(26,26,1148,748);ctx.strokeStyle='#0f172a';ctx.lineWidth=4;ctx.strokeRect(46,46,1108,708);
+      ctx.fillStyle='#0f172a';ctx.font='900 32px "Noto Sans JP",sans-serif';ctx.textAlign='center';ctx.fillText('PRINT BANCHO OFFICIAL CERTIFICATE',600,125);
+      ctx.fillStyle='#b45309';ctx.font='900 62px "Noto Sans JP",sans-serif';ctx.fillText(`英検 ${currentGrade} 完全合格認定証`,600,215);
+      ctx.fillStyle='#1e293b';ctx.font='900 54px "Noto Sans JP",sans-serif';ctx.fillText(`${userData.nickname} 殿`,600,345);
+      ctx.strokeStyle='#fbbf24';ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(280,368);ctx.lineTo(920,368);ctx.stroke();
+      ctx.fillStyle='#334155';ctx.font='700 26px "Noto Sans JP",sans-serif';
+      ctx.fillText('あなたは「英検クエスト」の全5技能（語彙文法・リスニング・読解・',600,445);
+      ctx.fillText('新形式ライティング・二次面接）および弱点ゼロ・番長模試を',600,490);
+      ctx.fillText(`優秀な成績で突破したことをここに認定します！（連続記録 ${userData.streak}日）`,600,535);
+      ctx.fillStyle='#059669';ctx.font='900 28px "Noto Sans JP",sans-serif';ctx.fillText('合格認定ランク：GOLD MASTER',600,615);
+      ctx.fillStyle='#64748b';ctx.font='700 22px monospace';ctx.textAlign='left';
+      ctx.fillText(`発行日: ${getTodayStr(0)}   ID: ${userData.certSerial}`,90,705);
+      ctx.textAlign='right';ctx.fillStyle='#0f172a';ctx.font='900 28px "Noto Sans JP",sans-serif';
+      ctx.fillText('無料学習サイト「プリント番長」', 1110, 705);
+    }
+    function downloadCertificatePng(){const a=document.createElement('a');a.download=`eiken_quest_certificate_${currentGrade}.png`;a.href=$('cert-canvas').toDataURL('image/png');a.click();}
+
+    const NG_WORDS=['死ね','殺す','ばか','バカ','アホ','あほ','クソ','くそ','うんこ','ちん','まん','セックス','エロ','アダルト','しね','ころす','キモ','きも','ブス','デブ','カス'];
+    function openProfileModal(isW=false){
+      $('nickname-input').value=userData.profileSet?userData.nickname:'';$('roomcode-input').value=userData.roomCode||'';$('nickname-error').classList.add('hidden');
+      $('profile-welcome-banner').classList.toggle('hidden',!isW);$('profile-modal-title').textContent=isW?'🌟 ようこそ！英検クエストへ':'⚔️ 冒険者ネーム・あいことば設定';
+      $('profile-cancel-btn').textContent=isW?'あとで決める':'閉じる';$('profile-modal').classList.remove('hidden');
+    }
+    function closeProfileModal(){if(!userData.profileSet){userData.profileSet=true;saveUserData();}$('profile-modal').classList.add('hidden');}
+    function setRandomNickname(){
+      const p1=['疾風の','黄金の','伝説の','希望の','銀河の','虹色の','勇敢な','無敵の','閃光の','奇跡の'];
+      const p2=['勇者','ナイト','ハンター','マスター','戦士','冒険者','ケン','サクラ','ソラ','ミライ','レオ','ハル'];
+      const num=Math.floor(10+Math.random()*90);
+      $('nickname-input').value=p1[Math.floor(Math.random()*p1.length)]+p2[Math.floor(Math.random()*p2.length)]+num;
+    }
+    function saveProfile(){
+      const v=stripTag4($('nickname-input').value.trim()),err=$('nickname-error');
+      if(!v||v.length>12){err.textContent='1〜12文字で入力してください。';err.classList.remove('hidden');return;}
+      if(/\d{6,}/.test(v)){err.textContent='安全のため6桁以上の連続した数字は使えません。';err.classList.remove('hidden');return;}
+      if(NG_WORDS.some(w=>v.toLowerCase().includes(w))){err.textContent='不適切な表現は使えません。';err.classList.remove('hidden');return;}
+      const rm=$('roomcode-input').value.trim().replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF-]/g,'').slice(0,16);
+      userData.nickname=v;userData.roomCode=rm;userData.profileSet=true;if(rm)rankingScope='room';saveUserData();
+      $('profile-modal').classList.add('hidden');renderDashboard();syncScoreToGas(true, false);
+    }
+
+    function encodeSpell(o){const b=new TextEncoder().encode(JSON.stringify(o));let s='';b.forEach(x=>s+=String.fromCharCode(x));return'EIKEN1-'+btoa(s);}
+    function decodeSpell(st){const c=st.trim();if(!c.startsWith('EIKEN1-'))throw new Error('err');const b=atob(c.slice(7)),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return JSON.parse(new TextDecoder().decode(u));}
+    function openSaveModal(){$('export-code-input').value=encodeSpell(userData);$('copy-msg').classList.add('hidden');$('import-msg').classList.add('hidden');$('import-code-input').value='';$('save-modal').classList.remove('hidden');}
+    function closeSaveModal(){$('save-modal').classList.add('hidden');}
+    async function copySaveCode(){const i=$('export-code-input');i.select();try{await navigator.clipboard.writeText(i.value);}catch(e){document.execCommand('copy');}$('copy-msg').classList.remove('hidden');}
+    function importSaveCode(){
+      const m=$('import-msg');m.classList.remove('hidden');
+      try{const p=decodeSpell($('import-code-input').value);if(typeof p.xp!=='number')throw new Error('err');userData={...userData,...p};userData.nickname=stripTag4(userData.nickname||'冒険者')||'冒険者';saveUserData();m.className='text-xs font-bold text-emerald-700';m.textContent='✅ 復元しました！';renderDashboard();setTimeout(closeSaveModal,900);}
+      catch(e){m.className='text-xs font-bold text-rose-600';m.textContent='⚠️ じゅもんが正しくありません。';}
+    }
+
+    const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    const escJs=s=>String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,' ');
+
+    window.addEventListener('DOMContentLoaded',initApp);
+  </script>
+</body>
+</html>
