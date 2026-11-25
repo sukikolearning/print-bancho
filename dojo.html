@@ -6,10 +6,10 @@
     <title>プリント番長 4択道場｜中学生・高校生向け無料4択学習クイズアプリ</title>
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <link rel="apple-touch-icon" href="favicon.jpg">
-    <meta name="description" content="無料学習サイト「プリント番長」の4択道場！中学・高校の定期テスト対策や高校受験対策に最適な4択クイズアプリ。英語のネイティブ音声読み上げ・連続学習カレンダー搭載！">
+    <meta name="description" content="無料学習サイト「プリント番長」の4択道場！中学・高校の定期テスト対策や高校受験対策に最適な4択クイズアプリ。英語のネイティブ音声読み上げ・連続学習カレンダー・科学的復習システム搭載！">
     <meta name="keywords" content="プリント番長,4択道場,無料学習サイト,中学生,高校受験,定期テスト対策,4択クイズ,社会,国語,英語,理科,数学">
     <meta property="og:title" content="プリント番長 4択道場｜スキマ時間でテスト＆受験対策！">
-    <meta property="og:description" content="定期テスト・高校受験対策に！苦手な問題を自動記録する復習モード＆英語ネイティブ音声搭載。">
+    <meta property="og:description" content="定期テスト・高校受験対策に！忘却曲線に基づく科学的な復習モード＆英語ネイティブ音声搭載。">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="プリント番長">
 
@@ -213,24 +213,41 @@
                 </div>
             </div>
 
-            <!-- 復習専用バナー -->
-            <div class="bg-white/95 rounded-2xl border-2 border-amber-300/90 p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
-                        <i class="fa-solid fa-fire-flame-curved"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center space-x-2">
-                            <h2 class="font-extrabold text-stone-900 text-sm sm:text-base">苦手克服・復習モード</h2>
-                            <span id="review-count-badge" class="bg-amber-100 text-amber-900 text-[11px] font-black px-2 py-0.5 rounded-full border border-amber-300">0問</span>
+            <!-- ★ 科学的・忘却曲線 復習＆完全マスターバナー ★ -->
+            <div class="bg-white/95 rounded-2xl border-2 border-amber-300/90 p-4 shadow-sm space-y-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 text-white rounded-xl flex items-center justify-center text-lg flex-shrink-0 shadow-sm">
+                            <i class="fa-solid fa-brain"></i>
                         </div>
-                        <p id="review-desc" class="text-xs text-stone-500 mt-0.5">これまでに間違えた問題だけを抽出して出題します</p>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <h2 class="font-extrabold text-stone-900 text-sm sm:text-base">忘却曲線・苦手克服ミッション</h2>
+                                <span id="review-count-badge" class="bg-rose-100 text-rose-800 text-[11px] font-black px-2 py-0.5 rounded-full border border-rose-300">今日 0問</span>
+                                <span id="master-count-badge" class="bg-amber-100 text-amber-900 text-[11px] font-black px-2 py-0.5 rounded-full border border-amber-300">👑 完全マスター 0問</span>
+                            </div>
+                            <p id="review-desc" class="text-xs text-stone-500 mt-0.5">期間を空けて3回連続正解（1日後→3日後）で完全マスター！</p>
+                        </div>
                     </div>
+                    <button onclick="startReviewMode(false)" id="btn-start-review" class="bg-amber-500 hover:bg-amber-600 disabled:bg-stone-200 disabled:text-stone-400 disabled:cursor-not-allowed text-white font-black px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm transition flex items-center justify-center space-x-1.5 flex-shrink-0">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>本日の復習へ</span>
+                    </button>
                 </div>
-                <button onclick="startReviewMode()" id="btn-start-review" class="bg-amber-500 hover:bg-amber-600 disabled:bg-stone-200 disabled:text-stone-400 disabled:cursor-not-allowed text-white font-black px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm transition flex items-center justify-center space-x-1.5 flex-shrink-0">
-                    <i class="fa-solid fa-rotate-right"></i>
-                    <span>復習を始める</span>
-                </button>
+
+                <!-- 科学的定着ステータス＆前倒し復習リンク -->
+                <div class="bg-amber-50/80 border border-amber-200/80 rounded-xl px-3 py-2 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+                    <div class="flex flex-wrap items-center gap-2 font-bold text-stone-700">
+                        <span id="srs-status-lv0" class="text-rose-700">🔥 要特訓: 0問</span>
+                        <span class="text-stone-300">|</span>
+                        <span id="srs-status-wait" class="text-emerald-700">⏳ 復活待機中: 0問</span>
+                        <span class="text-stone-300">|</span>
+                        <span id="srs-status-master" class="text-amber-800">👑 完全マスター: 0問</span>
+                    </div>
+                    <button type="button" onclick="startReviewMode(true)" id="btn-early-review" class="hidden text-[11px] font-extrabold text-indigo-700 hover:text-indigo-900 underline">
+                        テスト前なので待機中も今すぐ復習する
+                    </button>
+                </div>
             </div>
 
             <!-- 条件選択カード -->
@@ -364,7 +381,7 @@
                     国語（漢字・古文漢文）・社会（歴史・地理・公民）・英語（英単語）など主要教科の厳選問題を収録しています。
                 </p>
                 <p class="text-[11px] text-stone-500">
-                    出題される問題順・選択肢（A〜D）の配置は毎回ランダムにシャッフルされるため、丸暗記ではなく確かな学力定着に役立ちます。間違えた問題は「苦手克服・復習モード」に自動保存されます。
+                    出題される問題順・選択肢（A〜D）の配置は毎回ランダムにシャッフルされます。さらに忘却曲線研究（逐次再学習）に基づき、期間を空けて3回連続正解（1日後→3日後）することで「👑 完全マスター」となり長期記憶に定着します。
                 </p>
             </aside>
         </section>
@@ -405,6 +422,8 @@
                         <span id="q-badge-type" class="hidden sm:inline-block bg-sky-50 text-sky-700 px-2 py-0.5 rounded-md flex-shrink-0"></span>
                     </div>
                     <div class="flex items-center space-x-1.5 flex-shrink-0">
+                        <!-- ★ 現在の記憶定着ステータスバッジ ★ -->
+                        <span id="q-badge-srs" class="text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border flex-shrink-0 whitespace-nowrap"></span>
                         <!-- ★ 英語ネイティブ音声読み上げボタン（穴埋め・日本語問では自動非表示） ★ -->
                         <button id="btn-speak-question" onclick="speakCurrentQuestion()" class="hidden bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-[11px] font-black px-2.5 py-0.5 rounded-md border border-emerald-300 transition flex items-center space-x-1" title="ネイティブ音声で読み上げ">
                             <i class="fa-solid fa-volume-high"></i>
@@ -433,6 +452,9 @@
                         <p id="feedback-char-msg" class="text-xs sm:text-sm font-bold text-stone-700 leading-snug"></p>
                     </div>
                 </div>
+
+                <!-- ★ 記憶定着ステップ通知バー ★ -->
+                <div id="feedback-srs-box" class="rounded-xl px-3 py-2 text-xs font-extrabold border flex items-center space-x-2"></div>
 
                 <div class="bg-white/95 rounded-2xl p-3 sm:p-3.5 border border-stone-200/80 text-xs sm:text-sm text-stone-700 leading-relaxed space-y-1.5 sm:space-y-2">
                     <div class="flex items-center justify-between">
@@ -470,9 +492,9 @@
                     <div id="result-char-box" class="w-28 h-28 sm:w-36 sm:h-36 mb-3 flex items-center justify-center animate-float"></div>
 
                     <h2 id="result-headline" class="text-xl sm:text-2xl font-black text-stone-900 mb-1">おつかれさま！</h2>
-                    <p id="result-submsg" class="text-xs sm:text-sm text-stone-500 font-medium mb-6"></p>
+                    <p id="result-submsg" class="text-xs sm:text-sm text-stone-500 font-medium mb-5"></p>
 
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full mb-6">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full mb-4">
                         <div class="bg-red-50 border border-red-100 rounded-2xl p-3">
                             <span class="text-[11px] font-bold text-red-600 block">正解数</span>
                             <span id="res-score" class="text-xl sm:text-2xl font-black text-red-900">0 / 0</span>
@@ -489,6 +511,10 @@
                             <span class="text-[11px] font-bold text-stone-500 block">獲得道場XP</span>
                             <span id="res-xp" class="text-xl sm:text-2xl font-black text-stone-800">+0 EXP</span>
                         </div>
+                    </div>
+
+                    <!-- ★ 今回の記憶定着サマリー ★ -->
+                    <div id="res-srs-banner" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-2xl p-3 mb-5 text-xs font-extrabold text-amber-950 flex flex-wrap items-center justify-center gap-2">
                     </div>
 
                     <div class="w-full space-y-2.5">
@@ -756,6 +782,7 @@
         };
 
         const STORAGE_KEY_WRONG = 'print_bancho_quiz_wrong_ids_v1';
+        const STORAGE_KEY_SRS   = 'print_bancho_quiz_srs_v1';
         const STORAGE_KEY_COMMON_USER = 'print_bancho_common_user';
         const STORAGE_KEY_COMMON_HISTORY = 'print_bancho_study_history';
 
@@ -774,11 +801,13 @@
         let currentCombo = 0;
         let maxCombo = 0;
         let sessionResults = [];
+        let sessionNewMasters = 0;
         let startTimeMs = 0;
         let isReviewSession = false;
         let soundEnabled = true;
         let audioCtx = null;
         let memoryWrongIds = [];
+        let memorySrsMap = {};
         let hasTopBanner = false;
         let currentFeedbackAudioText = '';
 
@@ -818,6 +847,211 @@
             return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
         }
 
+        // ============================================================
+        // ★ 科学的・逐次再学習（Successive Relearning）エンジン ★
+        // ============================================================
+        function loadSrsMap() {
+            let map = memorySrsMap;
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_SRS);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+                        map = parsed;
+                        memorySrsMap = parsed;
+                    }
+                }
+            } catch (e) {}
+
+            // 後方互換：従来の wrongIds にあって srsMap に未登録の問題を Step 0 として取り込む
+            const wrongIds = loadWrongIds();
+            const today = getTodayStr(0);
+            let migrated = false;
+            wrongIds.forEach(id => {
+                if (!map[id]) {
+                    map[id] = { step: 0, everWrong: true, nextDate: today, lastDate: '' };
+                    migrated = true;
+                } else if (!map[id].everWrong) {
+                    map[id].everWrong = true;
+                    migrated = true;
+                }
+            });
+            if (migrated) saveSrsMap(map);
+            return map;
+        }
+
+        function saveSrsMap(map) {
+            memorySrsMap = map;
+            try {
+                localStorage.setItem(STORAGE_KEY_SRS, JSON.stringify(map));
+            } catch (e) {}
+
+            // Step 0（要特訓）の問題IDを従来の wrongIds にも同期
+            const lv0Ids = Object.keys(map).filter(id => map[id] && map[id].step === 0);
+            saveWrongIds(lv0Ids);
+        }
+
+        function getSrsBadgeInfo(qId) {
+            const map = loadSrsMap();
+            const rec = map[qId];
+            if (!rec) {
+                return { label: 'NEW', cls: 'bg-stone-100 text-stone-600 border-stone-200' };
+            }
+            if (rec.step === 3) {
+                return { label: '👑 マスター', cls: 'bg-amber-100 text-amber-900 border-amber-300' };
+            }
+            if (rec.step === 2) {
+                return { label: '🌿 定着Lv.2', cls: 'bg-emerald-100 text-emerald-800 border-emerald-300' };
+            }
+            if (rec.step === 1) {
+                return { label: '🌱 定着Lv.1', cls: 'bg-sky-100 text-sky-800 border-sky-300' };
+            }
+            return { label: '🔥 要特訓', cls: 'bg-rose-100 text-rose-700 border-rose-300' };
+        }
+
+        function updateSrsOnAnswer(qId, isCorrect) {
+            const map = loadSrsMap();
+            const today = getTodayStr(0);
+            const tomorrow = getTodayStr(1);
+            const threeDaysLater = getTodayStr(3);
+            const cur = map[qId] || { step: 0, everWrong: false, nextDate: today, lastDate: '' };
+
+            if (!isCorrect) {
+                map[qId] = {
+                    step: 0,
+                    everWrong: true,
+                    nextDate: today,
+                    lastDate: today
+                };
+                saveSrsMap(map);
+                return {
+                    newStep: 0,
+                    achievedMaster: false,
+                    boxCls: 'bg-rose-100/80 border-rose-300 text-rose-900',
+                    msg: '🔥 「要特訓」に登録！まずは1回正解して定着Lv.1（明日また復習）へ進もう！'
+                };
+            }
+
+            // 正解時のステップ判定（同じ日に何度解いても間隔条件を満たさなければ進まない）
+            if (cur.step === 0) {
+                map[qId] = {
+                    step: 1,
+                    everWrong: Boolean(cur.everWrong),
+                    nextDate: tomorrow,
+                    lastDate: today
+                };
+                saveSrsMap(map);
+                return {
+                    newStep: 1,
+                    achievedMaster: false,
+                    boxCls: 'bg-sky-50 border-sky-300 text-sky-900',
+                    msg: cur.everWrong
+                        ? `🌱 定着Lv.1 達成！記憶を定着させるため【明日以降（${tomorrow.slice(5).replace('-', '/')}〜）】に再テストするよ！`
+                        : `🌱 定着Lv.1！明日以降に解くと Lv.2 へ進みます！`
+                };
+            }
+
+            if (cur.step === 1) {
+                if (!cur.nextDate || today >= cur.nextDate) {
+                    map[qId] = {
+                        step: 2,
+                        everWrong: Boolean(cur.everWrong),
+                        nextDate: threeDaysLater,
+                        lastDate: today
+                    };
+                    saveSrsMap(map);
+                    return {
+                        newStep: 2,
+                        achievedMaster: false,
+                        boxCls: 'bg-emerald-50 border-emerald-300 text-emerald-900',
+                        msg: `🌿 定着Lv.2 達成！1日空けても覚えていたね！次は【3日後以降（${threeDaysLater.slice(5).replace('-', '/')}〜）】に最終チェックだ！`
+                    };
+                } else {
+                    map[qId] = { ...cur, lastDate: today };
+                    saveSrsMap(map);
+                    return {
+                        newStep: 1,
+                        achievedMaster: false,
+                        boxCls: 'bg-amber-50 border-amber-300 text-amber-900',
+                        msg: `🌱 正解！（同じ日の連続正解は科学ルール上カウントされません。${cur.nextDate.slice(5).replace('-', '/')} 以降に解くと Lv.2 へ進みます！）`
+                    };
+                }
+            }
+
+            if (cur.step === 2) {
+                if (!cur.nextDate || today >= cur.nextDate) {
+                    map[qId] = {
+                        step: 3,
+                        everWrong: Boolean(cur.everWrong),
+                        nextDate: '',
+                        lastDate: today
+                    };
+                    saveSrsMap(map);
+                    return {
+                        newStep: 3,
+                        achievedMaster: true,
+                        boxCls: 'bg-gradient-to-r from-amber-100 to-yellow-100 border-amber-400 text-amber-950',
+                        msg: '👑 完全マスター達成！！期間を空けて3回連続正解！長期記憶に完全に定着したよ！'
+                    };
+                } else {
+                    map[qId] = { ...cur, lastDate: today };
+                    saveSrsMap(map);
+                    return {
+                        newStep: 2,
+                        achievedMaster: false,
+                        boxCls: 'bg-amber-50 border-amber-300 text-amber-900',
+                        msg: `🌿 正解！（完全マスターには3日以上の間隔が必要です。${cur.nextDate.slice(5).replace('-', '/')} 以降に解くと 👑達成！）`
+                    };
+                }
+            }
+
+            // すでに Step 3（完全マスター）
+            map[qId] = { ...cur, step: 3, lastDate: today };
+            saveSrsMap(map);
+            return {
+                newStep: 3,
+                achievedMaster: false,
+                boxCls: 'bg-amber-50 border-amber-300 text-amber-900',
+                msg: '👑 完全マスター維持！期間を空けてもしっかり定着しているね！'
+            };
+        }
+
+        function getSrsDashboardStats() {
+            const map = loadSrsMap();
+            const today = getTodayStr(0);
+            const validIds = new Set(allQuestions.map(q => q.id));
+
+            const dueIds = [];
+            const waitingIds = [];
+            let lv0Count = 0;
+            let masterCount = 0;
+            let earliestWaitDate = '';
+
+            Object.keys(map).forEach(id => {
+                if (!validIds.has(id)) return;
+                const rec = map[id];
+                if (!rec) return;
+
+                if (rec.step === 3) {
+                    masterCount++;
+                } else if (rec.step === 0) {
+                    lv0Count++;
+                    dueIds.push(id);
+                } else if (rec.everWrong && (rec.step === 1 || rec.step === 2)) {
+                    if (!rec.nextDate || today >= rec.nextDate) {
+                        dueIds.push(id);
+                    } else {
+                        waitingIds.push(id);
+                        if (!earliestWaitDate || rec.nextDate < earliestWaitDate) {
+                            earliestWaitDate = rec.nextDate;
+                        }
+                    }
+                }
+            });
+
+            return { dueIds, waitingIds, lv0Count, masterCount, earliestWaitDate };
+        }
+
         // ★ 英語部分だけを綺麗に抜き出す（日本語の指示文を英語ボイスに読ませない） ★
         function extractSpeakableEnglish(str) {
             return String(str || '')
@@ -834,7 +1068,6 @@
         function isQuestionSpeakAllowed(q) {
             if (!q || q.subject !== '英語') return false;
             const rawQ = String(q.text || '').replace(/<[^>]+>/g, ' ').trim();
-            // 穴埋め記号・キーワードが含まれる場合は出題時完全禁止
             if (/[(（\[【]\s*[0-9０-９…・　 _＿]*\s*[)）\]】]|_{2,}|＿{2,}/.test(rawQ)) return false;
             if (/空欄|空所|あてはまる|当てはまる|適切なもの|補う|並べ替え/.test(rawQ)) return false;
 
@@ -851,7 +1084,6 @@
             const ansRaw = String((q.choices && q.choices[q.answer]) || '').replace(/<[^>]+>/g, ' ').trim();
             const blankRe = /[(（\[【]\s*[0-9０-９…・　 _＿]*\s*[)）\]】]|_{2,}|＿{2,}/g;
 
-            // ① 穴埋め問題なら空欄を正解選択肢で埋めた完成英文を作る
             if (blankRe.test(rawQ) && /[a-zA-Z]/.test(ansRaw)) {
                 const ansParts = ansRaw.split(/\s*[\/／|]\s*/).filter(Boolean);
                 let partIdx = 0;
@@ -864,12 +1096,10 @@
                 return extractSpeakableEnglish(filled) || extractSpeakableEnglish(ansRaw);
             }
 
-            // ② 日本語→英語の問題など、正解が英語の場合
             if (/[a-zA-Z]/.test(ansRaw)) {
                 return extractSpeakableEnglish(ansRaw);
             }
 
-            // ③ 英語→日本語の問題など、問題文が英語の場合
             if (/[a-zA-Z]/.test(rawQ)) {
                 return extractSpeakableEnglish(rawQ);
             }
@@ -1462,15 +1692,6 @@
             try { localStorage.setItem(STORAGE_KEY_WRONG, JSON.stringify(unique)); } catch (e) {}
         }
 
-        function addWrongId(id) {
-            const list = loadWrongIds();
-            if (!list.includes(id)) { list.push(id); saveWrongIds(list); }
-        }
-
-        function removeWrongId(id) {
-            saveWrongIds(loadWrongIds().filter(item => item !== id));
-        }
-
         function toggleSound() {
             soundEnabled = !soundEnabled;
             const icon = document.getElementById('sound-icon');
@@ -1631,6 +1852,7 @@
 
                 allQuestions.sort((a, b) => a.order - b.order);
 
+                loadSrsMap(); // 初回移行含めてSRS状態を初期化
                 document.getElementById('start-char-box').innerHTML = renderCharHtml('normal');
                 document.getElementById('profile-modal-char').innerHTML = renderCharHtml('happy');
                 setupStartScreen();
@@ -1689,19 +1911,43 @@
         }
 
         function updateReviewBanner() {
-            const wrongIds = loadWrongIds();
-            const validWrongCount = allQuestions.filter(q => wrongIds.includes(q.id)).length;
+            const stats = getSrsDashboardStats();
+            const dueCount = stats.dueIds.length;
+            const waitCount = stats.waitingIds.length;
+
             const badge = document.getElementById('review-count-badge');
+            const masterBadge = document.getElementById('master-count-badge');
             const btn = document.getElementById('btn-start-review');
+            const earlyBtn = document.getElementById('btn-early-review');
             const desc = document.getElementById('review-desc');
 
-            badge.textContent = `${validWrongCount}問`;
-            if (validWrongCount > 0) {
+            badge.textContent = `今日 ${dueCount}問`;
+            masterBadge.textContent = `👑 完全マスター ${stats.masterCount}問`;
+
+            document.getElementById('srs-status-lv0').textContent = `🔥 要特訓: ${stats.lv0Count}問`;
+            document.getElementById('srs-status-wait').textContent = `⏳ 復活待機中: ${waitCount}問`;
+            document.getElementById('srs-status-master').textContent = `👑 完全マスター: ${stats.masterCount}問`;
+
+            if (dueCount > 0) {
                 btn.disabled = false;
-                desc.textContent = `これまでに間違えた ${validWrongCount} 問からランダムに出題します`;
+                const spacedDue = dueCount - stats.lv0Count;
+                desc.textContent = spacedDue > 0
+                    ? `要特訓 ${stats.lv0Count}問 ＋ 期間を空けて復活した ${spacedDue}問 を出題！（3日またぎで👑完全マスター）`
+                    : `現在「要特訓」の ${stats.lv0Count}問 があります。今日正解すると明日また復習に出るよ！`;
+                earlyBtn.classList.add('hidden');
             } else {
                 btn.disabled = true;
-                desc.textContent = '現在間違えている問題はありません 🎉';
+                if (waitCount > 0) {
+                    const nextLabel = stats.earliestWaitDate ? stats.earliestWaitDate.slice(5).replace('-', '/') : '明日';
+                    desc.textContent = `本日のミッション完了！🎉 あと ${waitCount}問 が ${nextLabel} 以降に順次復活します`;
+                    earlyBtn.textContent = `テスト前なので待機中(${waitCount}問)を今すぐ前倒し練習する`;
+                    earlyBtn.classList.remove('hidden');
+                } else {
+                    desc.textContent = stats.masterCount > 0
+                        ? `弱点は完全制覇中！👑 ${stats.masterCount}問 が長期記憶に定着しています 🎉`
+                        : '現在復習が必要な問題はありません 🎉（間違えた問題はここから3段階復習できます）';
+                    earlyBtn.classList.add('hidden');
+                }
             }
         }
 
@@ -1901,9 +2147,11 @@
             launchQuizSession();
         }
 
-        function startReviewMode() {
-            const wrongIds = loadWrongIds();
-            const pool = allQuestions.filter(q => wrongIds.includes(q.id));
+        function startReviewMode(includeWaiting = false) {
+            const stats = getSrsDashboardStats();
+            const targetIds = includeWaiting ? [...stats.dueIds, ...stats.waitingIds] : stats.dueIds;
+            const idSet = new Set(targetIds);
+            const pool = allQuestions.filter(q => idSet.has(q.id));
             if (pool.length === 0) return;
             isReviewSession = true;
             activeQuestions = shuffleArray(pool).map(createShuffledQuestion);
@@ -1919,7 +2167,7 @@
         }
 
         function retrySameCondition() {
-            if (isReviewSession) startReviewMode();
+            if (isReviewSession) startReviewMode(false);
             else startQuiz();
         }
 
@@ -1928,6 +2176,7 @@
             currentCombo = 0;
             maxCombo = 0;
             sessionResults = [];
+            sessionNewMasters = 0;
             startTimeMs = Date.now();
 
             setPlayLayout(true);
@@ -1982,6 +2231,12 @@
                 typeBadge.className = 'hidden';
             }
 
+            // ★ SRS定着度バッジ表示 ★
+            const srsInfo = getSrsBadgeInfo(q.id);
+            const srsBadge = document.getElementById('q-badge-srs');
+            srsBadge.textContent = srsInfo.label;
+            srsBadge.className = `text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border flex-shrink-0 whitespace-nowrap ${srsInfo.cls}`;
+
             // ★ 穴埋め・日本語問題文のときは出題前の発音ボタンを隠す ★
             const speakBtn = document.getElementById('btn-speak-question');
             if (isQuestionSpeakAllowed(q)) {
@@ -2008,7 +2263,6 @@
                 imgWrap.classList.add('hidden');
             }
 
-            // ★ 解答前の選択肢からは発音アイコンを出さない（穴埋め等を音で選べてしまうのを防ぐ） ★
             const choicesEl = document.getElementById('choices-container');
             choicesEl.innerHTML = ['A', 'B', 'C', 'D'].map(letter => {
                 const choiceText = q.choices[letter];
@@ -2043,15 +2297,23 @@
             if (isCorrect) {
                 currentCombo++;
                 if (currentCombo > maxCombo) maxCombo = currentCombo;
-                removeWrongId(q.id);
                 playTone('correct');
             } else {
                 currentCombo = 0;
-                addWrongId(q.id);
                 playTone('wrong');
             }
 
-            sessionResults.push({ q, chosen: chosenLetter, isCorrect });
+            // ★ 科学的SRSステップを更新 ★
+            const srsOutcome = updateSrsOnAnswer(q.id, isCorrect);
+            if (srsOutcome.achievedMaster) sessionNewMasters++;
+
+            // プレイ中のバッジも即時更新
+            const updatedBadge = getSrsBadgeInfo(q.id);
+            const srsBadge = document.getElementById('q-badge-srs');
+            srsBadge.textContent = updatedBadge.label;
+            srsBadge.className = `text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md border flex-shrink-0 whitespace-nowrap ${updatedBadge.cls}`;
+
+            sessionResults.push({ q, chosen: chosenLetter, isCorrect, srsOutcome });
 
             const correctBtn = document.getElementById(`choice-btn-${q.answer}`);
             const correctBadge = document.getElementById(`choice-badge-${q.answer}`);
@@ -2080,10 +2342,11 @@
             const fbChar = document.getElementById('feedback-char-box');
             const fbTitle = document.getElementById('feedback-title');
             const fbMsg = document.getElementById('feedback-char-msg');
+            const fbSrsBox = document.getElementById('feedback-srs-box');
 
             if (isCorrect) {
                 fbBox.className = 'rounded-2xl sm:rounded-3xl border-2 border-emerald-300 bg-emerald-50/95 p-3.5 sm:p-5 shadow-md animate-pop space-y-2.5 sm:space-y-3';
-                fbChar.innerHTML = renderCharHtml('happy');
+                fbChar.innerHTML = renderCharHtml(srsOutcome.achievedMaster ? 'jump' : 'happy');
                 fbTitle.innerHTML = '<span class="text-emerald-700"><i class="fa-solid fa-circle-check mr-1.5"></i>正解！！</span>';
                 if (currentCombo >= 3) {
                     fbMsg.textContent = `すごい！これで ${currentCombo} 問連続正解だ！その調子で突き進もう！`;
@@ -2097,6 +2360,9 @@
                 fbTitle.innerHTML = `<span class="text-rose-700"><i class="fa-solid fa-circle-xmark mr-1.5"></i>おしい！正解は「${q.answer}」</span>`;
                 fbMsg.textContent = 'ドンマイ！今ここで解説を読んで覚えれば次は絶対できるよ！';
             }
+
+            fbSrsBox.className = `rounded-xl px-3 py-2 text-xs font-extrabold border flex items-center space-x-2 ${srsOutcome.boxCls}`;
+            fbSrsBox.textContent = srsOutcome.msg;
 
             document.getElementById('feedback-explanation').innerHTML = formatRichText(q.explanation);
 
@@ -2163,10 +2429,19 @@
             recordDailyStudy(total);
             updateUserUI();
 
+            const srsStats = getSrsDashboardStats();
+
             document.getElementById('res-score').textContent = `${correctCount} / ${total}`;
             document.getElementById('res-rate').textContent = `${rate}%`;
             document.getElementById('res-streak').textContent = `${currentUser.streak}日連続`;
             document.getElementById('res-xp').textContent = `+${earnedExp} EXP`;
+
+            const srsBanner = document.getElementById('res-srs-banner');
+            if (sessionNewMasters > 0) {
+                srsBanner.innerHTML = `<span>👑 今回 <strong class="text-red-700 text-sm">${sessionNewMasters}問</strong> を完全マスター！</span><span>（累計完全マスター：<strong>${srsStats.masterCount}問</strong>）</span>`;
+            } else {
+                srsBanner.innerHTML = `<span>🧠 累計完全マスター：<strong>${srsStats.masterCount}問</strong></span><span>｜</span><span>⏳ 復活待機中：<strong>${srsStats.waitingIds.length}問</strong>（期間を空けて3回連続正解で👑達成！）</span>`;
+            }
 
             const rankBadge = document.getElementById('result-rank-badge');
             const charBox = document.getElementById('result-char-box');
@@ -2178,13 +2453,13 @@
                 rankBadge.className = 'bg-amber-100 text-amber-800 border border-amber-300 font-black text-xs px-4 py-1 rounded-full mb-3';
                 charBox.innerHTML = renderCharHtml('jump');
                 headline.textContent = '全問正解！君はプリント番長マスターだ！';
-                submsg.textContent = '完璧な理解度だね！この調子でどんどん先へ進もう！';
+                submsg.textContent = '完璧な理解度だね！明日以降も間隔を空けて解くと長期記憶になるよ！';
             } else if (rate >= 80) {
                 rankBadge.textContent = '✨ ランク S（優秀！）';
                 rankBadge.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-black text-xs px-4 py-1 rounded-full mb-3';
                 charBox.innerHTML = renderCharHtml('jump');
                 headline.textContent = '素晴らしい成績！！';
-                submsg.textContent = 'あと少しでパーフェクト！間違えた問題も確認しておこう！';
+                submsg.textContent = 'あと少しでパーフェクト！間違えた問題も明日また復習しよう！';
             } else if (rate >= 50) {
                 rankBadge.textContent = '👍 ランク A（あと少し！）';
                 rankBadge.className = 'bg-red-100 text-red-800 border border-red-300 font-black text-xs px-4 py-1 rounded-full mb-3';
@@ -2213,6 +2488,7 @@
                 const openByDefault = !res.isCorrect;
                 const qImgCands = getDriveImageCandidates(q.rawImageUrl);
                 const rImgCands = getDriveImageCandidates(q.rawRelImageUrl);
+                const srsB = getSrsBadgeInfo(q.id);
                 return `
                     <div class="bg-white rounded-2xl border ${res.isCorrect ? 'border-amber-200/80' : 'border-rose-300'} overflow-hidden shadow-sm">
                         <div onclick="toggleReviewItem(${idx})" class="p-3.5 sm:p-4 flex items-center justify-between cursor-pointer hover:bg-amber-50/40 transition select-none">
@@ -2221,10 +2497,11 @@
                                     ${res.isCorrect ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-solid fa-circle-xmark"></i>'}
                                 </span>
                                 <div class="min-w-0">
-                                    <div class="flex items-center space-x-2 text-[11px] font-bold text-stone-400">
+                                    <div class="flex items-center space-x-1.5 text-[11px] font-bold text-stone-400">
                                         <span>Q${idx + 1}</span>
                                         <span>•</span>
-                                        <span>${escapeHtml(q.unit)}</span>
+                                        <span class="truncate">${escapeHtml(q.unit)}</span>
+                                        <span class="px-1.5 py-0.2 rounded border text-[10px] ${srsB.cls}">${srsB.label}</span>
                                     </div>
                                     <p class="text-xs sm:text-sm font-bold text-stone-800 truncate">${escapeHtml(q.text.replace(/<[^>]+>/g, ''))}</p>
                                 </div>
@@ -2353,7 +2630,12 @@
         }
 
         function exportSaveCode() {
-            const code = btoa(encodeURIComponent(JSON.stringify(currentUser)));
+            const exportPayload = {
+                ...currentUser,
+                srs: loadSrsMap(),
+                wrongIds: loadWrongIds()
+            };
+            const code = btoa(encodeURIComponent(JSON.stringify(exportPayload)));
             const input = prompt('【復活のじゅもん（セーブコード）】\nこのコードをコピーして別の端末で復元できます（貼り付けてOKを押すと復元します）：', code);
             if (input && input !== code) {
                 try {
@@ -2369,9 +2651,16 @@
                             freezeCount: restored.freezeCount !== undefined ? Number(restored.freezeCount) : 2,
                             dojoXp: Number(restored.dojoXp || 0)
                         };
+                        if (restored.srs && typeof restored.srs === 'object') {
+                            saveSrsMap(restored.srs);
+                        } else if (Array.isArray(restored.wrongIds)) {
+                            saveWrongIds(restored.wrongIds);
+                            loadSrsMap();
+                        }
                         checkStreakOnLoad();
                         saveUserToLocal();
                         updateUserUI();
+                        updateReviewBanner();
                         alert('データを引き継ぎました！');
                         loadRanking();
                     }
