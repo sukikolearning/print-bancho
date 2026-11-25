@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>番長ラボ｜科学でわかる！最強の勉強法データベース【プリント番長】</title>
+  <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+  <link rel="apple-touch-icon" href="favicon.jpg" />
+  <meta name="description" content="世界中の認知心理学・教育心理学・脳科学の最新研究（メタ分析・査読付き論文）に基づく、科学的に効果が実証された勉強法まとめ「番長ラボ」。記憶法・ノート術・テスト対策・集中法を中学生にもわかりやすく図解！" />
+  <meta name="keywords" content="科学的勉強法,番長ラボ,プリント番長,想起練習,分散学習,交互学習,ノートの取り方,中学生 勉強法,集中力,テスト対策" />
+  <meta property="og:title" content="番長ラボ｜科学でわかる！最強の勉強法データベース" />
+  <meta property="og:description" content="経験談ではなく世界の最新研究エビデンスから厳選！小・中・高校生の成績が伸びる科学的な勉強法を図解で紹介。" />
+  <meta property="og:type" content="website" />
+
+  <!-- GTM & GA4 -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9QV93TN');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY68V2ZK74"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XY68V2ZK74');
+    gtag('event', 'visit_lab', { page_title: '番長ラボ' });
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+  <script>
+    const SPREADSHEET_ID  = '17HijRPzcvCQKrCTjwrlR0BwkqeNGCFrGJRGiwWFlG2k';
+    const LAB_SHEET_NAME  = '番長ラボ';
+
+    const MAIN_SITE_URL   = 'https://sites.google.com/view/sukiko/%E3%83%9B%E3%83%BC%E3%83%A0';
+    const DOJO_URL        = 'https://sukikolearning.github.io/print-bancho/dojo.html';
+    const EIKEN_QUEST_URL = 'https://sukikolearning.github.io/print-bancho/eiken.html';
+    const HENSACHI_URL    = 'https://sites.google.com/view/sukiko/%E3%83%9B%E3%83%BC%E3%83%A0/%E5%81%8F%E5%B7%AE%E5%80%A4%E4%B8%80%E8%A6%A7';
+
+    const CHAR_IMG_NORMAL = 'https://drive.google.com/file/d/12e93yD6cXHQD6K_vnV5uenGF2eAnszU5/view?usp=drive_link';
+    const CHAR_IMG_HAPPY  = 'https://drive.google.com/file/d/1Z9N0QfPzCWQ4aMkiIafPK5Q6LiQmqeRO/view?usp=drive_link';
+    const CHAR_IMG_JUMP   = 'https://drive.google.com/file/d/10XKcxDLA4a_wv16ZJ5E_cve_Po1GvoEj/view?usp=drive_link';
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: #f4f7fb;
+      background-image: radial-gradient(rgba(30, 64, 175, 0.06) 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: #1e293b;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(8px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeSlide 0.24s ease-out forwards; }
+    .lab-card { transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease; }
+    .lab-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -6px rgba(15, 23, 42, 0.12); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9QV93TN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ヘッダー -->
+  <header class="bg-gradient-to-r from-slate-900 via-blue-950 to-indigo-950 text-white border-b-4 border-cyan-400 sticky top-0 z-40 shadow-md">
+    <div class="max-w-5xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
+      <button onclick="goHome()" class="flex items-center space-x-2.5 text-left group">
+        <div class="bg-gradient-to-br from-cyan-400 to-blue-500 text-slate-950 w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow flex items-center justify-center flex-shrink-0 font-black text-lg">
+          <i class="fa-solid fa-flask"></i>
+        </div>
+        <div>
+          <span class="text-base sm:text-xl font-black tracking-tight text-white group-hover:text-cyan-300 transition block leading-tight">番長ラボ</span>
+          <span class="text-[10px] sm:text-xs text-cyan-200 font-bold block">科学でわかる！最強の勉強法研究室</span>
+        </div>
+      </button>
+
+      <nav class="flex items-center space-x-1.5 sm:space-x-2 text-xs font-bold">
+        <a id="nav-dojo" href="#" class="bg-orange-500/20 hover:bg-orange-500/30 border border-orange-400/60 text-amber-200 px-2.5 py-1.5 rounded-xl transition whitespace-nowrap">
+          🔥 <span class="hidden sm:inline">4択道場</span>
+        </a>
+        <a id="nav-eiken" href="#" class="bg-indigo-500/20 hover:bg-indigo-500/30 border border-amber-400/60 text-amber-200 px-2.5 py-1.5 rounded-xl transition whitespace-nowrap">
+          ⚔️ <span class="hidden sm:inline">英検クエスト</span>
+        </a>
+        <a id="nav-home" href="#" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/25 text-white px-2.5 sm:px-3 py-1.5 rounded-xl transition flex items-center space-x-1 whitespace-nowrap">
+          <i class="fa-solid fa-arrow-left text-[11px]"></i>
+          <span>教材トップ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-5xl w-full mx-auto px-3 sm:px-6 py-5 sm:py-7 space-y-6">
+
+    <!-- ローディング -->
+    <section id="loading-view" class="bg-white rounded-3xl border border-slate-200 shadow-sm p-10 text-center space-y-3">
+      <i class="fa-solid fa-spinner fa-spin text-4xl text-blue-600 block"></i>
+      <p class="font-black text-slate-800 text-base">番長ラボの研究データを読み込んでいます...</p>
+      <p class="text-xs text-slate-400">最新の学習科学データベースを同期中</p>
+    </section>
+
+    <!-- エラー表示 -->
+    <section id="error-view" class="hidden bg-rose-50 border-2 border-rose-200 rounded-3xl p-8 text-center space-y-3">
+      <i class="fa-solid fa-triangle-exclamation text-3xl text-rose-500 block"></i>
+      <h2 class="font-black text-rose-900 text-lg">データを読み込めませんでした</h2>
+      <p id="error-msg" class="text-xs sm:text-sm text-rose-700"></p>
+      <button onclick="initApp()" class="bg-rose-600 hover:bg-rose-700 text-white font-black px-6 py-2.5 rounded-xl text-sm transition">
+        再読み込みする
+      </button>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- ① トップ画面：6大カテゴリ選択 ＆ クイック検索 -->
+    <!-- ======================================================== -->
+    <section id="home-view" class="hidden space-y-6 animate-in">
+
+      <!-- ラボ紹介ヒーローカード -->
+      <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-900 text-white rounded-3xl p-5 sm:p-7 shadow-lg border-2 border-cyan-400/50 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+        <div id="hero-char-box" class="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-2xl p-1.5 shadow-inner border-2 border-cyan-300 flex-shrink-0 flex items-center justify-center overflow-hidden"></div>
+        <div class="text-center sm:text-left space-y-1.5">
+          <div class="inline-flex items-center space-x-1.5 bg-cyan-400/20 border border-cyan-300/40 text-cyan-200 text-[11px] font-black px-3 py-0.5 rounded-full">
+            <span>🔬 エビデンスに基づく学習データベース</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-black leading-snug">
+            世界の研究が証明した「本当に伸びる勉強法」
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            個人の経験談ではなく、世界中の大学・研究機関の<strong class="text-cyan-300">論文やメタ分析</strong>をもとに、小・中学生が今日からすぐ試せる形に図解しました！
+          </p>
+        </div>
+      </div>
+
+      <!-- ステップ1：6大カテゴリボタン -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between px-1">
+          <h2 class="text-base sm:text-lg font-black text-slate-900 flex items-center space-x-2">
+            <span class="bg-blue-600 text-white w-6 h-6 rounded-full inline-flex items-center justify-center text-xs">1</span>
+            <span>知りたいテーマを選ぶ（6カテゴリ）</span>
+          </h2>
+          <span id="total-articles-badge" class="text-xs font-black text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-full">全 0 研究</span>
+        </div>
+
+        <div id="category-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"></div>
+      </div>
+
+      <!-- 特集ショートカット＆キーワード検索 -->
+      <div class="bg-white rounded-3xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="font-black text-sm text-slate-800 flex items-center space-x-1.5">
+            <span>🔎</span>
+            <span>記事タイプ・キーワードから探す</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5 text-xs font-black" id="home-type-filters">
+            <button onclick="openAllWithType('すべて')" class="px-3 py-1.5 rounded-xl bg-slate-800 text-white hover:bg-slate-700 transition">📚 すべて見る</button>
+            <button onclick="openAllWithType('王道')" class="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition">👑 王道テク</button>
+            <button onclick="openAllWithType('NG注意')" class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition">⚠️ 要注意NG</button>
+            <button onclick="openAllWithType('最新研究')" class="px-3 py-1.5 rounded-xl bg-sky-50 text-sky-800 border border-sky-200 hover:bg-sky-100 transition">🆕 最新研究</button>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <input type="text" id="home-search-input" placeholder="例：英単語 / スマホ / 蛍光ペン / 睡眠 / 混ぜ解き" onkeydown="if(event.key==='Enter')searchFromHome()" class="flex-1 bg-slate-50 border border-slate-300 focus:border-blue-500 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-medium outline-none" />
+          <button onclick="searchFromHome()" class="bg-blue-600 hover:bg-blue-700 text-white font-black px-4 py-2 rounded-xl text-xs sm:text-sm transition flex-shrink-0">検索</button>
+        </div>
+      </div>
+
+      <!-- 信頼性の基準（根拠ランクガイド） -->
+      <div class="bg-white/90 rounded-2xl border border-slate-200 p-4 sm:p-5 text-xs text-slate-600 space-y-2.5">
+        <div class="font-black text-slate-800 flex items-center space-x-1.5 text-sm">
+          <i class="fa-solid fa-shield-halved text-blue-600"></i>
+          <span>番長ラボの「科学的根拠」表示ルール</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-2.5">
+            <span class="font-black text-emerald-800 block mb-0.5">★★★ 根拠が強い</span>
+            <p class="text-[11px] leading-relaxed">複数の研究・メタ分析で効果が確認され、広い条件で再現されている方法。</p>
+          </div>
+          <div class="bg-sky-50/70 border border-sky-200 rounded-xl p-2.5">
+            <span class="font-black text-sky-800 block mb-0.5">★★☆ 一定の根拠あり</span>
+            <p class="text-[11px] leading-relaxed">効果を示す研究があるが、学年・教科・やり方によって違いが出る方法。</p>
+          </div>
+          <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-2.5">
+            <span class="font-black text-amber-800 block mb-0.5">★☆☆ 研究途上</span>
+            <p class="text-[11px] leading-relaxed">期待できる結果が出ているが、今後の追試が待たれている新しい知見。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- ② トピック一覧画面（選んだカテゴリの記事リスト） -->
+    <!-- ======================================================== -->
+    <section id="list-view" class="hidden space-y-4 animate-in">
+      <div class="bg-white rounded-2xl border border-slate-200 p-3.5 sm:p-4 shadow-sm flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-2.5">
+          <button onclick="goHome()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-black px-3 py-1.5 rounded-xl text-xs transition flex items-center space-x-1">
+            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+            <span>カテゴリ一覧</span>
+          </button>
+          <div class="flex items-center space-x-2">
+            <span id="list-cat-icon" class="text-xl">🧠</span>
+            <h2 id="list-cat-title" class="text-base sm:text-xl font-black text-slate-900">記憶・暗記</h2>
+          </div>
+        </div>
+        <span id="list-count-badge" class="text-xs font-black text-slate-600 bg-slate-100 px-3 py-1 rounded-full">0件</span>
+      </div>
+
+      <!-- サブ絞り込みバー -->
+      <div class="flex flex-wrap items-center justify-between gap-2 bg-white/80 rounded-2xl border border-slate-200 p-2.5 sm:px-4">
+        <div class="flex flex-wrap gap-1.5 text-xs font-black" id="list-type-tabs"></div>
+        <div class="flex items-center gap-1.5 w-full sm:w-auto">
+          <input type="text" id="list-search-input" oninput="renderArticleList()" placeholder="この中からキーワード検索..." class="flex-1 sm:w-48 bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1 text-xs outline-none focus:border-blue-500" />
+        </div>
+      </div>
+
+      <!-- 記事カードリスト -->
+      <div id="articles-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- ③ 詳細画面（自動図解ビジュアルカード） -->
+    <!-- ======================================================== -->
+    <section id="detail-view" class="hidden space-y-5 animate-in">
+      <!-- ナビバー -->
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center space-x-2">
+          <button onclick="backToList()" class="bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 font-black px-3.5 py-2 rounded-xl text-xs shadow-sm transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-arrow-left text-[11px]"></i>
+            <span>一覧に戻る</span>
+          </button>
+          <button onclick="goHome()" class="bg-slate-200/80 hover:bg-slate-300 text-slate-700 font-bold px-3 py-2 rounded-xl text-xs transition">
+            🏠 トップへ
+          </button>
+        </div>
+        <span id="det-id-badge" class="text-[11px] font-mono font-bold text-slate-400"></span>
+      </div>
+
+      <!-- 記事メインカード -->
+      <article class="bg-white rounded-3xl border-2 border-slate-200 shadow-sm p-5 sm:p-7 space-y-6">
+
+        <!-- バッジ＋タイトル -->
+        <div class="space-y-3 border-b border-slate-100 pb-5">
+          <div class="flex flex-wrap items-center gap-1.5 text-xs font-black">
+            <span id="det-type-badge" class="px-2.5 py-1 rounded-full border"></span>
+            <span id="det-evidence-badge" class="px-2.5 py-1 rounded-full border"></span>
+            <span id="det-year-badge" class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full border border-slate-200"></span>
+          </div>
+          <h1 id="det-title" class="text-xl sm:text-2xl font-black text-slate-900 leading-snug"></h1>
+          <p id="det-summary" class="text-sm sm:text-base font-bold text-blue-900 bg-blue-50/70 border border-blue-200 rounded-2xl p-3.5 leading-relaxed"></p>
+          <div id="det-cat-tags" class="flex flex-wrap items-center gap-1.5 pt-1"></div>
+        </div>
+
+        <!-- 図解ブロック1：よくあるNG vs 科学の正解 -->
+        <div id="det-compare-wrap" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <div class="bg-rose-50/80 border-2 border-rose-200 rounded-2xl p-4 space-y-1.5">
+            <div class="text-xs font-black text-rose-700 flex items-center space-x-1.5">
+              <span class="bg-rose-600 text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-[11px]">✕</span>
+              <span>やりがちなNG勉強法</span>
+            </div>
+            <p id="det-ng" class="text-sm font-bold text-slate-800 leading-relaxed"></p>
+          </div>
+          <div class="bg-emerald-50/80 border-2 border-emerald-300 rounded-2xl p-4 space-y-1.5">
+            <div class="text-xs font-black text-emerald-700 flex items-center space-x-1.5">
+              <span class="bg-emerald-600 text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-[11px]">○</span>
+              <span>科学が証明した正解</span>
+            </div>
+            <p id="det-ok" class="text-sm font-bold text-slate-800 leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- 図解ブロック2：実践ステップ（自動矢印フロー） -->
+        <div id="det-steps-wrap" class="space-y-2.5">
+          <h2 class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2">
+            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">図解</span>
+            <span>今日からできる実践ステップ</span>
+          </h2>
+          <div id="det-steps-flow" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5"></div>
+        </div>
+
+        <!-- 図解ブロック3：なぜ効くの？（番長キャラ吹き出し） -->
+        <div id="det-why-wrap" class="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 sm:p-5 flex items-start space-x-3 sm:space-x-4">
+          <div id="det-char-box" class="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl p-1 border border-amber-300 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm"></div>
+          <div class="space-y-1 flex-grow">
+            <h2 class="text-xs sm:text-sm font-black text-amber-900 flex items-center space-x-1.5">
+              <span>💡</span>
+              <span>なぜ効果があるの？（脳のしくみ）</span>
+            </h2>
+            <p id="det-why" class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium"></p>
+          </div>
+        </div>
+
+        <!-- 図解ブロック4：教科別・プリント番長での活用例 -->
+        <div id="det-subjects-wrap" class="space-y-2.5">
+          <h2 class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-1.5">
+            <span>📚</span>
+            <span>教科別・プリント番長での活用例</span>
+          </h2>
+          <div id="det-subjects-list" class="space-y-2"></div>
+        </div>
+
+        <!-- 注意点・限界 -->
+        <div id="det-caution-wrap" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-1">
+          <h2 class="text-xs font-black text-slate-700 flex items-center space-x-1.5">
+            <i class="fa-solid fa-circle-exclamation text-amber-500"></i>
+            <span>気をつけるポイント・限界（どんな時でも万能ではない！）</span>
+          </h2>
+          <p id="det-caution" class="text-xs sm:text-sm text-slate-600 leading-relaxed"></p>
+        </div>
+
+        <!-- 任意の図解画像・PDF（P列がある場合のみ表示） -->
+        <div id="det-media-wrap" class="hidden bg-indigo-50/60 border border-indigo-200 rounded-2xl p-4 text-center space-y-2.5">
+          <div id="det-media-img-box" class="hidden">
+            <img id="det-media-img" src="" alt="図解資料" referrerpolicy="no-referrer" class="max-h-72 mx-auto rounded-xl border border-indigo-200 object-contain" />
+          </div>
+          <a id="det-media-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm transition">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>図解・PDF資料を開く</span>
+          </a>
+        </div>
+
+        <!-- 出典論文・詳細（折りたたみ） -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden">
+          <button type="button" onclick="toggleSourceBox()" class="w-full bg-slate-100/80 hover:bg-slate-100 px-4 py-3 flex items-center justify-between text-xs font-black text-slate-700 transition">
+            <span class="flex items-center space-x-2">
+              <i class="fa-solid fa-book-bookmark text-blue-600"></i>
+              <span>研究の出典・くわしい論文データを見る（保護者・大人向け）</span>
+            </span>
+            <i id="det-source-arrow" class="fa-solid fa-chevron-down transition-transform"></i>
+          </button>
+          <div id="det-source-body" class="hidden bg-white p-4 space-y-2.5 text-xs text-slate-600 border-t border-slate-200">
+            <p id="det-source-text" class="leading-relaxed font-medium text-slate-700"></p>
+            <div id="det-source-url-wrap" class="hidden">
+              <a id="det-source-url" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 text-blue-700 hover:text-blue-900 font-black underline">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+                <span>論文原文・DOIページを確認する</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- 今すぐプリント番長で試そう！誘導ブロック -->
+      <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-3xl p-5 shadow-md space-y-3">
+        <div class="text-xs sm:text-sm font-black text-cyan-300 flex items-center space-x-1.5">
+          <span>🚀</span>
+          <span>読んだらすぐ試してみよう！（アウトプットで記憶が定着します）</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs font-black">
+          <a id="cta-dojo" href="#" class="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-3 px-4 rounded-xl flex items-center justify-between shadow transition">
+            <span>🔥 4択道場で思い出す</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a id="cta-eiken" href="#" class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 py-3 px-4 rounded-xl flex items-center justify-between shadow transition">
+            <span>⚔️ 英検クエストへ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a id="cta-prints" href="#" target="_blank" rel="noopener noreferrer" class="bg-white/15 hover:bg-white/25 border border-white/25 text-white py-3 px-4 rounded-xl flex items-center justify-between transition">
+            <span>📄 無料プリントを探す</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="bg-slate-900 text-slate-400 border-t-4 border-cyan-400 mt-10 py-8 text-center text-xs px-4 space-y-2">
+    <div class="flex flex-wrap justify-center gap-4 font-bold">
+      <a id="foot-home" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300">🏠 プリント番長 トップ</a>
+      <a id="foot-dojo" href="#" class="hover:text-cyan-300">🔥 4択道場</a>
+      <a id="foot-eiken" href="#" class="hover:text-cyan-300">⚔️ 英検クエスト</a>
+      <a id="foot-hensachi" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300">🗺️ 高校偏差値マップ</a>
+    </div>
+    <p class="text-slate-500">&copy; プリント番長「番長ラボ」 All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const CATEGORIES = [
+      {
+        key: '記憶・暗記',
+        icon: '🧠',
+        sub: '覚え方・忘却曲線・思い出す練習',
+        cardCls: 'bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 hover:border-blue-400',
+        badgeCls: 'bg-blue-600 text-white'
+      },
+      {
+        key: '理解・思考',
+        icon: '💡',
+        sub: '本質がわかる・応用力を伸ばす',
+        cardCls: 'bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-200 hover:border-amber-400',
+        badgeCls: 'bg-amber-500 text-slate-950'
+      },
+      {
+        key: '学習技法・ノート術',
+        icon: '📝',
+        sub: 'ノートの取り方・インプットと直し方',
+        cardCls: 'bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 hover:border-emerald-400',
+        badgeCls: 'bg-emerald-600 text-white'
+      },
+      {
+        key: '復習・計画・管理',
+        icon: '📅',
+        sub: '復習タイミング・時間配分・テスト対策',
+        cardCls: 'bg-gradient-to-br from-purple-50 to-violet-50 border-purple-200 hover:border-purple-400',
+        badgeCls: 'bg-purple-600 text-white'
+      },
+      {
+        key: '集中・習慣・環境',
+        icon: '🔥',
+        sub: 'スマホ対策・やる気・三日坊主防止',
+        cardCls: 'bg-gradient-to-br from-rose-50 to-orange-50 border-rose-200 hover:border-rose-400',
+        badgeCls: 'bg-rose-600 text-white'
+      },
+      {
+        key: '生活習慣・健康',
+        icon: '🌙',
+        sub: '睡眠・食事・運動・脳のコンディション',
+        cardCls: 'bg-gradient-to-br from-cyan-50 to-sky-50 border-cyan-200 hover:border-cyan-400',
+        badgeCls: 'bg-cyan-600 text-white'
+      }
+    ];
+
+    let allArticles = [];
+    let activeCategory = 'すべて';
+    let activeType = 'すべて';
+    let currentArticleId = '';
+
+    function $id(id) { return document.getElementById(id); }
+
+    function esc(str) {
+      return String(str || '').replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag));
+    }
+
+    function safeUrl(raw) {
+      const s = String(raw || '').trim();
+      if (s.startsWith('https://') || s.startsWith('http://')) return s;
+      return '';
+    }
+
+    function getDriveImageCandidates(rawUrl) {
+      const trimmed = safeUrl(rawUrl);
+      if (!trimmed) return [];
+      const match = trimmed.match(/\/d\/([a-zA-Z0-9_-]+)/) || trimmed.match(/id=([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        const id = match[1];
+        return [
+          `https://lh3.googleusercontent.com/d/${id}`,
+          `https://drive.google.com/thumbnail?id=${id}&sz=w1600`,
+          `https://lh4.googleusercontent.com/d/${id}`,
+          `https://drive.google.com/uc?export=view&id=${id}`
+        ];
+      }
+      return /\.(png|jpe?g|webp|gif)(\?|$)/i.test(trimmed) ? [trimmed] : [];
+    }
+
+    function setCharImg(boxId, rawUrl) {
+      const box = $id(boxId);
+      if (!box) return;
+      const cands = getDriveImageCandidates(rawUrl);
+      if (cands.length === 0) {
+        box.innerHTML = '<span class="text-3xl">🔬</span>';
+        return;
+      }
+      const img = document.createElement('img');
+      img.alt = 'プリント番長';
+      img.referrerPolicy = 'no-referrer';
+      img.className = 'w-full h-full object-contain';
+      let idx = 0;
+      img.onerror = () => {
+        idx++;
+        if (idx < cands.length) img.src = cands[idx];
+        else box.innerHTML = '<span class="text-3xl">🔬</span>';
+      };
+      img.src = cands[0];
+      box.innerHTML = '';
+      box.appendChild(img);
+    }
+
+    function setupLinks() {
+      ['nav-home', 'cta-prints', 'foot-home'].forEach(id => {
+        const el = $id(id);
+        if (el) el.href = MAIN_SITE_URL;
+      });
+      ['nav-dojo', 'cta-dojo', 'foot-dojo'].forEach(id => {
+        const el = $id(id);
+        if (el) el.href = DOJO_URL;
+      });
+      ['nav-eiken', 'cta-eiken', 'foot-eiken'].forEach(id => {
+        const el = $id(id);
+        if (el) el.href = EIKEN_QUEST_URL;
+      });
+      if ($id('foot-hensachi')) $id('foot-hensachi').href = HENSACHI_URL;
+    }
+
+    function getCell(c, idx) {
+      if (!c || !c[idx]) return '';
+      const cell = c[idx];
+      if (cell.v !== undefined && cell.v !== null) return String(cell.v).trim();
+      if (cell.f !== undefined && cell.f !== null) return String(cell.f).trim();
+      return '';
+    }
+
+    function getTypeBadgeStyle(type) {
+      if (type === 'NG注意') {
+        return { label: '⚠️ 要注意NG', cls: 'bg-rose-50 text-rose-700 border-rose-300' };
+      }
+      if (type === '最新研究') {
+        return { label: '🆕 最新研究', cls: 'bg-sky-50 text-sky-800 border-sky-300' };
+      }
+      return { label: '👑 王道テク', cls: 'bg-emerald-50 text-emerald-800 border-emerald-300' };
+    }
+
+    function getEvidenceBadgeStyle(ev) {
+      if (ev === '強い') {
+        return { label: '★★★ 根拠が強い', cls: 'bg-amber-50 text-amber-800 border-amber-300' };
+      }
+      if (ev === '一定') {
+        return { label: '★★☆ 一定の根拠あり', cls: 'bg-indigo-50 text-indigo-800 border-indigo-200' };
+      }
+      return { label: '★☆☆ 研究途上', cls: 'bg-stone-100 text-stone-700 border-stone-300' };
+    }
+
+    async function initApp() {
+      setupLinks();
+      setCharImg('hero-char-box', CHAR_IMG_NORMAL);
+      setCharImg('det-char-box', CHAR_IMG_HAPPY);
+
+      $id('loading-view').classList.remove('hidden');
+      $id('error-view').classList.add('hidden');
+      $id('home-view').classList.add('hidden');
+      $id('list-view').classList.add('hidden');
+      $id('detail-view').classList.add('hidden');
+
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&headers=1&sheet=${encodeURIComponent(LAB_SHEET_NAME)}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        if (text.includes('status":"error"')) {
+          throw new Error(`シート「${LAB_SHEET_NAME}」が見つかりません。`);
+        }
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const rows = json.table ? json.table.rows : [];
+
+        allArticles = [];
+        rows.forEach((r, idx) => {
+          const c = r.c || [];
+          const id = getCell(c, 0);
+          const title = getCell(c, 5);
+          const status = getCell(c, 16);
+
+          if (!id || id === '記事ID' || !title) return;
+          if (status && status !== '公開') return;
+
+          const rawCats = getCell(c, 1);
+          const cats = rawCats
+            .split(/[,、，]+/)
+            .map(s => s.trim())
+            .filter(Boolean);
+
+          const orderRaw = getCell(c, 17);
+          const orderNum = orderRaw && !isNaN(Number(orderRaw)) ? Number(orderRaw) : (idx + 1);
+
+          allArticles.push({
+            id,
+            categories: cats.length > 0 ? cats : ['記憶・暗記'],
+            type: getCell(c, 2) || '王道',
+            evidence: getCell(c, 3) || '強い',
+            year: getCell(c, 4) || '',
+            title,
+            summary: getCell(c, 6),
+            ngText: getCell(c, 7),
+            okText: getCell(c, 8),
+            steps: getCell(c, 9).split(/[|｜]/).map(s => s.trim()).filter(Boolean),
+            whyText: getCell(c, 10),
+            subjectExamples: getCell(c, 11).split(/[|｜]/).map(s => s.trim()).filter(Boolean),
+            cautionText: getCell(c, 12),
+            sourceDetail: getCell(c, 13),
+            sourceUrl: safeUrl(getCell(c, 14)),
+            mediaUrl: safeUrl(getCell(c, 15)),
+            order: orderNum
+          });
+        });
+
+        allArticles.sort((a, b) => a.order - b.order);
+
+        $id('loading-view').classList.add('hidden');
+        renderCategoryGrid();
+
+        const params = new URLSearchParams(window.location.search);
+        const paramId = (params.get('id') || '').trim();
+        const paramCat = (params.get('cat') || '').trim();
+        if (paramId && allArticles.some(a => a.id === paramId)) {
+          openArticle(paramId);
+        } else if (paramCat && CATEGORIES.some(c => c.key === paramCat)) {
+          openCategory(paramCat);
+        } else {
+          goHome();
+        }
+      } catch (err) {
+        $id('loading-view').classList.add('hidden');
+        $id('error-view').classList.remove('hidden');
+        $id('error-msg').textContent = err.message;
+      }
+    }
+
+    function renderCategoryGrid() {
+      $id('total-articles-badge').textContent = `全 ${allArticles.length} 研究`;
+      $id('category-grid').innerHTML = CATEGORIES.map(cat => {
+        const count = allArticles.filter(a => a.categories.includes(cat.key)).length;
+        return `
+          <button type="button" onclick="openCategory('${esc(cat.key)}')" class="lab-card text-left rounded-3xl border-2 p-4 sm:p-5 shadow-sm flex flex-col justify-between gap-3 ${cat.cardCls}">
+            <div class="flex items-start justify-between gap-2">
+              <span class="text-3xl sm:text-4xl">${cat.icon}</span>
+              <span class="text-[11px] font-black px-2.5 py-0.5 rounded-full ${cat.badgeCls}">${count}件</span>
+            </div>
+            <div>
+              <h3 class="font-black text-sm sm:text-lg text-slate-900 leading-tight">${esc(cat.key)}</h3>
+              <p class="text-[11px] sm:text-xs font-bold text-slate-600 mt-1 leading-snug">${esc(cat.sub)}</p>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function goHome() {
+      $id('list-view').classList.add('hidden');
+      $id('detail-view').classList.add('hidden');
+      $id('home-view').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openCategory(catKey) {
+      activeCategory = catKey;
+      activeType = 'すべて';
+      $id('list-search-input').value = '';
+      showListScreen();
+    }
+
+    function openAllWithType(typeVal) {
+      activeCategory = 'すべて';
+      activeType = typeVal;
+      $id('list-search-input').value = '';
+      showListScreen();
+    }
+
+    function searchFromHome() {
+      const q = $id('home-search-input').value.trim();
+      activeCategory = 'すべて';
+      activeType = 'すべて';
+      $id('list-search-input').value = q;
+      showListScreen();
+    }
+
+    function showListScreen() {
+      $id('home-view').classList.add('hidden');
+      $id('detail-view').classList.add('hidden');
+      $id('list-view').classList.remove('hidden');
+
+      const catObj = CATEGORIES.find(c => c.key === activeCategory);
+      $id('list-cat-icon').textContent = catObj ? catObj.icon : '📚';
+      $id('list-cat-title').textContent = catObj ? catObj.key : 'すべての研究・勉強法';
+
+      renderListTypeTabs();
+      renderArticleList();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setListType(t) {
+      activeType = t;
+      renderListTypeTabs();
+      renderArticleList();
+    }
+
+    function renderListTypeTabs() {
+      const types = [
+        { key: 'すべて', label: 'すべて' },
+        { key: '王道', label: '👑 王道' },
+        { key: 'NG注意', label: '⚠️ NG注意' },
+        { key: '最新研究', label: '🆕 最新研究' }
+      ];
+      $id('list-type-tabs').innerHTML = types.map(t => {
+        const active = activeType === t.key;
+        return `
+          <button type="button" onclick="setListType('${t.key}')" class="px-3 py-1 rounded-xl border transition ${active ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'}">
+            ${t.label}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderArticleList() {
+      const kw = $id('list-search-input').value.trim().toLowerCase();
+      const filtered = allArticles.filter(a => {
+        if (activeCategory !== 'すべて' && !a.categories.includes(activeCategory)) return false;
+        if (activeType !== 'すべて' && a.type !== activeType) return false;
+        if (kw) {
+          const hay = [a.title, a.summary, a.whyText, a.ngText, a.okText, ...a.categories, ...a.subjectExamples].join(' ').toLowerCase();
+          if (!hay.includes(kw)) return false;
+        }
+        return true;
+      });
+
+      $id('list-count-badge').textContent = `${filtered.length}件`;
+      const container = $id('articles-list-container');
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl border border-slate-200 p-8 text-center space-y-2">
+            <p class="font-bold text-slate-600 text-sm">条件に合う記事がありませんでした</p>
+            <button onclick="openAllWithType('すべて')" class="text-xs font-black text-blue-600 underline">すべての記事を表示する</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(a => {
+        const tb = getTypeBadgeStyle(a.type);
+        const ev = getEvidenceBadgeStyle(a.evidence);
+        return `
+          <div onclick="openArticle('${esc(a.id)}')" class="lab-card cursor-pointer bg-white rounded-2xl border-2 border-slate-200 hover:border-blue-400 p-4 sm:p-5 flex flex-col justify-between gap-3 shadow-sm">
+            <div class="space-y-2.5">
+              <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-black">
+                <span class="px-2 py-0.5 rounded-full border ${tb.cls}">${tb.label}</span>
+                <span class="px-2 py-0.5 rounded-full border ${ev.cls}">${ev.label}</span>
+                ${a.year ? `<span class="bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">${esc(a.year)}年</span>` : ''}
+              </div>
+              <h3 class="font-black text-base sm:text-lg text-slate-900 leading-snug">${esc(a.title)}</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${esc(a.summary)}</p>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+              <div class="flex flex-wrap gap-1">
+                ${a.categories.map(c => `<span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-2 py-0.5 rounded">${esc(c)}</span>`).join('')}
+              </div>
+              <span class="text-xs font-black text-blue-600 flex-shrink-0 ml-2">図解を見る ➔</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openArticle(articleId) {
+      const a = allArticles.find(item => item.id === articleId);
+      if (!a) return;
+      currentArticleId = a.id;
+
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'lab_article_view', {
+            article_id: a.id,
+            article_title: a.title.slice(0, 80)
+          });
+        }
+      } catch (e) {}
+
+      $id('home-view').classList.add('hidden');
+      $id('list-view').classList.add('hidden');
+      $id('detail-view').classList.remove('hidden');
+
+      $id('det-id-badge').textContent = a.id;
+
+      const tb = getTypeBadgeStyle(a.type);
+      const ev = getEvidenceBadgeStyle(a.evidence);
+      $id('det-type-badge').textContent = tb.label;
+      $id('det-type-badge').className = `px-2.5 py-1 rounded-full border ${tb.cls}`;
+      $id('det-evidence-badge').textContent = ev.label;
+      $id('det-evidence-badge').className = `px-2.5 py-1 rounded-full border ${ev.cls}`;
+      $id('det-year-badge').textContent = a.year ? `研究年: ${a.year}年` : '研究データ';
+      $id('det-year-badge').classList.toggle('hidden', !a.year);
+
+      $id('det-title').textContent = a.title;
+      $id('det-summary').textContent = a.summary;
+
+      $id('det-cat-tags').innerHTML = a.categories.map(c => `
+        <button type="button" onclick="openCategory('${esc(c)}')" class="text-[11px] font-black bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-800 px-2.5 py-1 rounded-lg border border-slate-200 transition">
+          #${esc(c)}
+        </button>
+      `).join('');
+
+      // 対比ブロック
+      if (a.ngText || a.okText) {
+        $id('det-compare-wrap').classList.remove('hidden');
+        $id('det-ng').textContent = a.ngText || '—';
+        $id('det-ok').textContent = a.okText || '—';
+      } else {
+        $id('det-compare-wrap').classList.add('hidden');
+      }
+
+      // 実践ステップフロー図
+      if (a.steps.length > 0) {
+        $id('det-steps-wrap').classList.remove('hidden');
+        $id('det-steps-flow').innerHTML = a.steps.map((st, idx) => {
+          const cleanStep = st.replace(/^\d+[\.\)．]\s*/, '');
+          const isLast = (idx === a.steps.length - 1);
+          return `
+            <div class="relative bg-blue-50/70 border border-blue-200 rounded-2xl p-3.5 flex flex-col justify-between">
+              <div>
+                <span class="inline-block bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full mb-1.5">STEP ${idx + 1}</span>
+                <p class="text-xs sm:text-sm font-bold text-slate-800 leading-snug">${esc(cleanStep)}</p>
+              </div>
+              ${!isLast ? '<div class="hidden lg:flex absolute -right-2.5 top-1/2 -translate-y-1/2 z-10 w-5 h-5 bg-white border border-blue-300 rounded-full items-center justify-center text-[10px] font-black text-blue-600 shadow-sm">➔</div>' : ''}
+            </div>
+          `;
+        }).join('');
+      } else {
+        $id('det-steps-wrap').classList.add('hidden');
+      }
+
+      // なぜ効くの？
+      if (a.whyText) {
+        $id('det-why-wrap').classList.remove('hidden');
+        $id('det-why').textContent = a.whyText;
+      } else {
+        $id('det-why-wrap').classList.add('hidden');
+      }
+
+      // 教科別活用例
+      if (a.subjectExamples.length > 0) {
+        $id('det-subjects-wrap').classList.remove('hidden');
+        $id('det-subjects-list').innerHTML = a.subjectExamples.map(ex => {
+          const parts = ex.split(/[：:]/);
+          if (parts.length >= 2) {
+            const label = parts[0].trim();
+            const body = parts.slice(1).join('：').trim();
+            return `
+              <div class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 text-xs sm:text-sm">
+                <span class="bg-indigo-100 text-indigo-800 font-black px-2.5 py-0.5 rounded-lg text-xs self-start sm:self-center flex-shrink-0">${esc(label)}</span>
+                <span class="font-bold text-slate-700 leading-snug">${esc(body)}</span>
+              </div>
+            `;
+          }
+          return `<div class="bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-bold text-slate-700">${esc(ex)}</div>`;
+        }).join('');
+      } else {
+        $id('det-subjects-wrap').classList.add('hidden');
+      }
+
+      // 注意点・限界
+      if (a.cautionText) {
+        $id('det-caution-wrap').classList.remove('hidden');
+        $id('det-caution').textContent = a.cautionText;
+      } else {
+        $id('det-caution-wrap').classList.add('hidden');
+      }
+
+      // 図解画像・PDF（任意）
+      if (a.mediaUrl) {
+        $id('det-media-wrap').classList.remove('hidden');
+        $id('det-media-link').href = a.mediaUrl;
+        const imgCands = getDriveImageCandidates(a.mediaUrl);
+        if (imgCands.length > 0) {
+          const imgEl = $id('det-media-img');
+          let fbIdx = 0;
+          imgEl.onerror = () => {
+            fbIdx++;
+            if (fbIdx < imgCands.length) imgEl.src = imgCands[fbIdx];
+            else $id('det-media-img-box').classList.add('hidden');
+          };
+          imgEl.src = imgCands[0];
+          $id('det-media-img-box').classList.remove('hidden');
+        } else {
+          $id('det-media-img-box').classList.add('hidden');
+        }
+      } else {
+        $id('det-media-wrap').classList.add('hidden');
+      }
+
+      // 出典論文（初期は閉じておく）
+      $id('det-source-body').classList.add('hidden');
+      $id('det-source-arrow').classList.remove('rotate-180');
+      $id('det-source-text').textContent = a.sourceDetail || '教育心理学・認知心理学の査読付き研究論文を参照しています。';
+      if (a.sourceUrl) {
+        $id('det-source-url-wrap').classList.remove('hidden');
+        $id('det-source-url').href = a.sourceUrl;
+      } else {
+        $id('det-source-url-wrap').classList.add('hidden');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToList() {
+      if (activeCategory === 'すべて' && activeType === 'すべて' && !$id('list-search-input').value.trim()) {
+        const a = allArticles.find(item => item.id === currentArticleId);
+        if (a && a.categories.length > 0) {
+          openCategory(a.categories[0]);
+          return;
+        }
+      }
+      showListScreen();
+    }
+
+    function toggleSourceBox() {
+      $id('det-source-body').classList.toggle('hidden');
+      $id('det-source-arrow').classList.toggle('rotate-180');
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
