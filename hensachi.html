@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全国47都道府県 公立・私立高校 偏差値・学区別マップ｜プリント番長</title>
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="apple-touch-icon" href="favicon.jpg">
+    <link rel="canonical" href="https://sukikolearning.github.io/print-bancho/hensachi.html">
+    <meta name="description" content="全国47都道府県（北海道〜沖縄県）の公立高校・私立高校の偏差値一覧・学区別マップをPDFで無料公開！志望校選びや高校受験の合格目安チェックにご活用ください。無料学習プリント＆4択道場＆英検クエスト＆番長ラボ「プリント番長」。">
+    <meta name="keywords" content="高校偏差値 一覧,公立高校 偏差値,私立高校 偏差値,全国47都道府県 高校 偏差値,学区別 偏差値,高校受験 志望校選び,英検対策,プリント番長">
+    <meta property="og:title" content="全国47都道府県 公立・私立高校 偏差値・学区別マップ｜プリント番長">
+    <meta property="og:description" content="全国の公立高校・私立高校の偏差値一覧PDFを地図からワンクリックで確認できます。高校受験の志望校・目標校選びに！">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sukikolearning.github.io/print-bancho/hensachi.html">
+    <meta property="og:site_name" content="プリント番長">
+
+    <!-- GTM & GA4 -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9QV93TN');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XY68V2ZK74"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XY68V2ZK74');
+      gtag('event', 'visit_hensachi', { page_title: '高校偏差値マップ' });
+    </script>
+
+    <!-- 構造化データ（WebPage ＋ FAQPage） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "name": "全国47都道府県 公立・私立高校 偏差値・学区別マップ",
+          "url": "https://sukikolearning.github.io/print-bancho/hensachi.html",
+          "description": "全国47都道府県の公立高校・私立高校の偏差値目安一覧を学区別PDFで閲覧できる無料受験情報マップ。"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "掲載されている高校偏差値はどのような基準ですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "合格目安（合格率60〜80%ライン）の参考値です。実際の高校入試では内申点（調査書点）や推薦入試などによっても変動するため、最新の募集要項は各都道府県教育委員会の公式発表もあわせてご確認ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "志望校の偏差値に合わせた勉強はどのように進めればよいですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "プリント番長のメインサイトでは偏差値30〜45目安の基礎レベル、45〜60目安の標準レベル、60以上目安の応用レベルに分かれた無料PDFプリントと、スキマ時間に使える4択道場クイズ、英検対策RPG、科学的勉強法「番長ラボ」をご用意しています。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- ======================================================== -->
+    <!-- ★★★ 【固定の設定値】 ★★★ -->
+    <!-- ======================================================== -->
+    <script>
+        // ① 偏差値スプレッドシートのID（固定）
+        const SPREADSHEET_ID = '17HijRPzcvCQKrCTjwrlR0BwkqeNGCFrGJRGiwWFlG2k';
+
+        // ② 「偏差値」タブのアドレス末尾にある gid の数字（固定）
+        const SHEET_GID = '36937521';
+
+        // ③ 各ページURL（GitHub Pages 完全統一版）
+        const MAIN_SITE_URL   = 'https://sukikolearning.github.io/print-bancho/';
+        const QUIZ_DOJO_URL   = 'https://sukikolearning.github.io/print-bancho/dojo.html';
+        const EIKEN_QUEST_URL = 'https://sukikolearning.github.io/print-bancho/eiken.html';
+        const LAB_URL         = 'https://sukikolearning.github.io/print-bancho/lab.html';
+    </script>
+    <!-- ======================================================== -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+        .japan-map-grid {
+            display: grid;
+            grid-template-columns: repeat(11, minmax(76px, 1fr));
+            gap: 6px;
+        }
+        @media (max-width: 1024px) {
+            .japan-map-grid {
+                grid-template-columns: repeat(8, minmax(70px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9QV93TN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- ヘッダー -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black tracking-tight text-indigo-900 block leading-tight whitespace-nowrap">プリント番長</span>
+                    <span class="text-xs text-indigo-600 font-bold whitespace-nowrap">公立・私立 高校偏差値全国マップ</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-1.5 sm:space-x-2">
+                <a id="header-eiken-link" href="#" class="hidden md:flex bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3 py-2 rounded-xl transition text-xs items-center space-x-1 shadow-sm whitespace-nowrap">
+                    <span>⚔️</span>
+                    <span>英検クエスト</span>
+                </a>
+                <a id="header-dojo-link" href="#" class="hidden sm:flex bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold px-3 py-2 rounded-xl transition text-xs items-center space-x-1 border border-amber-200 whitespace-nowrap">
+                    <i class="fa-solid fa-bolt text-amber-500"></i>
+                    <span>4択道場</span>
+                </a>
+                <a id="header-lab-link" href="#" class="hidden lg:flex bg-cyan-50 hover:bg-cyan-100 text-blue-900 font-bold px-3 py-2 rounded-xl transition text-xs items-center space-x-1 border border-cyan-200 whitespace-nowrap">
+                    <span>🧪</span>
+                    <span>番長ラボ</span>
+                </a>
+                <a id="header-main-link" href="#" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 sm:px-4 py-2 rounded-xl transition text-xs sm:text-sm flex items-center space-x-1.5 border border-slate-200 whitespace-nowrap">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>プリント教材へ戻る</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- ヒーロータイトル -->
+        <section class="bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-900 text-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="inline-flex items-center space-x-2 bg-indigo-800/80 border border-indigo-700/50 text-indigo-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-3 backdrop-blur-sm">
+                    <i class="fa-solid fa-map-location-dot text-amber-300"></i>
+                    <span>中学生の高校受験・志望校・目標校選びを完全サポート</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-black tracking-tight leading-snug">
+                    全国47都道府県 公立・私立高校 偏差値・学区別マップ
+                </h1>
+                <p class="text-indigo-100/90 text-xs sm:text-sm mt-2.5 max-w-2xl mx-auto leading-relaxed">
+                    各都道府県の公立高校・私立高校の偏差値一覧・合格目安（PDF）を無料で確認できます。志望校の目標設定や受験勉強の計画にお役立てください。
+                </p>
+            </div>
+        </section>
+
+        <!-- メインマップセクション -->
+        <section class="py-10 px-2 sm:px-4 lg:px-8 max-w-7xl mx-auto">
+
+            <div class="bg-white border border-slate-200 rounded-2xl p-4 mb-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="flex items-center space-x-2 text-slate-700 text-xs sm:text-sm font-bold">
+                    <i class="fa-solid fa-circle-info text-indigo-600 text-base"></i>
+                    <span>地図上の各都道府県にある「公立」「私立」を押すと偏差値一覧PDFが開きます</span>
+                </div>
+                <div class="flex items-center space-x-3 text-xs font-bold">
+                    <span class="flex items-center space-x-1">
+                        <span class="w-3 h-3 rounded-full bg-indigo-600 inline-block"></span>
+                        <span>公立高校</span>
+                    </span>
+                    <span class="flex items-center space-x-1">
+                        <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                        <span>私立高校</span>
+                    </span>
+                    <span class="flex items-center space-x-1 text-slate-400">
+                        <span class="w-3 h-3 rounded-full bg-slate-200 inline-block"></span>
+                        <span>準備中</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- 日本列島グリッド -->
+            <div class="bg-slate-200/60 p-3 sm:p-6 rounded-3xl border border-slate-300/80 overflow-x-auto shadow-inner">
+                <div id="map-container" class="min-w-[840px] lg:min-w-0">
+                    <div class="text-center py-20 text-slate-500 font-bold">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl mb-3 block text-indigo-600"></i>
+                        偏差値データを読み込んでいます...
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:hidden mt-8">
+                <h2 class="text-center font-bold text-slate-700 text-sm mb-3">▼ 地方から都道府県を探す場合はこちら</h2>
+                <div id="region-list-mobile" class="space-y-3"></div>
+            </div>
+        </section>
+
+        <!-- SEO向け 静的エリア一覧＆偏差値ガイドセクション -->
+        <section class="py-12 bg-white border-t border-slate-200 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto space-y-10">
+
+                <!-- 偏差値の見方・受験対策ガイド -->
+                <div class="space-y-4">
+                    <div class="text-center">
+                        <span class="text-indigo-600 font-bold text-xs uppercase tracking-wider block mb-1">HIGH SCHOOL GUIDE</span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">高校偏差値の見方と志望校対策のポイント</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                            <h3 class="font-extrabold text-slate-900 mb-2 flex items-center">
+                                <span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded text-xs mr-2">目安</span> 偏差値 30〜45 の基礎固め
+                            </h3>
+                            <p>教科書レベルの基礎問題を確実に得点することが合格への近道です。プリント番長の「基礎レベル」プリントと4択道場で基本事項の抜け漏れをなくしましょう。</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                            <h3 class="font-extrabold text-slate-900 mb-2 flex items-center">
+                                <span class="bg-sky-100 text-sky-700 px-2 py-0.5 rounded text-xs mr-2">目安</span> 偏差値 45〜60 の中堅・人気校
+                            </h3>
+                            <p>定期テストでの高得点（内申点対策）と入試標準問題の演習がカギになります。教科書PDFで解法を確認し、「標準レベル」の練習問題を繰り返し解きましょう。</p>
+                        </div>
+                        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5">
+                            <h3 class="font-extrabold text-slate-900 mb-2 flex items-center">
+                                <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs mr-2">目安</span> 偏差値 60以上 の難関校・上位校
+                            </h3>
+                            <p>思考力・応用力を問う問題での得点差が合否を分けます。「応用レベル」のプリント演習に加え、4択道場の復習モードや英検クエスト、番長ラボの科学的勉強法で知識の精度を極限まで高めましょう。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 全国47都道府県 テキストリンク対応エリア一覧 -->
+                <div class="bg-slate-50/80 rounded-3xl border border-slate-200 p-5 sm:p-7 space-y-4">
+                    <div class="text-center">
+                        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">全国47都道府県 高校偏差値一覧 掲載エリア</h2>
+                        <p class="text-xs text-slate-500 mt-1">公開済みの都道府県は <span class="text-indigo-600 font-bold">(公)</span>・<span class="text-amber-600 font-bold">(私)</span> の文字から直接PDFを開けます（グレー表記の地域も順次追加中）。</p>
+                    </div>
+                    <div id="area-directory-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">北海道・東北地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="北海道・東北">北海道 / 青森県 / 岩手県 / 宮城県 / 秋田県 / 山形県 / 福島県</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">関東地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="関東">茨城県 / 栃木県 / 群馬県 / 埼玉県 / 千葉県 / 東京都 / 神奈川県</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">中部・北陸・東海地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="中部">新潟県 / 富山県 / 石川県 / 福井県 / 山梨県 / 長野県 / 岐阜県 / 静岡県 / 愛知県</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">近畿（関西）地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="近畿">三重県 / 滋賀県 / 京都府 / 大阪府 / 兵庫県 / 奈良県 / 和歌山県</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">中国・四国地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="中国・四国">鳥取県 / 島根県 / 岡山県 / 広島県 / 山口県 / 徳島県 / 香川県 / 愛媛県 / 高知県</p>
+                        </div>
+                        <div class="bg-white rounded-xl border border-slate-200 p-3.5">
+                            <h3 class="font-extrabold text-indigo-700 mb-1.5">九州・沖縄地方</h3>
+                            <p class="text-slate-600 leading-relaxed" data-region="九州・沖縄">福岡県 / 佐賀県 / 長崎県 / 熊本県 / 大分県 / 宮崎県 / 鹿児島県 / 沖縄県</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ★★★ サイト内回遊導線（4大学習コンテンツ） ★★★ -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                    <!-- ① 無料学習プリント -->
+                    <a id="cta-main-link" href="#" class="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white p-4 rounded-2xl shadow-sm flex items-center justify-between transition hover:-translate-y-0.5">
+                        <div>
+                            <span class="text-[11px] text-indigo-100 font-bold block">基礎・標準・応用PDF</span>
+                            <span class="text-sm font-black">無料学習プリント</span>
+                        </div>
+                        <i class="fa-solid fa-file-pdf text-2xl text-indigo-200 ml-2"></i>
+                    </a>
+
+                    <!-- ② 英検クエスト -->
+                    <a id="cta-eiken-link" href="#" class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 hover:from-slate-800 hover:to-indigo-900 border-2 border-amber-400 text-white p-4 rounded-2xl shadow-sm flex items-center justify-between transition hover:-translate-y-0.5">
+                        <div>
+                            <span class="text-[11px] text-amber-300 font-black block">入試の内申・加点対策！</span>
+                            <span class="text-sm font-black text-amber-200">英検クエスト</span>
+                        </div>
+                        <span class="text-2xl ml-2">⚔️</span>
+                    </a>
+
+                    <!-- ③ 4択道場 -->
+                    <a id="cta-dojo-link" href="#" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white p-4 rounded-2xl shadow-sm flex items-center justify-between transition hover:-translate-y-0.5">
+                        <div>
+                            <span class="text-[11px] text-amber-100 font-bold block">主要5教科 4,200問</span>
+                            <span class="text-sm font-black">4択道場でクイズ修行</span>
+                        </div>
+                        <i class="fa-solid fa-bolt text-2xl text-yellow-200 ml-2"></i>
+                    </a>
+
+                    <!-- ④ 番長ラボ -->
+                    <a id="cta-lab-link" href="#" class="bg-gradient-to-r from-slate-900 via-blue-950 to-indigo-900 hover:from-slate-800 hover:to-blue-900 border-2 border-cyan-400 text-white p-4 rounded-2xl shadow-sm flex items-center justify-between transition hover:-translate-y-0.5">
+                        <div>
+                            <span class="text-[11px] text-cyan-300 font-black block">科学的根拠の勉強法</span>
+                            <span class="text-sm font-black text-white">番長ラボを見る</span>
+                        </div>
+                        <span class="text-2xl ml-2">🧪</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 免責・注意事項 -->
+        <section class="py-8 bg-slate-50 border-t border-slate-200 text-center text-xs text-slate-500 px-4">
+            <p class="max-w-3xl mx-auto leading-relaxed">
+                ※ 掲載している偏差値は合格目安（合格率60〜80%ライン）の参考値です。実際の入試では内申点や推薦によっても変動します。最新の募集要項は各都道府県教育委員会の公式発表をご確認ください。
+            </p>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs space-y-2">
+        <div class="flex flex-wrap justify-center gap-4 text-xs font-bold text-slate-400">
+            <a id="footer-main-link" href="#" class="hover:text-amber-300">🏠 プリント番長 トップ</a>
+            <a id="footer-eiken-link" href="#" class="hover:text-amber-300">⚔️ 英検クエスト</a>
+            <a id="footer-dojo-link" href="#" class="hover:text-amber-300">🥋 4択道場</a>
+            <a id="footer-lab-link" href="#" class="hover:text-cyan-300">🧪 番長ラボ</a>
+        </div>
+        <p>&copy; プリント番長 高校偏差値全国マップ All Rights Reserved.</p>
+    </footer>
+
+    <!-- スクリプト -->
+    <script>
+        const JAPAN_MAP_LAYOUT = [
+            // 北海道・東北
+            { name: "北海道", col: 10, row: 1, span: 2, region: "北海道・東北" },
+            { name: "青森", col: 10, row: 2, region: "北海道・東北" },
+            { name: "秋田", col: 9, row: 3, region: "北海道・東北" },
+            { name: "岩手", col: 10, row: 3, region: "北海道・東北" },
+            { name: "山形", col: 9, row: 4, region: "北海道・東北" },
+            { name: "宮城", col: 10, row: 4, region: "北海道・東北" },
+            { name: "福島", col: 10, row: 5, region: "北海道・東北" },
+
+            // 中部北・関東
+            { name: "新潟", col: 9, row: 5, region: "中部" },
+            { name: "群馬", col: 8, row: 6, region: "関東" },
+            { name: "栃木", col: 9, row: 6, region: "関東" },
+            { name: "茨城", col: 10, row: 6, region: "関東" },
+            { name: "長野", col: 7, row: 6, region: "中部" },
+            { name: "埼玉", col: 9, row: 7, region: "関東" },
+            { name: "千葉", col: 10, row: 7, region: "関東" },
+            { name: "山梨", col: 8, row: 7, region: "中部" },
+            { name: "東京", col: 9, row: 8, region: "関東" },
+            { name: "神奈川", col: 9, row: 9, region: "関東" },
+
+            // 北陸・東海
+            { name: "石川", col: 6, row: 4, region: "中部" },
+            { name: "富山", col: 7, row: 4, region: "中部" },
+            { name: "福井", col: 6, row: 5, region: "中部" },
+            { name: "岐阜", col: 7, row: 5, region: "中部" },
+            { name: "愛知", col: 7, row: 7, region: "中部" },
+            { name: "静岡", col: 8, row: 8, region: "中部" },
+
+            // 近畿
+            { name: "滋賀", col: 6, row: 6, region: "近畿" },
+            { name: "京都", col: 5, row: 6, region: "近畿" },
+            { name: "兵庫", col: 4, row: 6, region: "近畿" },
+            { name: "大阪", col: 5, row: 7, region: "近畿" },
+            { name: "奈良", col: 6, row: 7, region: "近畿" },
+            { name: "三重", col: 7, row: 8, region: "近畿" },
+            { name: "和歌山", col: 5, row: 8, region: "近畿" },
+
+            // 中国
+            { name: "鳥取", col: 3, row: 5, region: "中国" },
+            { name: "島根", col: 2, row: 5, region: "中国" },
+            { name: "岡山", col: 3, row: 6, region: "中国" },
+            { name: "広島", col: 2, row: 6, region: "中国" },
+            { name: "山口", col: 1, row: 6, region: "中国" },
+
+            // 四国
+            { name: "香川", col: 4, row: 8, region: "四国" },
+            { name: "徳島", col: 4, row: 9, region: "四国" },
+            { name: "愛媛", col: 3, row: 8, region: "四国" },
+            { name: "高知", col: 3, row: 9, region: "四国" },
+
+            // 九州・沖縄
+            { name: "福岡", col: 1, row: 8, region: "九州・沖縄" },
+            { name: "大分", col: 2, row: 8, region: "九州・沖縄" },
+            { name: "佐賀", col: 1, row: 9, region: "九州・沖縄" },
+            { name: "熊本", col: 2, row: 9, region: "九州・沖縄" },
+            { name: "長崎", col: 1, row: 10, region: "九州・沖縄" },
+            { name: "宮崎", col: 2, row: 10, region: "九州・沖縄" },
+            { name: "鹿児島", col: 2, row: 11, region: "九州・沖縄" },
+            { name: "沖縄", col: 1, row: 12, region: "九州・沖縄" }
+        ];
+
+        const PREFECTURE_NAMES = [
+            "北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島",
+            "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川",
+            "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知",
+            "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山",
+            "鳥取", "島根", "岡山", "広島", "山口",
+            "徳島", "香川", "愛媛", "高知",
+            "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"
+        ];
+
+        function escapeAttr(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/"/g, '&quot;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function trackHensachiPdf(el) {
+            try {
+                if (typeof gtag !== 'function' || !el) return;
+                const pdfName = (el.getAttribute('data-pdf-name') || '').slice(0, 100);
+                const pdfType = (el.getAttribute('data-pdf-type') || '').slice(0, 40);
+                gtag('event', 'hensachi_pdf_click', {
+                    pdf_name: pdfName,
+                    pdf_type: pdfType
+                });
+            } catch (e) {}
+        }
+
+        function setupSiteLinks() {
+            ['header-main-link', 'cta-main-link', 'footer-main-link'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = MAIN_SITE_URL;
+            });
+
+            ['header-dojo-link', 'cta-dojo-link', 'footer-dojo-link'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = QUIZ_DOJO_URL;
+            });
+
+            ['header-eiken-link', 'cta-eiken-link', 'footer-eiken-link'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = EIKEN_QUEST_URL;
+            });
+
+            ['header-lab-link', 'cta-lab-link', 'footer-lab-link'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.href = LAB_URL;
+            });
+        }
+
+        function normalizePref(name) {
+            if (!name) return '';
+            const cleaned = String(name).replace(/[\s\u3000\u200B\uFEFF\r\n]/g, '');
+            for (const p of PREFECTURE_NAMES) {
+                if (cleaned.startsWith(p) || cleaned.includes(p)) {
+                    return p;
+                }
+            }
+            return cleaned.replace(/(都|道|府|県)$/, '');
+        }
+
+        function cleanUrl(cell) {
+            if (!cell) return '';
+            let val = '';
+            if (cell.v !== undefined && cell.v !== null) {
+                val = String(cell.v);
+            } else if (cell.f !== undefined && cell.f !== null) {
+                val = String(cell.f);
+            }
+            val = val.replace(/[\s\u3000\u200B\uFEFF\r\n]/g, '');
+            if (val === '-' || val === 'ー' || val === '―' || val === '－') return '';
+            if (!val.startsWith('http://') && !val.startsWith('https://')) return '';
+            return val;
+        }
+
+        let prefDataMap = new Map();
+
+        async function fetchHennsachiData() {
+            setupSiteLinks();
+            try {
+                let url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`;
+                if (SHEET_GID && SHEET_GID.trim() !== '') {
+                    url += `&gid=${SHEET_GID.trim()}`;
+                } else {
+                    url += `&sheet=偏差値`;
+                }
+
+                const res = await fetch(url);
+                const text = await res.text();
+                const json = JSON.parse(text.substring(47).slice(0, -2));
+                const rows = json.table.rows;
+
+                prefDataMap.clear();
+
+                rows.forEach(r => {
+                    const c = r.c || [];
+                    const rawPref = c[0] ? (c[0].v ?? c[0].f ?? '') : '';
+                    const prefStr = String(rawPref).trim();
+                    if (!prefStr || prefStr === '都道府県' || prefStr.includes('見出し')) return;
+
+                    const prefKey = normalizePref(prefStr);
+                    const publicUrl = cleanUrl(c[1]);
+                    const privateUrl = cleanUrl(c[2]);
+
+                    prefDataMap.set(prefKey, {
+                        fullName: prefStr,
+                        publicUrl: publicUrl,
+                        privateUrl: privateUrl
+                    });
+                });
+
+                renderMap();
+                renderMobileList();
+                enhanceAreaDirectoryLinks();
+            } catch (err) {
+                document.getElementById('map-container').innerHTML = `
+                    <div class="bg-red-50 border border-red-200 text-red-600 p-6 rounded-2xl text-center">
+                        スプレッドシートの読み込みに失敗しました。IDやgidをご確認ください。
+                    </div>
+                `;
+            }
+        }
+
+        function renderMap() {
+            const container = document.getElementById('map-container');
+            let html = '<div class="japan-map-grid">';
+
+            JAPAN_MAP_LAYOUT.forEach(item => {
+                const data = prefDataMap.get(normalizePref(item.name)) || { publicUrl: '', privateUrl: '' };
+                const hasPublic = data.publicUrl !== '';
+                const hasPrivate = data.privateUrl !== '';
+
+                const colStyle = `grid-column: ${item.col} ${item.span ? `/ span ${item.span}` : ''}; grid-row: ${item.row};`;
+                const pubTrack = `${item.name}｜公立高校 偏差値PDF`;
+                const privTrack = `${item.name}｜私立高校 偏差値PDF`;
+
+                html += `
+                    <div style="${colStyle}" class="bg-white border ${hasPublic || hasPrivate ? 'border-indigo-300 shadow-sm' : 'border-slate-300/70 opacity-90'} rounded-xl p-2 flex flex-col justify-between hover:border-indigo-500 transition">
+                        <div class="text-center font-extrabold text-xs text-slate-800 mb-1.5 border-b border-slate-100 pb-0.5">
+                            ${item.name}
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-1 text-[11px] font-bold">
+                            ${hasPublic ? `
+                                <a href="${data.publicUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(pubTrack)}" data-pdf-type="公立高校" class="bg-indigo-600 hover:bg-indigo-700 text-white rounded-md py-1 text-center shadow-sm transition" title="${item.name} 公立高校 偏差値PDFを開く">
+                                    公立
+                                </a>
+                            ` : `
+                                <span class="bg-slate-100 text-slate-300 rounded-md py-1 text-center cursor-not-allowed select-none">
+                                    ―
+                                </span>
+                            `}
+
+                            ${hasPrivate ? `
+                                <a href="${data.privateUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(privTrack)}" data-pdf-type="私立高校" class="bg-amber-500 hover:bg-amber-600 text-white rounded-md py-1 text-center shadow-sm transition" title="${item.name} 私立高校 偏差値PDFを開く">
+                                    私立
+                                </a>
+                            ` : `
+                                <span class="bg-slate-100 text-slate-300 rounded-md py-1 text-center cursor-not-allowed select-none">
+                                    ―
+                                </span>
+                            `}
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function renderMobileList() {
+            const container = document.getElementById('region-list-mobile');
+            const regions = ["九州・沖縄", "中国", "四国", "近畿", "中部", "関東", "北海道・東北"];
+
+            let html = '';
+            regions.forEach(reg => {
+                const prefs = JAPAN_MAP_LAYOUT.filter(p => p.region === reg);
+                html += `
+                    <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                        <h3 class="font-bold text-xs text-indigo-700 border-b border-slate-100 pb-1.5 mb-2">${reg}</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            ${prefs.map(p => {
+                                const data = prefDataMap.get(normalizePref(p.name)) || { publicUrl: '', privateUrl: '' };
+                                const hasPub = data.publicUrl !== '';
+                                const hasPriv = data.privateUrl !== '';
+                                const pubTrack = `${p.name}｜公立高校 偏差値PDF`;
+                                const privTrack = `${p.name}｜私立高校 偏差値PDF`;
+                                return `
+                                    <div class="bg-slate-50 border border-slate-200 p-2 rounded-xl flex items-center justify-between">
+                                        <span class="text-xs font-bold text-slate-800">${p.name}</span>
+                                        <div class="flex space-x-1 text-[11px] font-bold">
+                                            ${hasPub ? `<a href="${data.publicUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(pubTrack)}" data-pdf-type="公立高校" class="bg-indigo-600 text-white px-2 py-0.5 rounded">公立</a>` : `<span class="bg-slate-200 text-slate-400 px-1.5 py-0.5 rounded">―</span>`}
+                                            ${hasPriv ? `<a href="${data.privateUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(privTrack)}" data-pdf-type="私立高校" class="bg-amber-500 text-white px-2 py-0.5 rounded">私立</a>` : `<span class="bg-slate-200 text-slate-400 px-1.5 py-0.5 rounded">―</span>`}
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function enhanceAreaDirectoryLinks() {
+            const fullMap = {
+                "北海道": "北海道", "青森県": "青森", "岩手県": "岩手", "宮城県": "宮城", "秋田県": "秋田", "山形県": "山形", "福島県": "福島",
+                "茨城県": "茨城", "栃木県": "栃木", "群馬県": "群馬", "埼玉県": "埼玉", "千葉県": "千葉", "東京都": "東京", "神奈川県": "神奈川",
+                "新潟県": "新潟", "富山県": "富山", "石川県": "石川", "福井県": "福井", "山梨県": "山梨", "長野県": "長野", "岐阜県": "岐阜", "静岡県": "静岡", "愛知県": "愛知",
+                "三重県": "三重", "滋賀県": "滋賀", "京都府": "京都", "大阪府": "大阪", "兵庫県": "兵庫", "奈良県": "奈良", "和歌山県": "和歌山",
+                "鳥取県": "鳥取", "島根県": "島根", "岡山県": "岡山", "広島県": "広島", "山口県": "山口",
+                "徳島県": "徳島", "香川県": "香川", "愛媛県": "愛媛", "高知県": "高知",
+                "福岡県": "福岡", "佐賀県": "佐賀", "長崎県": "長崎", "熊本県": "熊本", "大分県": "大分", "宮崎県": "宮崎", "鹿児島県": "鹿児島", "沖縄県": "沖縄"
+            };
+            document.querySelectorAll('#area-directory-list p[data-region]').forEach(pEl => {
+                const names = pEl.textContent.split('/').map(s => s.trim());
+                pEl.innerHTML = names.map(fullName => {
+                    const key = fullMap[fullName] || normalizePref(fullName);
+                    const data = prefDataMap.get(key);
+                    if (data && (data.publicUrl || data.privateUrl)) {
+                        const links = [];
+                        if (data.publicUrl) links.push(`<a href="${data.publicUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(key + '｜公立高校 偏差値PDF')}" data-pdf-type="公立高校" class="text-indigo-600 hover:underline font-bold">公</a>`);
+                        if (data.privateUrl) links.push(`<a href="${data.privateUrl}" target="_blank" rel="noopener noreferrer" onclick="trackHensachiPdf(this)" data-pdf-name="${escapeAttr(key + '｜私立高校 偏差値PDF')}" data-pdf-type="私立高校" class="text-amber-600 hover:underline font-bold">私</a>`);
+                        return `<span class="inline-block mr-1">${fullName}(${links.join('・')})</span>`;
+                    }
+                    return `<span class="inline-block mr-1 text-slate-400">${fullName}</span>`;
+                }).join(' / ');
+            });
+        }
+
+        fetchHennsachiData();
+    </script>
+</body>
+</html>
