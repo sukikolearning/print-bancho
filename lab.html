@@ -6,10 +6,10 @@
   <title>番長ラボ｜科学でわかる！最強の勉強法データベース【プリント番長】</title>
   <link rel="icon" type="image/jpeg" href="favicon.jpg" />
   <link rel="apple-touch-icon" href="favicon.jpg" />
-  <meta name="description" content="世界中の認知心理学・教育心理学・脳科学の最新研究（メタ分析・査読付き論文）に基づく、科学的に効果が実証された勉強法まとめ「番長ラボ」。記憶法・ノート術・テスト対策・集中法を中学生にもわかりやすく図解！" />
+  <meta name="description" content="世界中の認知心理学・教育心理学・脳科学の最新研究（メタ分析・査読付き論文）に基づく、科学的に効果が実証された勉強法まとめ「番長ラボ」。記憶法・ノート術・テスト対策・集中法を中学生にもわかりやすく解説！" />
   <meta name="keywords" content="科学的勉強法,番長ラボ,プリント番長,想起練習,分散学習,交互学習,ノートの取り方,中学生 勉強法,集中力,テスト対策" />
   <meta property="og:title" content="番長ラボ｜科学でわかる！最強の勉強法データベース" />
-  <meta property="og:description" content="経験談ではなく世界の最新研究エビデンスから厳選！小・中・高校生の成績が伸びる科学的な勉強法を図解で紹介。" />
+  <meta property="og:description" content="経験談ではなく世界の最新研究エビデンスから厳選！小・中・高校生の成績が伸びる科学的な勉強法をわかりやすく紹介。" />
   <meta property="og:type" content="website" />
 
   <!-- GTM & GA4 -->
@@ -37,6 +37,9 @@
     const DOJO_URL        = 'https://sukikolearning.github.io/print-bancho/dojo.html';
     const EIKEN_QUEST_URL = 'https://sukikolearning.github.io/print-bancho/eiken.html';
     const HENSACHI_URL    = 'https://sites.google.com/view/sukiko/%E3%83%9B%E3%83%BC%E3%83%A0/%E5%81%8F%E5%B7%AE%E5%80%A4%E4%B8%80%E8%A6%A7';
+
+    // 番長ラボ トップバナー画像URL
+    const LAB_TOP_BANNER_URL = 'https://drive.google.com/file/d/19ngCAmY1uuua0oXPcqOMh4ocSzu06Cmb/view?usp=drive_link';
 
     const CHAR_IMG_NORMAL = 'https://drive.google.com/file/d/12e93yD6cXHQD6K_vnV5uenGF2eAnszU5/view?usp=drive_link';
     const CHAR_IMG_HAPPY  = 'https://drive.google.com/file/d/1Z9N0QfPzCWQ4aMkiIafPK5Q6LiQmqeRO/view?usp=drive_link';
@@ -92,6 +95,13 @@
     </div>
   </header>
 
+  <!-- トップメイン画像（ヘッダー直下・全幅統一デザイン） -->
+  <section id="top-banner-wrapper" class="hidden w-full bg-[#0a1936] border-b-4 border-cyan-400 shadow-md">
+    <div class="max-w-5xl mx-auto overflow-hidden">
+      <img id="top-banner-img" src="" alt="番長ラボ 〜科学的根拠に基づく、学びの最前線〜" referrerpolicy="no-referrer" class="w-full h-auto block select-none" />
+    </div>
+  </section>
+
   <main class="flex-grow max-w-5xl w-full mx-auto px-3 sm:px-6 py-5 sm:py-7 space-y-6">
 
     <!-- ローディング -->
@@ -127,7 +137,7 @@
             世界の研究が証明した「本当に伸びる勉強法」
           </h1>
           <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
-            個人の経験談ではなく、世界中の大学・研究機関の<strong class="text-cyan-300">論文やメタ分析</strong>をもとに、小・中学生が今日からすぐ試せる形に図解しました！
+            個人の経験談ではなく、世界中の大学・研究機関の<strong class="text-cyan-300">論文やメタ分析</strong>をもとに、小・中学生が今日からすぐ試せる形に<strong class="text-cyan-300">わかりやすくまとめました！</strong>
           </p>
         </div>
       </div>
@@ -219,7 +229,7 @@
     </section>
 
     <!-- ======================================================== -->
-    <!-- ③ 詳細画面（自動図解ビジュアルカード） -->
+    <!-- ③ 詳細画面（自動整理カード） -->
     <!-- ======================================================== -->
     <section id="detail-view" class="hidden space-y-5 animate-in">
       <!-- ナビバー -->
@@ -251,7 +261,7 @@
           <div id="det-cat-tags" class="flex flex-wrap items-center gap-1.5 pt-1"></div>
         </div>
 
-        <!-- 図解ブロック1：よくあるNG vs 科学の正解 -->
+        <!-- 比較ブロック1：よくあるNG vs 科学の正解 -->
         <div id="det-compare-wrap" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           <div class="bg-rose-50/80 border-2 border-rose-200 rounded-2xl p-4 space-y-1.5">
             <div class="text-xs font-black text-rose-700 flex items-center space-x-1.5">
@@ -269,16 +279,16 @@
           </div>
         </div>
 
-        <!-- 図解ブロック2：実践ステップ（自動矢印フロー） -->
+        <!-- ステップブロック2：実践ステップ（自動矢印フロー） -->
         <div id="det-steps-wrap" class="space-y-2.5">
           <h2 class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2">
-            <span class="bg-blue-600 text-white px-2 py-0.5 rounded-lg text-xs">図解</span>
+            <span class="bg-blue-600 text-white px-2.5 py-0.5 rounded-lg text-xs">手順</span>
             <span>今日からできる実践ステップ</span>
           </h2>
           <div id="det-steps-flow" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5"></div>
         </div>
 
-        <!-- 図解ブロック3：なぜ効くの？（番長キャラ吹き出し） -->
+        <!-- ブロック3：なぜ効くの？（番長キャラ吹き出し） -->
         <div id="det-why-wrap" class="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 sm:p-5 flex items-start space-x-3 sm:space-x-4">
           <div id="det-char-box" class="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-2xl p-1 border border-amber-300 flex-shrink-0 flex items-center justify-center overflow-hidden shadow-sm"></div>
           <div class="space-y-1 flex-grow">
@@ -290,7 +300,7 @@
           </div>
         </div>
 
-        <!-- 図解ブロック4：教科別・プリント番長での活用例 -->
+        <!-- ブロック4：教科別・プリント番長での活用例 -->
         <div id="det-subjects-wrap" class="space-y-2.5">
           <h2 class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-1.5">
             <span>📚</span>
@@ -308,14 +318,14 @@
           <p id="det-caution" class="text-xs sm:text-sm text-slate-600 leading-relaxed"></p>
         </div>
 
-        <!-- 任意の図解画像・PDF（P列がある場合のみ表示） -->
+        <!-- 任意の補足画像・PDF（P列がある場合のみ表示） -->
         <div id="det-media-wrap" class="hidden bg-indigo-50/60 border border-indigo-200 rounded-2xl p-4 text-center space-y-2.5">
           <div id="det-media-img-box" class="hidden">
-            <img id="det-media-img" src="" alt="図解資料" referrerpolicy="no-referrer" class="max-h-72 mx-auto rounded-xl border border-indigo-200 object-contain" />
+            <img id="det-media-img" src="" alt="補足資料" referrerpolicy="no-referrer" class="max-h-72 mx-auto rounded-xl border border-indigo-200 object-contain" />
           </div>
           <a id="det-media-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white font-black px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-sm transition">
             <i class="fa-solid fa-file-pdf"></i>
-            <span>図解・PDF資料を開く</span>
+            <span>補足・PDF資料を開く</span>
           </a>
         </div>
 
@@ -333,7 +343,7 @@
             <div id="det-source-url-wrap" class="hidden">
               <a id="det-source-url" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 text-blue-700 hover:text-blue-900 font-black underline">
                 <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
-                <span>論文原文・DOIページを確認する</span>
+                <span>論文原文・公式サイトを確認する</span>
               </a>
             </div>
           </div>
@@ -428,6 +438,7 @@
     let activeCategory = 'すべて';
     let activeType = 'すべて';
     let currentArticleId = '';
+    let hasTopBanner = false;
 
     function $id(id) { return document.getElementById(id); }
 
@@ -451,12 +462,42 @@
         const id = match[1];
         return [
           `https://lh3.googleusercontent.com/d/${id}`,
-          `https://drive.google.com/thumbnail?id=${id}&sz=w1600`,
+          `https://drive.google.com/thumbnail?id=${id}&sz=w2000`,
           `https://lh4.googleusercontent.com/d/${id}`,
           `https://drive.google.com/uc?export=view&id=${id}`
         ];
       }
       return /\.(png|jpe?g|webp|gif)(\?|$)/i.test(trimmed) ? [trimmed] : [];
+    }
+
+    function setupTopBanner() {
+      const wrapper = $id('top-banner-wrapper');
+      const img = $id('top-banner-img');
+      const cands = getDriveImageCandidates(typeof LAB_TOP_BANNER_URL !== 'undefined' ? LAB_TOP_BANNER_URL : '');
+      if (!wrapper || !img || cands.length === 0) {
+        hasTopBanner = false;
+        return;
+      }
+      let idx = 0;
+      img.referrerPolicy = 'no-referrer';
+      img.onerror = () => {
+        idx++;
+        if (idx < cands.length) {
+          img.src = cands[idx];
+        } else {
+          hasTopBanner = false;
+          wrapper.classList.add('hidden');
+        }
+      };
+      img.src = cands[0];
+      hasTopBanner = true;
+    }
+
+    function updateBannerVisibility(show) {
+      const wrapper = $id('top-banner-wrapper');
+      if (!wrapper) return;
+      if (show && hasTopBanner) wrapper.classList.remove('hidden');
+      else wrapper.classList.add('hidden');
     }
 
     function setCharImg(boxId, rawUrl) {
@@ -528,6 +569,7 @@
 
     async function initApp() {
       setupLinks();
+      setupTopBanner();
       setCharImg('hero-char-box', CHAR_IMG_NORMAL);
       setCharImg('det-char-box', CHAR_IMG_HAPPY);
 
@@ -536,6 +578,7 @@
       $id('home-view').classList.add('hidden');
       $id('list-view').classList.add('hidden');
       $id('detail-view').classList.add('hidden');
+      updateBannerVisibility(false);
 
       try {
         const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&headers=1&sheet=${encodeURIComponent(LAB_SHEET_NAME)}`;
@@ -633,6 +676,7 @@
       $id('list-view').classList.add('hidden');
       $id('detail-view').classList.add('hidden');
       $id('home-view').classList.remove('hidden');
+      updateBannerVisibility(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -662,6 +706,7 @@
       $id('home-view').classList.add('hidden');
       $id('detail-view').classList.add('hidden');
       $id('list-view').classList.remove('hidden');
+      updateBannerVisibility(false);
 
       const catObj = CATEGORIES.find(c => c.key === activeCategory);
       $id('list-cat-icon').textContent = catObj ? catObj.icon : '📚';
@@ -761,6 +806,7 @@
       $id('home-view').classList.add('hidden');
       $id('list-view').classList.add('hidden');
       $id('detail-view').classList.remove('hidden');
+      updateBannerVisibility(false);
 
       $id('det-id-badge').textContent = a.id;
 
@@ -782,7 +828,6 @@
         </button>
       `).join('');
 
-      // 対比ブロック
       if (a.ngText || a.okText) {
         $id('det-compare-wrap').classList.remove('hidden');
         $id('det-ng').textContent = a.ngText || '—';
@@ -791,7 +836,6 @@
         $id('det-compare-wrap').classList.add('hidden');
       }
 
-      // 実践ステップフロー図
       if (a.steps.length > 0) {
         $id('det-steps-wrap').classList.remove('hidden');
         $id('det-steps-flow').innerHTML = a.steps.map((st, idx) => {
@@ -811,7 +855,6 @@
         $id('det-steps-wrap').classList.add('hidden');
       }
 
-      // なぜ効くの？
       if (a.whyText) {
         $id('det-why-wrap').classList.remove('hidden');
         $id('det-why').textContent = a.whyText;
@@ -819,7 +862,6 @@
         $id('det-why-wrap').classList.add('hidden');
       }
 
-      // 教科別活用例
       if (a.subjectExamples.length > 0) {
         $id('det-subjects-wrap').classList.remove('hidden');
         $id('det-subjects-list').innerHTML = a.subjectExamples.map(ex => {
@@ -840,7 +882,6 @@
         $id('det-subjects-wrap').classList.add('hidden');
       }
 
-      // 注意点・限界
       if (a.cautionText) {
         $id('det-caution-wrap').classList.remove('hidden');
         $id('det-caution').textContent = a.cautionText;
@@ -848,7 +889,6 @@
         $id('det-caution-wrap').classList.add('hidden');
       }
 
-      // 図解画像・PDF（任意）
       if (a.mediaUrl) {
         $id('det-media-wrap').classList.remove('hidden');
         $id('det-media-link').href = a.mediaUrl;
@@ -870,7 +910,6 @@
         $id('det-media-wrap').classList.add('hidden');
       }
 
-      // 出典論文（初期は閉じておく）
       $id('det-source-body').classList.add('hidden');
       $id('det-source-arrow').classList.remove('rotate-180');
       $id('det-source-text').textContent = a.sourceDetail || '教育心理学・認知心理学の査読付き研究論文を参照しています。';
