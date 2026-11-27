@@ -1017,7 +1017,7 @@
         $('total-pool-count').textContent=allQuestions.length;
         $('loading-view').classList.add('hidden');$('map-view').classList.remove('hidden');
         renderDashboard();fetchRanking(false);
-        if(!userData.profileSet)setTimeout(()=>openProfileModal(true),350);
+
       }catch(e){$('loading-view').classList.add('hidden');$('error-view').classList.remove('hidden');$('error-message').textContent=e.message;}
     }
 
@@ -1197,7 +1197,8 @@
     }
 
     async function syncScoreToGas(manual=false, studiedNow=false){
-      if(!RANKING_GAS_URL||!userData.profileSet){if(manual)openProfileModal(false);return;}
+    if(!RANKING_GAS_URL)return;
+      if(manual&&!userData.profileSet){openProfileModal(false);return;}
       if(manual)$('ranking-sync-status').textContent='送信中...';
       const clearedCount=allStages.filter(s=>s.grade===currentGrade&&isStageCleared(s)).length;
       const pl={
@@ -1570,6 +1571,7 @@
       }
       if(stageFullyCleared || (!quizSession.clearEligible&&pas))playSE('clear');
       syncScoreToGas(false, true);
+      if(!userData.profileSet)setTimeout(()=>openProfileModal(true),700);
       setDriveImg($('result-char-img'),pct>=90?CHAR_IMG_JUMP:(pas?CHAR_IMG_HAPPY:CHAR_IMG_NORMAL));
 
       if(quizSession.mode==='stage'&&quizSession.clearEligible){
