@@ -6,10 +6,10 @@
   <title>英検クエスト｜プリント番長【完全無料】4技能500問・英検合格RPG</title>
   <link rel="icon" type="image/jpeg" href="favicon.jpg" />
   <link rel="apple-touch-icon" href="favicon.jpg" />
-  <meta name="description" content="完全無料・登録不要の英検合格RPG「英検クエスト」。厳選500問・ネイティブ音声リスニング・2024新形式ライティング（Eメール＆意見論述）・二次面接シミュレーター・科学的復習システムまで完全対応！" />
+  <meta name="description" content="完全無料・登録不要の英検合格RPG「英検クエスト」。厳選500問・ネイティブ音声リスニング・2024新形式ライティング（Eメール＆意見論述）・二次面接シミュレーター・科学的復習システム＆専用プリント作成まで完全対応！" />
   <meta name="keywords" content="英検3級,無料,対策,500問,Eメール,ライティング,二次試験,面接,リスニング,プリント番長,英検クエスト" />
   <meta property="og:title" content="英検クエスト｜プリント番長【完全無料】4技能完全攻略RPG" />
-  <meta property="og:description" content="500問の厳選問題×4技能×忘却曲線完全マスターシステムで本物の英検合格力を！" />
+  <meta property="og:description" content="500問の厳選問題×4技能×忘却曲線完全マスター＆個人専用弱点プリントシステムで本物の英検合格力を！" />
   <meta property="og:type" content="website" />
 
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9QV93TN');</script>
@@ -18,6 +18,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"英検クエスト｜プリント番長","applicationCategory":"EducationalApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"4技能500問に対応した完全無料・ネイティブ音声付き英検合格RPG。"}</script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -30,6 +31,7 @@
     const MAIN_SITE_URL   = 'https://sukikolearning.github.io/print-bancho/';
     const DOJO_URL        = 'https://sukikolearning.github.io/print-bancho/dojo.html';
     const HENSACHI_URL    = 'https://sukikolearning.github.io/print-bancho/hensachi.html';
+    const EIKEN_SELF_URL  = 'https://sukikolearning.github.io/print-bancho/eiken.html';
 
     // 英検クエスト 正しいトップメイン画像URL
     const QUEST_TOP_BANNER_URL = 'https://drive.google.com/file/d/1I2_x3Xv9612r-_lLq3UGg-rM27-TFeFM/view?usp=drive_link';
@@ -58,15 +60,251 @@
     .streak-rainbow{background:linear-gradient(120deg,#f59e0b,#ec4899,#8b5cf6,#06b6d4,#10b981,#f59e0b);background-size:300% 300%;animation:rainbowFlow 5s ease infinite}
     @keyframes goldShine{0%,100%{box-shadow:0 0 15px rgba(251,191,36,.45)}50%{box-shadow:0 0 28px rgba(251,191,36,.85)}}
     .streak-gold-glow{animation:goldShine 2.2s ease-in-out infinite}
+
+    /* ==================== 専用プリントA4レイアウト（英語グリーン） ==================== */
+    #custom-print-view * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .a4-sheet {
+      background: #ffffff;
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 24px;
+      padding: 26px 30px 22px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.14);
+      border-radius: 8px;
+      color: #0f172a;
+    }
+    .prt-hero {
+      position: relative;
+      background: #047857;
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 14px 20px;
+      margin-bottom: 12px;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .prt-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-right: 78px;
+    }
+    .prt-pill {
+      background: #ffffff;
+      color: #047857;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 5px 11px;
+      border-radius: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .prt-char {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+    }
+    .prt-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 7px 14px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #334155;
+      background: #f8fafc;
+      margin-bottom: 14px;
+    }
+    .prt-section-band {
+      background: #ecfdf5;
+      border-radius: 8px;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 14px 0 10px;
+    }
+    .prt-section-num {
+      background: #047857;
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .prt-q-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 4px;
+      border-bottom: 1px dashed #e2e8f0;
+      break-inside: avoid;
+    }
+    .prt-q-item:last-child { border-bottom: none; }
+    .prt-ans-box {
+      width: 40px;
+      height: 32px;
+      border: 1.5px solid #94a3b8;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      background: #fff;
+    }
+    .prt-write-line {
+      border-bottom: 1.3px solid #64748b;
+      height: 24px;
+      margin-top: 4px;
+      width: 100%;
+    }
+    .prt-point-box {
+      position: relative;
+      background: #fff9e6;
+      border: 1.5px solid #f59e0b;
+      border-radius: 12px;
+      padding: 11px 86px 11px 14px;
+      margin-bottom: 14px;
+    }
+    .prt-point-char {
+      position: absolute;
+      right: 8px;
+      bottom: 4px;
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+    }
+    .prt-ans-item {
+      padding: 8px 4px;
+      border-bottom: 1px dashed #cbd5e1;
+      break-inside: avoid;
+    }
+    .prt-ans-item:last-child { border-bottom: none; }
+    .prt-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      break-inside: avoid;
+    }
+    .prt-qr-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .prt-qr-wrap {
+      position: relative;
+      width: 68px;
+      height: 68px;
+      flex-shrink: 0;
+    }
+    .prt-qr-wrap canvas {
+      width: 68px;
+      height: 68px;
+      display: block;
+    }
+    .prt-qr-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid #10b981;
+      padding: 1.5px;
+      object-fit: contain;
+    }
+    .prt-cheer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .prt-cheer-bubble {
+      border: 1.6px solid #047857;
+      border-radius: 10px;
+      padding: 7px 11px;
+      font-size: 10.5px;
+      font-weight: 800;
+      background: #fff;
+      line-height: 1.4;
+    }
+    .prt-footer-copy {
+      text-align: center;
+      font-size: 9.5px;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+    .page-break {
+      break-before: page;
+      page-break-before: always;
+    }
+
+    @media (max-width: 640px) {
+      .a4-sheet { padding: 16px 14px; }
+      .prt-hero-left { padding-right: 50px; }
+      .prt-char { width: 58px; height: 58px; right: 6px; top: -6px; }
+      .prt-point-box { padding: 10px 12px; }
+      .prt-point-char { display: none; }
+      .prt-bottom-row { flex-direction: column; align-items: stretch; }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 11mm;
+    }
+    @media print {
+      body { background: #fff !important; }
+      #app-header, #top-banner-wrapper, #app-main, #app-footer,
+      #profile-modal, #save-modal, #cert-modal, #print-config-modal,
+      .no-print {
+        display: none !important;
+      }
+      #custom-print-view {
+        display: block !important;
+        position: static !important;
+        background: #fff !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      .a4-sheet {
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9QV93TN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-b-4 border-amber-400 shadow-lg sticky top-0 z-40">
+  <header id="app-header" class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-b-4 border-amber-400 shadow-lg sticky top-0 z-40">
     <div class="max-w-5xl mx-auto px-3 py-2.5 flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2.5">
-        <span class="bg-amber-400 text-slate-950 font-black text-xs px-2 py-0.5 rounded-md shadow">Ver.3.8</span>
+        <span class="bg-amber-400 text-slate-950 font-black text-xs px-2 py-0.5 rounded-md shadow">Ver.3.9</span>
         <div>
           <div class="font-black text-lg sm:text-xl tracking-tight">⚔️ 英検クエスト</div>
           <p class="text-[11px] text-amber-200 hidden sm:block">プリント番長 × 4技能500問完全攻略RPG</p>
@@ -77,7 +315,7 @@
         <button onclick="openProfileModal(false)" class="bg-emerald-700 hover:bg-emerald-600 border border-emerald-400 text-white px-2.5 py-1.5 rounded-lg flex items-center gap-1">👤 <span id="header-nickname-badge" class="max-w-[75px] truncate">冒険者</span></button>
         <button onclick="openSaveModal()" class="bg-indigo-800/80 hover:bg-indigo-700 border border-indigo-500 text-amber-200 px-2.5 py-1.5 rounded-lg">📜 <span class="hidden sm:inline">じゅもん</span></button>
         <button id="se-toggle-btn" onclick="toggleSE()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-2 py-1.5 rounded-lg">🔊</button>
-        <a id="nav-home" href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-2.5 py-1.5 rounded-lg">🏠 本編</a>
+        <a id="nav-home" href="#" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-2.5 py-1.5 rounded-lg">🏠 本編</a>
         <a id="nav-dojo" href="#" class="bg-rose-900/80 hover:bg-rose-800 border border-rose-500 px-2.5 py-1.5 rounded-lg hidden md:inline-flex">🥋 4択道場</a>
       </nav>
     </div>
@@ -90,7 +328,7 @@
     </div>
   </div>
 
-  <main class="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-5 py-5 space-y-5">
+  <main id="app-main" class="flex-1 max-w-5xl w-full mx-auto px-3 sm:px-5 py-5 space-y-5">
 
     <!-- ★ 4択道場への相互送客・アカウント引き継ぎバナー ★ -->
     <a id="btn-to-dojo-banner" href="#" class="bg-gradient-to-r from-red-950 via-stone-900 to-amber-950 border-2 border-amber-500 text-white rounded-2xl p-3 sm:p-4 shadow-md flex items-center justify-between hover:scale-[1.01] transition-transform block">
@@ -230,6 +468,13 @@
               <span id="meter-master-ratio" class="font-black text-amber-700">0 / 500問 (0%)</span>
             </div>
           </div>
+
+          <!-- ★ いつでも使える専用プリント作成ボタン ★ -->
+          <button type="button" onclick="openCustomPrintModal('auto')" class="quest-btn w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black py-2.5 px-4 rounded-xl shadow text-xs sm:text-sm flex items-center justify-center gap-2">
+            <span>🖨️</span>
+            <span>自分専用の弱点・対策プリント（PDF）を作る</span>
+          </button>
+
           <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 space-y-2">
             <div class="flex items-center justify-between text-xs font-black text-emerald-900">
               <span>🔊 英語ネイティブ音声設定</span>
@@ -245,7 +490,7 @@
         </div>
       </section>
 
-      <!-- ★ 忘却曲線・弱点リベンジ＆復活待機バナー ★ -->
+      <!-- ★ 忘却曲線・弱点リベンジ＆専用プリントバナー ★ -->
       <section id="revenge-banner" class="hidden rounded-2xl p-4 shadow-lg border-2 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div class="flex items-center gap-3">
           <div id="revenge-icon" class="text-3xl bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">🔥</div>
@@ -256,6 +501,7 @@
         </div>
         <div class="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
           <button id="revenge-start-btn" onclick="startRevengeQuest(false)" class="quest-btn w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 py-2.5 rounded-xl shadow-md text-sm">⚔️ 本日の弱点を討伐！</button>
+          <button id="revenge-print-btn" onclick="openCustomPrintModal('srs')" class="quest-btn w-full sm:w-auto bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-400 font-black px-4 py-2 rounded-xl shadow text-xs">🖨️ 弱点プリントを作る</button>
           <button id="revenge-early-btn" onclick="startRevengeQuest(true)" class="hidden text-xs font-black underline px-3 py-1.5">試験前なので待機中も今すぐ復習</button>
         </div>
       </section>
@@ -416,7 +662,6 @@
             <img id="quiz-char-img" alt="プリント番長" class="w-20 h-20 object-contain flex-shrink-0" referrerpolicy="no-referrer" />
             <div class="flex-1 space-y-1.5 text-center sm:text-left">
               <div id="q-judge-title" class="text-lg font-black"></div>
-              <!-- ★ 科学的・完全マスター進捗メッセージ ★ -->
               <div id="q-srs-feedback" class="text-xs font-black px-3 py-1.5 rounded-xl border"></div>
               <div id="q-script-reveal" class="hidden text-xs bg-emerald-50 border border-emerald-200 text-emerald-900 p-2 rounded-lg font-bold"></div>
               <p id="q-explanation-text" class="text-xs sm:text-sm text-slate-700 leading-relaxed"></p>
@@ -445,7 +690,6 @@
         <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3"><div class="text-[11px] font-bold text-amber-700">正解数</div><div class="text-xl sm:text-2xl font-black text-amber-700"><span id="res-correct">0</span>/<span id="res-total">10</span></div></div>
         <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-3"><div class="text-[11px] font-bold text-indigo-700">獲得XP</div><div class="text-xl sm:text-2xl font-black text-indigo-700">+<span id="res-xp">0</span></div></div>
       </div>
-      <!-- ★ 今回の完全マスター進捗ボックス ★ -->
       <div id="result-srs-box" class="bg-amber-50 border border-amber-300 rounded-2xl p-3 text-xs font-black text-amber-950 max-w-lg mx-auto"></div>
 
       <div id="result-unlock-box" class="hidden bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-400 text-amber-950 font-black p-4 rounded-2xl text-sm"></div>
@@ -454,29 +698,102 @@
         <h3 class="text-sm font-black text-rose-800">📝 今回間違えた問題（要特訓に登録されました）</h3>
         <div id="result-mistakes-list" class="space-y-2 text-xs"></div>
       </div>
-      <div class="flex flex-col sm:flex-row justify-center gap-3 pt-2">
-        <button id="res-retry-wrong-btn" onclick="retryMistakesNow()" class="hidden quest-btn bg-rose-600 hover:bg-rose-500 text-white font-black px-6 py-3 rounded-xl shadow">🔥 間違えた問題だけやり直す</button>
-        <button onclick="retrySameStage()" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-3 rounded-xl shadow">🔄 もう一度挑戦</button>
-        <button onclick="backToMap()" class="quest-btn bg-slate-800 hover:bg-slate-700 text-white font-black px-6 py-3 rounded-xl shadow">🗺️ マップへ戻る</button>
+      <div class="space-y-2.5 pt-2">
+        <button onclick="openCustomPrintModal('session')" class="quest-btn w-full max-w-lg mx-auto bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black px-6 py-3 rounded-xl shadow flex items-center justify-center gap-2 text-sm">
+          <span>🖨️</span>
+          <span id="result-print-label">今回間違えた問題で専用プリント（PDF）を作る！</span>
+        </button>
+        <div class="flex flex-col sm:flex-row justify-center gap-3">
+          <button id="res-retry-wrong-btn" onclick="retryMistakesNow()" class="hidden quest-btn bg-rose-600 hover:bg-rose-500 text-white font-black px-6 py-3 rounded-xl shadow">🔥 間違えた問題だけやり直す</button>
+          <button onclick="retrySameStage()" class="quest-btn bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-3 rounded-xl shadow">🔄 もう一度挑戦</button>
+          <button onclick="backToMap()" class="quest-btn bg-slate-800 hover:bg-slate-700 text-white font-black px-6 py-3 rounded-xl shadow">🗺️ マップへ戻る</button>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-slate-900 text-slate-300 border-t-4 border-amber-400 mt-10 py-6 text-center text-xs space-y-2">
+  <footer id="app-footer" class="bg-slate-900 text-slate-300 border-t-4 border-amber-400 mt-10 py-6 text-center text-xs space-y-2">
     <div class="flex flex-wrap justify-center gap-4 font-bold">
-      <a id="foot-home" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300">プリント番長 トップ</a>
+      <a id="foot-home" href="#" class="hover:text-amber-300">プリント番長 トップ</a>
       <a id="foot-dojo" href="#" class="hover:text-amber-300">4択道場（5教科）</a>
-      <a id="foot-hensachi" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-amber-300">高校偏差値全国マップ</a>
+      <a id="foot-hensachi" href="#" class="hover:text-amber-300">高校偏差値全国マップ</a>
     </div>
-    <p class="text-slate-500">© プリント番長｜英検クエスト Ver.3.8</p>
+    <p class="text-slate-500">© プリント番長｜英検クエスト Ver.3.9</p>
   </footer>
+
+  <!-- ★ 個人専用プリント作成設定モーダル ★ -->
+  <div id="print-config-modal" class="hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="quest-card rounded-3xl max-w-md w-full p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-amber-200 pb-3">
+        <h3 class="text-base sm:text-lg font-black text-slate-900">🖨️ 専用英検プリント（A4・別冊解答）作成</h3>
+        <button onclick="closePrintConfigModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-black text-slate-700 mb-1.5">① どの問題から作る？</label>
+          <select id="prt-source-select" class="w-full bg-white border-2 border-slate-300 rounded-xl px-3 py-2.5 font-bold text-slate-800 outline-none focus:border-emerald-500">
+            <option value="srs">🔥 保存中の弱点（要特訓・忘却防止）</option>
+            <option value="session_wrong">🎯 今回間違えた問題</option>
+            <option value="stage_select">📘 ステージを選んで対策プリントを作る</option>
+          </select>
+        </div>
+
+        <div id="prt-stage-picker-wrap" class="hidden">
+          <label class="block font-black text-slate-700 mb-1.5">▶ 対象のステージを選ぶ</label>
+          <select id="prt-stage-select" class="w-full bg-white border-2 border-slate-300 rounded-xl px-3 py-2 font-bold text-slate-800 outline-none focus:border-emerald-500"></select>
+        </div>
+
+        <div>
+          <label class="block font-black text-slate-700 mb-1.5">② 1回に出力する合計問題数（大量印刷防止）</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" onclick="setPrintLimit(10)" data-lim="10" class="prt-lim-btn py-2 rounded-xl font-black border-2 bg-emerald-600 text-white border-emerald-600">10問（標準）</button>
+            <button type="button" onclick="setPrintLimit(15)" data-lim="15" class="prt-lim-btn py-2 rounded-xl font-black border-2 bg-white text-slate-700 border-slate-300">15問</button>
+            <button type="button" onclick="setPrintLimit(20)" data-lim="20" class="prt-lim-btn py-2 rounded-xl font-black border-2 bg-white text-slate-700 border-slate-300">20問</button>
+          </div>
+        </div>
+
+        <label class="flex items-start gap-2.5 bg-emerald-50 border border-emerald-200 rounded-xl p-3 cursor-pointer">
+          <input type="checkbox" id="prt-fill-similar" checked class="accent-emerald-600 w-4 h-4 mt-0.5 flex-shrink-0" />
+          <div>
+            <span class="font-black text-emerald-950 block">足りない分は「同じステージ・技能の類題」を自動補充</span>
+            <span class="text-[11px] text-emerald-800">1問だけ間違えたときもA4用紙がスカスカにならず、同じ技能の類題で充実したプリントになります。</span>
+          </div>
+        </label>
+
+        <p id="prt-config-msg" class="hidden text-[11px] font-bold text-rose-600"></p>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closePrintConfigModal()" class="px-4 py-2.5 rounded-xl bg-slate-200 font-bold text-xs">キャンセル</button>
+        <button onclick="generateCustomPrint()" class="flex-1 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow">📄 A4プリントを作成する！</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ★ 個人専用プリント A4プレビュー画面 ★ -->
+  <div id="custom-print-view" class="hidden fixed inset-0 z-50 bg-slate-200 overflow-y-auto">
+    <div class="no-print sticky top-0 z-50 bg-slate-900 text-white border-b-2 border-emerald-400 px-3 sm:px-6 py-3 shadow-lg flex flex-wrap items-center justify-between gap-2">
+      <button type="button" onclick="closeCustomPrintView()" class="bg-slate-700 hover:bg-slate-600 text-white font-black px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1.5">
+        <span>← 英検クエストに戻る</span>
+      </button>
+      <div class="text-xs font-bold text-emerald-200 hidden sm:block">
+        ※「PDFとして保存」または自宅プリンターでそのままA4印刷できます
+      </div>
+      <button type="button" onclick="triggerPrintDialog()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black px-5 py-2 rounded-xl text-xs sm:text-sm shadow">
+        🖨️ 印刷 / PDFとして保存
+      </button>
+    </div>
+    <div class="no-print max-w-[820px] mx-auto px-3 pt-3 text-[11px] text-slate-600 text-center font-bold">
+      💡 LINEやInstagramアプリ内で開いていて印刷画面が出ない場合は、右上のメニューから「Safari / Chromeで開く」をお使いください。
+    </div>
+    <div id="print-sheets-container" class="px-2 sm:px-4 py-4"></div>
+  </div>
 
   <div id="profile-modal" class="hidden fixed inset-0 bg-slate-950/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
     <div class="quest-card rounded-3xl max-w-md w-full p-5 sm:p-6 space-y-4">
       <div class="flex items-center justify-between"><h3 id="profile-modal-title" class="text-lg font-black text-slate-900">⚔️ 冒険者の登録・設定</h3><button onclick="closeProfileModal()" class="text-slate-400 hover:text-slate-700 font-black text-lg">✕</button></div>
       <div id="profile-welcome-banner" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-3 flex items-center gap-3">
         <img id="modal-char-img" alt="プリント番長" class="w-14 h-14 object-contain flex-shrink-0" referrerpolicy="no-referrer" />
-        <p class="text-xs font-bold text-emerald-950 leading-relaxed">英検クエストへようこそ！認定証やランキングで使う<strong>きみのニックネーム</strong>を決めて冒険を始めよう！</p>
+        <p class="text-xs font-bold text-emerald-950 leading-relaxed">おつかれさま！認定証やランキング・専用プリントで使う<strong>きみのニックネーム</strong>を決めておこう！</p>
       </div>
       <div class="space-y-3">
         <div>
@@ -547,26 +864,41 @@
       return m ? m[1] : '';
     }
 
-    function setDriveImg(el, raw){
-      if(!el || !raw) return;
+    function getDriveImgCandidates(raw) {
       const id = extractDriveId(raw);
-      if(!id){ el.src = raw; return; }
-
-      const c = [
+      if (!id) return raw && raw.startsWith('http') ? [raw] : [];
+      return [
         `https://lh3.googleusercontent.com/d/${id}`,
         `https://drive.google.com/thumbnail?id=${id}&sz=w2000`,
         `https://lh4.googleusercontent.com/d/${id}`,
         `https://drive.google.com/uc?export=view&id=${id}`
       ];
+    }
+
+    function handlePrtImgFallback(imgEl) {
+      const raw = imgEl.getAttribute('data-fallbacks');
+      if (raw) {
+        const list = raw.split('|');
+        const next = Number(imgEl.getAttribute('data-fb-idx') || '0') + 1;
+        if (next < list.length) {
+          imgEl.setAttribute('data-fb-idx', String(next));
+          imgEl.src = list[next];
+          return;
+        }
+      }
+      imgEl.style.display = 'none';
+    }
+
+    function setDriveImg(el, raw){
+      if(!el || !raw) return;
+      const c = getDriveImgCandidates(raw);
+      if(!c.length){ el.src = raw; return; }
       let i = 0;
       el.referrerPolicy = 'no-referrer';
       el.onerror = () => {
         i++;
-        if(i < c.length) {
-          el.src = c[i];
-        } else {
-          el.onerror = null;
-        }
+        if(i < c.length) el.src = c[i];
+        else el.onerror = null;
       };
       el.src = c[0];
     }
@@ -579,6 +911,7 @@
     let userData={uuid:'',nickname:'冒険者',roomCode:'',profileSet:false,xp:0,streak:0,freezes:2,lastStudyDate:'',dailyCounts:{},dailyCorrectCounts:{},stageBest:{},wrongIds:[],solvedIds:[],srsMap:{},questionCountMode:'standard',seEnabled:true,autoSpeak:true,speechRate:1.0,certSerial:''};
     let quizSession={mode:'stage',stage:null,questions:[],currentIndex:0,correctCount:0,combo:0,newMastersInRun:0,mistakesInRun:[],answered:false,clearEligible:true,audioPlayCount:0};
     let scramblePool=[],scrambleSelected=[],silentTimerInterval=null,interviewWaitTimer=null,speechRecognitionObj=null,isRecording=false,currentReplayAudio='',writingRange=[15,35];
+    let selectedPrintLimit=10;
 
     const genUuid=()=>window.crypto&&window.crypto.randomUUID?'ek_'+window.crypto.randomUUID().slice(0,18):'ek_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);
     function getTodayStr(off=0){const d=new Date();d.setDate(d.getDate()+off);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
@@ -596,7 +929,6 @@
       const tomorrow = getTodayStr(1);
       let changed = false;
 
-      // 既存の wrongIds → Step 0（要特訓）
       (userData.wrongIds || []).forEach(id => {
         if (!userData.srsMap[id]) {
           userData.srsMap[id] = { step: 0, everWrong: true, nextDate: today, lastDate: '' };
@@ -607,7 +939,6 @@
         }
       });
 
-      // 既存の solvedIds（かつ wrongIds にない） → Step 1（明日以降でLv.2へ）
       (userData.solvedIds || []).forEach(id => {
         if (!userData.srsMap[id]) {
           userData.srsMap[id] = { step: 1, everWrong: false, nextDate: tomorrow, lastDate: today };
@@ -738,6 +1069,466 @@
       return { total: qs.length, dueIds, waitingIds, lv0Count, masterCount, pct, earliestWaitDate };
     }
 
+    // ============================================================
+    // ★ 個人専用・英検A4弱点克服プリント作成エンジン ★
+    // ============================================================
+    function setPrintLimit(lim) {
+      selectedPrintLimit = lim;
+      document.querySelectorAll('.prt-lim-btn').forEach(btn => {
+        const act = Number(btn.dataset.lim) === lim;
+        btn.className = act
+          ? 'prt-lim-btn py-2 rounded-xl font-black border-2 bg-emerald-600 text-white border-emerald-600'
+          : 'prt-lim-btn py-2 rounded-xl font-black border-2 bg-white text-slate-700 border-slate-300';
+      });
+    }
+
+    function updateStagePickerVisibility() {
+      const val = $('prt-source-select').value;
+      $('prt-stage-picker-wrap').classList.toggle('hidden', val !== 'stage_select');
+    }
+
+    function openCustomPrintModal(triggerMode = 'auto') {
+      $('prt-config-msg').classList.add('hidden');
+
+      const gradeStages = allStages.filter(s => s.grade === currentGrade);
+      $('prt-stage-select').innerHTML = gradeStages.map(st => `<option value="${esc(st.id)}">STAGE ${st.stageNum}：${esc(st.name)}</option>`).join('');
+      $('prt-source-select').onchange = updateStagePickerVisibility;
+
+      const srsG = getSrsGradeStats(currentGrade);
+      if (triggerMode === 'session' && quizSession.mistakesInRun.length > 0) {
+        $('prt-source-select').value = 'session_wrong';
+      } else if (srsG.dueIds.length > 0 || srsG.waitingIds.length > 0) {
+        $('prt-source-select').value = 'srs';
+      } else {
+        $('prt-source-select').value = 'stage_select';
+      }
+
+      updateStagePickerVisibility();
+      setPrintLimit(10);
+      $('print-config-modal').classList.remove('hidden');
+    }
+
+    function closePrintConfigModal() {
+      $('print-config-modal').classList.add('hidden');
+    }
+
+    function closeCustomPrintView() {
+      $('custom-print-view').classList.add('hidden');
+    }
+
+    function triggerPrintDialog() {
+      window.print();
+    }
+
+    function renderEnglishQRToCanvas(canvasEl, urlStr) {
+      if (!canvasEl || typeof qrcode !== 'function') return;
+      const size = 240;
+      canvasEl.width = size;
+      canvasEl.height = size;
+      const ctx = canvasEl.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+
+      const frameWidth = 7;
+      const quietZone = 11;
+      const margin = frameWidth + quietZone;
+      const qrArea = size - margin * 2;
+
+      ctx.save();
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = frameWidth;
+      ctx.beginPath();
+      const r = 14;
+      const x0 = frameWidth / 2, y0 = frameWidth / 2, w0 = size - frameWidth, h0 = size - frameWidth;
+      ctx.moveTo(x0 + r, y0);
+      ctx.arcTo(x0 + w0, y0, x0 + w0, y0 + h0, r);
+      ctx.arcTo(x0 + w0, y0 + h0, x0, y0 + h0, r);
+      ctx.arcTo(x0, y0 + h0, x0, y0, r);
+      ctx.arcTo(x0, y0, x0 + w0, y0, r);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+
+      const qr = qrcode(0, 'H');
+      qr.addData(urlStr);
+      qr.make();
+      const mc = qr.getModuleCount();
+      const cs = qrArea / mc;
+
+      ctx.fillStyle = '#047857';
+      for (let row = 0; row < mc; row++) {
+        for (let col = 0; col < mc; col++) {
+          if (qr.isDark(row, col)) {
+            const px = Math.floor(margin + col * cs);
+            const py = Math.floor(margin + row * cs);
+            const pw = Math.ceil(margin + (col + 1) * cs) - px;
+            const ph = Math.ceil(margin + (row + 1) * cs) - py;
+            ctx.fillRect(px, py, pw, ph);
+          }
+        }
+      }
+    }
+
+    function createPrintQuestionItem(q) {
+      if (q.type === '4択' || q.type === 'リスニング4択') {
+        const cu = (q.correctRaw || 'A').trim().toUpperCase();
+        const raw = [{k:'A',t:q.choiceA},{k:'B',t:q.choiceB},{k:'C',t:q.choiceC},{k:'D',t:q.choiceD}].filter(c => c.t !== '');
+        const shuf = shuffle(raw);
+        const kanas = ['ア', 'イ', 'ウ', 'エ'];
+        let ansKana = 'ア';
+        let ansText = '';
+        const dispChoices = shuf.map((item, idx) => {
+          if (item.k === cu) { ansKana = kanas[idx]; ansText = item.t; }
+          return { kana: kanas[idx], text: item.t };
+        });
+        return { ...q, dispChoices, ansKana, ansText };
+      }
+      if (q.type === '並べ替え') {
+        const words = shuffle((q.choiceA || q.correctRaw).split('|').map(t => t.trim()).filter(Boolean));
+        return { ...q, scrambleWords: words, ansText: q.correctRaw };
+      }
+      return { ...q, ansText: q.choiceA || q.correctRaw };
+    }
+
+    function generateCustomPrint() {
+      const sourceMode = $('prt-source-select').value;
+      const fillSimilar = $('prt-fill-similar').checked;
+      const msgEl = $('prt-config-msg');
+      msgEl.classList.add('hidden');
+
+      let primaryPool = [];
+      let modeLabel = '弱点復習';
+      const map = userData.srsMap || {};
+
+      if (sourceMode === 'session_wrong') {
+        primaryPool = [...quizSession.mistakesInRun];
+        modeLabel = '弱点復習';
+      } else if (sourceMode === 'srs') {
+        const srsG = getSrsGradeStats(currentGrade);
+        const qMap = new Map(allQuestions.map(q => [q.id, q]));
+        const lv0 = [], dueRest = [];
+        srsG.dueIds.forEach(id => {
+          const qo = qMap.get(id);
+          if (!qo) return;
+          if (map[id] && map[id].step === 0) lv0.push(qo);
+          else dueRest.push(qo);
+        });
+        const wait = srsG.waitingIds.map(id => qMap.get(id)).filter(Boolean);
+        primaryPool = [...shuffle(lv0), ...shuffle(dueRest), ...shuffle(wait)];
+        modeLabel = '専用復習';
+      } else {
+        const sid = $('prt-stage-select').value;
+        primaryPool = shuffle(allQuestions.filter(q => q.stageId === sid));
+        modeLabel = 'ステージ対策';
+      }
+
+      if (primaryPool.length === 0) {
+        if (sourceMode === 'session_wrong') {
+          msgEl.textContent = '今回間違えた問題がありません！「保存中の弱点」や「ステージを選んで作成」をお使いください。';
+        } else if (sourceMode === 'srs') {
+          msgEl.textContent = '保存中の弱点問題がまだありません。「ステージを選んで対策プリントを作る」をお試しください！';
+        } else {
+          msgEl.textContent = 'このステージに公開中の問題がありません。';
+        }
+        msgEl.classList.remove('hidden');
+        return;
+      }
+
+      const primaryItems = primaryPool.slice(0, selectedPrintLimit).map(createPrintQuestionItem);
+      const usedIds = new Set(primaryItems.map(q => q.id));
+
+      let similarItems = [];
+      if (fillSimilar && primaryItems.length < selectedPrintLimit) {
+        const need = selectedPrintLimit - primaryItems.length;
+        const weakStages = new Set(primaryItems.map(q => q.stageId));
+        const weakSkills = new Set(primaryItems.map(q => q.skill));
+
+        const sameStagePool = shuffle(allQuestions.filter(q =>
+          q.grade === currentGrade && !usedIds.has(q.id) && weakStages.has(q.stageId)
+        ));
+        const sameSkillPool = shuffle(allQuestions.filter(q =>
+          q.grade === currentGrade && !usedIds.has(q.id) && !weakStages.has(q.stageId) && weakSkills.has(q.skill)
+        ));
+        similarItems = [...sameStagePool, ...sameSkillPool].slice(0, need).map(createPrintQuestionItem);
+      }
+
+      const allPrintItems = [...primaryItems, ...similarItems];
+      const userName = userData.nickname || '冒険者';
+      const todayJp = (() => {
+        const d = new Date();
+        return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+      })();
+
+      // 弱点技能の集計
+      const skillCountMap = new Map();
+      primaryItems.forEach(q => {
+        skillCountMap.set(q.skill, (skillCountMap.get(q.skill) || 0) + 1);
+      });
+      const summaryStr = Array.from(skillCountMap.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(([k, c]) => `${esc(k)}（${c}問）`)
+        .join('、');
+
+      const makeCharTag = (rawUrl, clsName) => {
+        const c = getDriveImgCandidates(rawUrl);
+        if (!c.length) return '';
+        return `<img src="${c[0]}" class="${clsName}" referrerpolicy="no-referrer" data-fallbacks="${c.join('|')}" data-fb-idx="0" onerror="handlePrtImgFallback(this)" alt="プリント番長">`;
+      };
+
+      const renderEikenQHtml = (q, numIdx, isWeak) => {
+        const badgeHtml = `<span style="display:inline-block;font-size:9.5px;font-weight:800;padding:1px 6px;border-radius:4px;margin-left:5px;vertical-align:middle;${isWeak && sourceMode !== 'stage_select' ? 'color:#be123c;background:#fff1f2;border:1px solid #fecdd3;' : 'color:#047857;background:#ecfdf5;border:1px solid #a7f3d0;'}">${esc(q.skill)}｜${esc(q.type)}${isWeak && sourceMode !== 'stage_select' ? '｜要特訓' : ''}</span>`;
+        const passageHtml = q.passage
+          ? `<div style="margin:5px 0 6px 26px;padding:7px 10px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;font-size:11.5px;line-height:1.5;white-space:pre-line;color:#1e293b;">${esc(q.passage)}</div>`
+          : '';
+
+        if (q.type === '4択' || q.type === 'リスニング4択') {
+          const listenNote = q.type === 'リスニング4択'
+            ? `<div style="margin:3px 0 4px 26px;font-size:10.5px;font-weight:700;color:#047857;">🎧 リスニング問題：下のQRから英検クエストで音声を聞くか、別冊スクリプトで確認しよう</div>`
+            : '';
+          return `
+            <div class="prt-q-item">
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:3px;">
+                  <span style="font-weight:900;font-size:13px;color:#0f172a;flex-shrink:0;">(${numIdx})</span>
+                  <div style="font-size:13px;font-weight:700;line-height:1.5;color:#0f172a;">${esc(q.question)} ${badgeHtml}</div>
+                </div>
+                ${listenNote}
+                ${passageHtml}
+                <div style="display:flex;flex-wrap:wrap;gap:6px 16px;padding-left:26px;font-size:12.5px;font-weight:500;color:#1e293b;">
+                  ${(q.dispChoices || []).map(c => `<span style="display:inline-flex;align-items:baseline;gap:4px;"><strong style="color:#047857;">${c.kana}</strong><span>${esc(c.text)}</span></span>`).join('')}
+                </div>
+              </div>
+              <div class="prt-ans-box"></div>
+            </div>
+          `;
+        }
+
+        if (q.type === '並べ替え') {
+          return `
+            <div class="prt-q-item">
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:3px;">
+                  <span style="font-weight:900;font-size:13px;color:#0f172a;flex-shrink:0;">(${numIdx})</span>
+                  <div style="font-size:13px;font-weight:700;line-height:1.5;color:#0f172a;">${esc(q.question)} ${badgeHtml}</div>
+                </div>
+                <div style="padding-left:26px;font-size:12px;font-weight:700;color:#334155;margin-bottom:4px;">
+                  ( ${(q.scrambleWords || []).map(w => esc(w)).join(' / ')} )
+                </div>
+                <div style="padding-left:26px;"><div class="prt-write-line"></div></div>
+              </div>
+            </div>
+          `;
+        }
+
+        // 自由英作文・面接問題
+        const lineCount = q.type === '自由英作文' ? 5 : 2;
+        const linesHtml = Array(lineCount).fill('<div class="prt-write-line"></div>').join('');
+        return `
+          <div class="prt-q-item">
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:3px;">
+                <span style="font-weight:900;font-size:13px;color:#0f172a;flex-shrink:0;">(${numIdx})</span>
+                <div style="font-size:13px;font-weight:700;line-height:1.5;color:#0f172a;">${esc(q.question)} ${badgeHtml}</div>
+              </div>
+              ${passageHtml}
+              ${q.type === '面接QA' && q.audioScript ? `<div style="padding-left:26px;font-size:11.5px;font-weight:700;color:#0f172a;margin:3px 0;">質問：${esc(q.audioScript)}</div>` : ''}
+              <div style="padding-left:26px;margin-top:4px;">${linesHtml}</div>
+            </div>
+          </div>
+        `;
+      };
+
+      const renderEikenAnsHtml = (q, numIdx) => {
+        const ansDisplay = (q.type === '4択' || q.type === 'リスニング4択')
+          ? `${q.ansKana} &nbsp; ${esc(q.ansText)}`
+          : esc(q.ansText);
+        const scriptLine = q.audioScript
+          ? `<div style="color:#047857;font-weight:700;margin-bottom:2px;">🗣️ 音声・模範英文：${esc(q.audioScript)}</div>`
+          : '';
+        const altLine = (q.type === '自由英作文' || q.type === '面接QA' || q.type === '面接音読') && q.choiceB
+          ? `<div style="color:#475569;margin-bottom:2px;">別解例：${esc(q.choiceB)}</div>`
+          : '';
+
+        return `
+          <div class="prt-ans-item">
+            <div style="display:flex;align-items:baseline;gap:8px;font-size:12.5px;margin-bottom:2px;">
+              <span style="font-weight:900;color:#0f172a;flex-shrink:0;">(${numIdx})</span>
+              <span style="color:#dc2626;font-weight:900;font-size:13px;">${ansDisplay}</span>
+              <span style="color:#64748b;font-size:10.5px;font-weight:700;">[${esc(q.skill)}｜${esc(q.type)}]</span>
+            </div>
+            <div style="padding-left:26px;font-size:11.5px;line-height:1.5;color:#1d4ed8;font-weight:500;">
+              ${scriptLine}
+              ${altLine}
+              <strong style="margin-right:4px;">解説</strong>${esc(q.explanation)}
+            </div>
+          </div>
+        `;
+      };
+
+      const headerTitle = sourceMode === 'stage_select'
+        ? `${esc(userName)} 専用の英検${esc(currentGrade)} 対策プリント`
+        : `${esc(userName)} 専用の英検${esc(currentGrade)} 弱点克服プリント`;
+      const sec1Title = sourceMode === 'stage_select'
+        ? 'ステージ厳選チャレンジ問題'
+        : '間違えた問題のリベンジ（要特訓）';
+
+      $('print-sheets-container').innerHTML = `
+        <!-- ==================== 問題ページ ==================== -->
+        <div class="a4-sheet">
+          <div class="prt-hero">
+            <div class="prt-hero-left">
+              <div class="prt-pill">${esc(modeLabel)}</div>
+              <div>
+                <h1 style="font-size:18px;font-weight:900;margin:0 0 3px;line-height:1.25;">${headerTitle}</h1>
+                <p style="font-size:10.5px;margin:0;color:#d1fae5;font-weight:600;">プリント番長 英検クエスト｜全 ${allPrintItems.length} 問（記号選び・並べ替え・英作文対応）</p>
+              </div>
+            </div>
+            ${makeCharTag(CHAR_IMG_HAPPY, 'prt-char')}
+          </div>
+
+          <div class="prt-meta-bar">
+            <span>📅 作成日：${todayJp}</span>
+            <span>👤 名前：<strong>${esc(userName)}</strong></span>
+            <span>🎯 得点：<span style="border-bottom:1.5px solid #64748b;display:inline-block;min-width:56px;"></span> / ${allPrintItems.length} 問</span>
+          </div>
+
+          <div class="prt-section-band">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="prt-section-num">1</span>
+              <span style="font-size:13px;font-weight:900;color:#0f172a;">${sec1Title}（${primaryItems.length}問）</span>
+            </div>
+            <span style="font-size:10px;font-weight:800;color:#047857;">選択は記号・英作は線に記入</span>
+          </div>
+
+          <div>
+            ${primaryItems.map((q, i) => renderEikenQHtml(q, i + 1, true)).join('')}
+          </div>
+
+          ${similarItems.length > 0 ? `
+            <div class="prt-section-band">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="prt-section-num">2</span>
+                <span style="font-size:13px;font-weight:900;color:#0f172a;">同じステージ・技能の類題チャレンジ（${similarItems.length}問）</span>
+              </div>
+              <span style="font-size:10px;font-weight:800;color:#047857;">定着確認のため自動追加</span>
+            </div>
+            <div>
+              ${similarItems.map((q, i) => renderEikenQHtml(q, i + 1, false)).join('')}
+            </div>
+          ` : ''}
+
+          <div class="prt-bottom-row">
+            <div class="prt-qr-block">
+              <div class="prt-qr-wrap">
+                <canvas id="prt-qr-canvas-q"></canvas>
+                <img src="favicon.jpg" class="prt-qr-logo" onerror="this.style.display='none'" alt="">
+              </div>
+              <div style="font-size:10px;color:#475569;line-height:1.45;">
+                <strong style="color:#0f172a;display:block;font-size:11px;">📱 ネイティブ音声を聞く・RPGを続ける</strong>
+                <span>プリント番長「英検クエスト」（無料）</span><br>
+                <span style="font-family:monospace;font-size:9px;color:#64748b;">sukikolearning.github.io/print-bancho/eiken.html</span>
+              </div>
+            </div>
+            <div class="prt-cheer">
+              <div class="prt-cheer-bubble">
+                最後までよくがんばった！<br>
+                別紙の「解答・解説」で答え合わせをしよう！
+              </div>
+              ${makeCharTag(CHAR_IMG_JUMP, 'w-14 h-14 object-contain flex-shrink-0')}
+            </div>
+          </div>
+
+          <div class="prt-footer-copy">
+            &copy; プリント番長（https://sukikolearning.github.io/print-bancho/） ※個人学習用・商用利用・無断転売禁止
+          </div>
+        </div>
+
+        <!-- ==================== 別冊 解答・解説ページ ==================== -->
+        <div class="a4-sheet page-break">
+          <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #047857;padding-bottom:6px;margin-bottom:14px;font-size:12px;font-weight:800;">
+            <div>
+              <span style="background:#047857;color:#ffffff;padding:3px 10px;border-radius:6px;font-size:11px;margin-right:8px;">別冊 解答・解説</span>
+              <span>${headerTitle}</span>
+            </div>
+            <span style="color:#64748b;font-size:11px;">${todayJp} 作成</span>
+          </div>
+
+          <div class="prt-point-box">
+            <div style="font-size:12.5px;font-weight:900;color:#b45309;margin:0 0 4px;">★ ${esc(userName)}さんの専用分析 ＆ 英検攻略ポイント</div>
+            <p style="font-size:11.5px;line-height:1.55;color:#334155;margin:0;font-weight:600;">
+              今回の重点技能：<strong>${summaryStr}</strong><br>
+              英文は目で見るだけでなく<strong>声に出して3回音読</strong>すると定着が急上昇します！さらに<strong>1日後・3日後</strong>に英検クエストで解き直して👑完全マスターを目指そう！
+            </p>
+            ${makeCharTag(CHAR_IMG_NORMAL, 'prt-point-char')}
+          </div>
+
+          <div class="prt-section-band">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="prt-section-num">1</span>
+              <span style="font-size:13px;font-weight:900;color:#0f172a;">${sec1Title} 解答・解説</span>
+            </div>
+          </div>
+
+          <div>
+            ${primaryItems.map((q, i) => renderEikenAnsHtml(q, i + 1)).join('')}
+          </div>
+
+          ${similarItems.length > 0 ? `
+            <div class="prt-section-band">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span class="prt-section-num">2</span>
+                <span style="font-size:13px;font-weight:900;color:#0f172a;">同じステージ・技能の類題チャレンジ 解答・解説</span>
+              </div>
+            </div>
+            <div>
+              ${similarItems.map((q, i) => renderEikenAnsHtml(q, i + 1)).join('')}
+            </div>
+          ` : ''}
+
+          <div class="prt-bottom-row">
+            <div class="prt-qr-block">
+              <div class="prt-qr-wrap">
+                <canvas id="prt-qr-canvas-a"></canvas>
+                <img src="favicon.jpg" class="prt-qr-logo" onerror="this.style.display='none'" alt="">
+              </div>
+              <div style="font-size:10px;color:#475569;line-height:1.45;">
+                <strong style="color:#0f172a;display:block;font-size:11px;">📱 5教科プリント＆勉強法ラボも無料！</strong>
+                <span>プリント番長（英語・数学・国語・理科・社会）</span><br>
+                <span style="font-family:monospace;font-size:9px;color:#64748b;">sukikolearning.github.io/print-bancho/</span>
+              </div>
+            </div>
+            <div class="prt-cheer">
+              <div class="prt-cheer-bubble">
+                おつかれさま！音読と解説チェックができたら、<br>
+                次は「番長模試」や「合格認定証」に挑戦だ！
+              </div>
+              ${makeCharTag(CHAR_IMG_HAPPY, 'w-14 h-14 object-contain flex-shrink-0')}
+            </div>
+          </div>
+
+          <div class="prt-footer-copy">
+            &copy; プリント番長（https://sukikolearning.github.io/print-bancho/） ※個人学習用・商用利用・無断転売禁止
+          </div>
+        </div>
+      `;
+
+      closePrintConfigModal();
+      $('custom-print-view').classList.remove('hidden');
+
+      renderEnglishQRToCanvas($('prt-qr-canvas-q'), EIKEN_SELF_URL);
+      renderEnglishQRToCanvas($('prt-qr-canvas-a'), MAIN_SITE_URL);
+
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'create_custom_print', {
+            app_type: 'eiken',
+            question_count: allPrintItems.length,
+            grade: currentGrade
+          });
+        }
+      } catch (e) {}
+    }
+
     function updateDojoLinks() {
       const qUrl = DOJO_URL;
       const dojoBanner = $('btn-to-dojo-banner');
@@ -748,7 +1539,6 @@
       if (footDojo) footDojo.href = qUrl;
     }
 
-    // ★ ステージの必要制覇問題数（公開問題数の60%以上）とクリア判定・完全マスター数 ★
     function getStageProgress(st) {
       const pool = allQuestions.filter(q => q.stageId === st.id);
       const total = pool.length;
@@ -773,7 +1563,6 @@
       return { total, solved, pct };
     }
 
-    // ★ 解答前に音声再生を許可するかどうかの厳格判定 ★
     function canPlayAudioBeforeAnswer(q) {
       if (!q || !q.audioScript) return false;
       if (q.type === 'リスニング4択' || q.type === '面接QA' || q.type === '面接音読') return true;
@@ -1017,7 +1806,6 @@
         $('total-pool-count').textContent=allQuestions.length;
         $('loading-view').classList.add('hidden');$('map-view').classList.remove('hidden');
         renderDashboard();fetchRanking(false);
-
       }catch(e){$('loading-view').classList.add('hidden');$('error-view').classList.remove('hidden');$('error-message').textContent=e.message;}
     }
 
@@ -1127,6 +1915,7 @@
       const titleEl = $('revenge-title');
       const descEl = $('revenge-desc');
       const startBtn = $('revenge-start-btn');
+      const printBtn = $('revenge-print-btn');
       const earlyBtn = $('revenge-early-btn');
 
       if (srsG.dueIds.length > 0) {
@@ -1140,6 +1929,7 @@
           : `要特訓の問題が <strong class="text-amber-200">${srsG.lv0Count}問</strong> あります。期間を空けて3回連続正解で👑完全マスター！`;
         startBtn.classList.remove('hidden');
         startBtn.textContent = `⚔️ 本日の ${srsG.dueIds.length}問を討伐！`;
+        printBtn.classList.remove('hidden');
         earlyBtn.classList.add('hidden');
       } else if (srsG.waitingIds.length > 0) {
         const nextLabel = srsG.earliestWaitDate ? srsG.earliestWaitDate.slice(5).replace('-', '/') : '明日';
@@ -1149,6 +1939,7 @@
         descEl.className = 'text-xs text-slate-600';
         descEl.textContent = `忘却防止のため待機中の ${srsG.waitingIds.length}問 は ${nextLabel} 以降に順次復活します。`;
         startBtn.classList.add('hidden');
+        printBtn.classList.remove('hidden');
         earlyBtn.classList.remove('hidden');
         earlyBtn.className = 'text-xs font-black text-indigo-700 hover:text-indigo-900 underline px-3 py-1.5';
         earlyBtn.textContent = `試験前なので待機中(${srsG.waitingIds.length}問)も今すぐ復習`;
@@ -1159,6 +1950,7 @@
         descEl.className = 'text-xs text-amber-900';
         descEl.textContent = '期間を空けて3回連続正解した問題が長期記憶に定着しています！';
         startBtn.classList.add('hidden');
+        printBtn.classList.add('hidden');
         earlyBtn.classList.add('hidden');
       } else {
         banner.classList.add('hidden');
@@ -1197,7 +1989,7 @@
     }
 
     async function syncScoreToGas(manual=false, studiedNow=false){
-    if(!RANKING_GAS_URL)return;
+      if(!RANKING_GAS_URL)return;
       if(manual&&!userData.profileSet){openProfileModal(false);return;}
       if(manual)$('ranking-sync-status').textContent='送信中...';
       const clearedCount=allStages.filter(s=>s.grade===currentGrade&&isStageCleared(s)).length;
@@ -1262,7 +2054,6 @@
       const isIv=pool.some(q=>q.type==='面接音読'||q.type==='面接QA');
       const isFinalMock=(st.id==='E3-S14');
       const cm=userData.questionCountMode||'standard';
-      // ★ 本番模試(E3-S14)では「ちょいトレ5問」を強制無効化し本番通りの出題数にする ★
       const targetCnt=(isIv||isFinalMock)?Math.max(st.questionCount, isFinalMock?pool.length:st.questionCount):(cm==='standard'?st.questionCount:Number(cm));
       const picked=isIv?pool.slice(0,st.questionCount):pickPrioritized(pool,targetCnt);
       const clearEligible=isIv||isFinalMock||(cm!=='5')||(pool.length<=5);
@@ -1392,7 +2183,6 @@
       const ck=[];if(txt&&!/^[A-Z]/.test(txt))ck.push('⚠️ 書き出しは大文字にしよう');if(txt&&!/[.!?]$/.test(txt))ck.push('⚠️ 文末にピリオド(.)等を付けよう');
       $('writing-auto-checks').textContent=ck.join(' ／ ');
     }
-    // ★ ライティングの手抜き提出を厳格にブロック ★
     function openWritingSelfJudge(){
       const txt=$('writing-textarea').value.trim();
       if(/[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]/.test(txt)){
@@ -1423,7 +2213,6 @@
       $('writing-textarea').disabled=true;$('writing-submit-btn').classList.add('hidden');$('writing-judge-panel').classList.remove('hidden');
       $('writing-models-box').innerHTML=[q.choiceA,q.choiceB].filter(Boolean).map((m,i)=>`<div class="bg-white border border-amber-200 rounded-xl p-3 space-y-1"><div class="flex justify-between items-center"><span class="font-black text-emerald-700">模範解答 ${i+1}</span><button onclick="speakEnglish('${escJs(m)}')" class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">🔊 聞く</button></div><p class="font-bold text-slate-800">${esc(m)}</p></div>`).join('')+(q.choiceC?`<div class="text-rose-700 font-bold bg-rose-50 p-2 rounded-lg">📌 チェック：${esc(q.choiceC)}</div>`:'');
     }
-    // ★ ライティングは4観点すべて（4/4）チェックで合格 ★
     function finalizeWritingJudge(){
       const cnt=Array.from(document.querySelectorAll('.rubric-cb')).filter(c=>c.checked).length;
       const q=quizSession.questions[quizSession.currentIndex];
@@ -1571,7 +2360,6 @@
       }
       if(stageFullyCleared || (!quizSession.clearEligible&&pas))playSE('clear');
       syncScoreToGas(false, true);
-      if(!userData.profileSet)setTimeout(()=>openProfileModal(true),700);
       setDriveImg($('result-char-img'),pct>=90?CHAR_IMG_JUMP:(pas?CHAR_IMG_HAPPY:CHAR_IMG_NORMAL));
 
       if(quizSession.mode==='stage'&&quizSession.clearEligible){
@@ -1612,8 +2400,14 @@
       $('result-cert-btn-box').classList.toggle('hidden',!(quizSession.stage.id==='E3-S14'&&stageFullyCleared));
       if(quizSession.mistakesInRun.length>0){
         $('result-mistakes-box').classList.remove('hidden');$('res-retry-wrong-btn').classList.remove('hidden');
+        $('result-print-label').textContent=`今回間違えた ${quizSession.mistakesInRun.length}問（＋類題）で専用プリントを作る！`;
         $('result-mistakes-list').innerHTML=quizSession.mistakesInRun.map(m=>{const ans=(m.type==='4択'||m.type==='リスニング4択')?m['choice'+(m.correctRaw||'A').toUpperCase()]:(m.choiceA||m.correctRaw);return`<div class="bg-white border border-rose-200 rounded-xl p-2.5"><div class="font-bold text-slate-800">${esc(m.audioScript||m.question)}</div><div class="text-emerald-700 font-black mt-0.5">正解・お手本：${esc(ans)}</div></div>`;}).join('');
-      }else{$('result-mistakes-box').classList.add('hidden');$('res-retry-wrong-btn').classList.add('hidden');}
+      }else{
+        $('result-mistakes-box').classList.add('hidden');$('res-retry-wrong-btn').classList.add('hidden');
+        $('result-print-label').textContent='自分専用の英検対策・弱点プリント（PDF）を作る！';
+      }
+
+      if(!userData.profileSet)setTimeout(()=>openProfileModal(true),700);
     }
 
     function retrySameStage(){if(quizSession.mode==='revenge')startRevengeQuest(false);else startStage(quizSession.stage.id);}
@@ -1628,7 +2422,6 @@
       renderDashboard();window.scrollTo({top:0,behavior:'smooth'});
     }
 
-    // ★ 公式デジタル合格認定証の発行条件を厳格化 ＋ 完全マスター表示 ★
     function openCertificateModal(){
       $('cert-grade-title').textContent=currentGrade;
       const sk=getSkillStats(currentGrade);
@@ -1682,7 +2475,7 @@
     const NG_WORDS=['死ね','殺す','ばか','バカ','アホ','あほ','クソ','くそ','うんこ','ちん','まん','セックス','エロ','アダルト','しね','ころす','キモ','きも','ブス','デブ','カス'];
     function openProfileModal(isW=false){
       $('nickname-input').value=userData.profileSet?userData.nickname:'';$('roomcode-input').value=userData.roomCode||'';$('nickname-error').classList.add('hidden');
-      $('profile-welcome-banner').classList.toggle('hidden',!isW);$('profile-modal-title').textContent=isW?'🌟 ようこそ！英検クエストへ':'⚔️ 冒険者ネーム・あいことば設定';
+      $('profile-welcome-banner').classList.toggle('hidden',!isW);$('profile-modal-title').textContent=isW?'🌟 おつかれさま！名前を決めよう':'⚔️ 冒険者ネーム・あいことば設定';
       $('profile-cancel-btn').textContent=isW?'あとで決める':'閉じる';$('profile-modal').classList.remove('hidden');
     }
     function closeProfileModal(){if(!userData.profileSet){userData.profileSet=true;saveUserData();}$('profile-modal').classList.add('hidden');}
