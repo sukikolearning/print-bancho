@@ -1861,10 +1861,6 @@
                 document.getElementById('loading-view').classList.add('hidden');
                 document.getElementById('start-view').classList.remove('hidden');
 
-                if (!currentUser.profileSet) {
-                    setTimeout(() => openProfileModal(true), 350);
-                }
-
             } catch (err) {
                 document.getElementById('loading-view').classList.add('hidden');
                 document.getElementById('error-view').classList.remove('hidden');
@@ -2533,9 +2529,12 @@
                     </div>
                 `;
             }).join('');
-
             sendDojoActivityToGAS(correctCount, total, true);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!currentUser.profileSet) {
+                setTimeout(() => openProfileModal(true), 700);
+            }
+
         }
 
         function toggleReviewItem(idx) {
